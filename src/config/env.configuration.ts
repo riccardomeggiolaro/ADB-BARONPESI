@@ -1,6 +1,13 @@
-import { registerAs } from '@nestjs/config';
-
-export default registerAs('config', () => ({
-  environment: process.env.NODE_ENV,
-  port: process.env.PORT,
-}));
+export default (): Record<string, object> => ({
+  server: {
+    environment: process.env.NODE_ENV,
+    port: process.env.PORT,
+  },
+  database: {
+    uri: process.env.MONGODB_URI,
+  },
+  auth: {
+    secret: process.env.JWT_SECRET,
+    expiration: process.env.JWT_EXPIRATION_TIME,
+  },
+});

@@ -5,7 +5,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "0a588791-4832-4103-a742-1796ab2bcb01",
+                    "id": "d58aaf01-17dd-490b-b63f-f3bf17d7490f",
                     "name": "App Controller get Hello",
                     "request": {
                         "name": "App Controller get Hello",
@@ -26,7 +26,7 @@
                     },
                     "response": [
                         {
-                            "id": "1738b522-1772-4839-ac26-3fb0eb6919de",
+                            "id": "d02f17e8-877c-4df7-829e-1ad28a3dfaf5",
                             "originalRequest": {
                                 "url": {
                                     "path": [
@@ -52,6 +52,150 @@
                     "protocolProfileBehavior": {
                         "disableBodyPruning": true
                     }
+                },
+                {
+                    "name": "login",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "625a5abb-40e0-446c-973e-5e35e2a5b91c",
+                            "name": "Auth Controller login",
+                            "request": {
+                                "name": "Auth Controller login",
+                                "description": {},
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "login"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "method": "POST",
+                                "body": {},
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "ef41997e-c7b9-4809-be69-545e49ff7b28",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "login"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "POST",
+                                        "body": {}
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "register",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "349f738c-fa99-41c4-bc40-d118c8aa897a",
+                            "name": "Auth Controller register",
+                            "request": {
+                                "name": "Auth Controller register",
+                                "description": {},
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "register"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "153458a1-77d2-403d-9d24-d248f0e53667",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "register"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        }
+                    ]
                 }
             ]
         }
@@ -64,7 +208,7 @@
         }
     ],
     "info": {
-        "_postman_id": "2d859313-4565-42a4-a857-ff614246c09e",
+        "_postman_id": "4173c3a9-5972-4bbe-8e77-96647cdfeae8",
         "name": "Template Rest-API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

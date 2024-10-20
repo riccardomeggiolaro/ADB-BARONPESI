@@ -2,6 +2,7 @@ import { plainToClass } from 'class-transformer';
 import {
   IsEnum,
   IsNumber,
+  IsString,
   ValidationError,
   validateSync,
 } from 'class-validator';
@@ -19,6 +20,15 @@ export class EnvironmentVariables {
 
   @IsNumber({}, { message: 'PORT must be a valid number' })
   PORT: number;
+
+  @IsString()
+  MONGODB_URI: string;
+
+  @IsString()
+  JWT_SECRET: string;
+
+  @IsString()
+  JWT_EXPIRATION_TIME: string;
 }
 
 export function validate(
