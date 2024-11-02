@@ -1,8 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Schema as MongooseSchema } from 'mongoose';
-
-import { Credentials, CredentialsSchema } from './credentials.schema';
-import { MongoUser } from './user.schema';
+import {
+  Credentials,
+  CredentialsSchema,
+} from 'src/identity/auth/schemas/credentials.schema';
+import { MongoUser } from 'src/identity/user/schemas/user.schema';
 
 export type UserIdentityDocument = HydratedDocument<UserIdentity>;
 

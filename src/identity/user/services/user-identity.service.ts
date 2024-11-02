@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { LeanDocument } from '@shared/types';
 import { isDefined } from '@shared/utils';
-import { Model } from 'mongoose';
+import { Model, UpdateWriteOpResult } from 'mongoose';
 
 import { CreateUserIdentityDto } from '../dtos/user-identity.dto';
 import {
@@ -40,5 +40,22 @@ export class UserIdentityService {
     );
 
     return identity.toObject();
+  }
+
+  async changePassword(
+    email: string,
+    hashedPassword: string,
+  ): Promise<UpdateWriteOpResult> {
+    return this.userIdentityModel
+      .updateOne(
+        {
+          provider: 'local',
+          'credentials.email': email,
+        },
+        {
+          'credentials.hashedPassword': hashedPassword,
+        },
+      )
+      .exec();
   }
 }

@@ -1,16 +1,24 @@
 import { plainToClass } from 'class-transformer';
 import {
+  IsEmail,
   IsEnum,
   IsNumber,
   IsString,
+  IsUrl,
   ValidationError,
   validateSync,
 } from 'class-validator';
+import * as kleur from 'kleur';
 
 enum Environment {
   DEVELOPMENT = 'development',
   PRODUCTION = 'production',
   TEST = 'test',
+}
+
+enum Language {
+  IT = 'it',
+  EN = 'en',
 }
 export class EnvironmentVariables {
   @IsEnum(Environment, {
@@ -29,6 +37,27 @@ export class EnvironmentVariables {
 
   @IsString()
   JWT_EXPIRATION_TIME: string;
+
+  @IsString()
+  EMAIL_HOST: string;
+
+  @IsString()
+  EMAIL_USER: string;
+
+  @IsString()
+  EMAIL_PASS: string;
+
+  @IsEmail()
+  EMAIL_FROM: string;
+
+  @IsString()
+  @IsEnum(Language, {
+    message: 'I18N_FALLBACK must be one of the following values: en, it',
+  })
+  I18N_FALLBACK: string;
+
+  @IsUrl()
+  APP_BASEURL: string;
 }
 
 export function validate(
@@ -47,19 +76,23 @@ export function validate(
   });
 
   if (errors.length > 0) {
-    const errorMessages: string[] = errors
-      .map((error: ValidationError) => {
-        if (error.constraints) {
-          return Object.values(error.constraints).map(
-            (message: string) => `${error.property}: ${message}`,
-          );
-        }
+    const errorMessages: string[] = errors.map((error: ValidationError) => {
+      if (error.constraints) {
+        const formattedConstraints: string = Object.values(error.constraints)
+          .map((message: string) => `   - ${message}`)
+          .join('\n');
 
-        return [];
-      })
-      .flat();
+        return `${kleur.bold().red(error.property)}:\n${formattedConstraints}`;
+      }
 
-    throw new Error(`Validation failed: ${errorMessages.join('; ')}`);
+      return '';
+    });
+
+    throw new Error(
+      kleur.bold().red('Validation failed:\n') +
+        errorMessages.join('\n\n') +
+        '\n',
+    );
   }
 
   return validatedConfig;

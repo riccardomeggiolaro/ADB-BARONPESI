@@ -1,0 +1,21 @@
+{
+  "common": {
+    "footer": {
+      "copyright": "© {year} Binnovation. Alle Rechte vorbehalten.",
+      "troubleLink": "Falls Sie Probleme mit der Schaltfläche haben, kopieren Sie diesen Link und fügen Sie ihn in Ihren Browser ein:",
+      "ignore": "Wenn Sie diese E-Mail nicht angefordert haben, können Sie sie sicher ignorieren."
+    }
+  },
+  "resetPassword": {
+    "subject": "Setzen Sie Ihr Passwort zurück",
+    "greeting": "Hallo {email}",
+    "title": "Passwort zurücksetzen",
+    "message": {
+      "intro": "Wir haben eine Anfrage erhalten, das Passwort für Ihr Konto zurückzusetzen.",
+      "action": "Verwenden Sie die Schaltfläche unten, um fortzufahren.",
+      "expiry": "Dieser Link wird in {hours} Stunden ablaufen.",
+      "ignore": "Wenn Sie kein Passwort-Reset angefordert haben, können Sie diese E-Mail ignorieren."
+    },
+    "button": "Passwort zurücksetzen"
+  }
+}

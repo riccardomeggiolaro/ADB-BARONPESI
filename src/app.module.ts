@@ -6,10 +6,11 @@ import { NotFoundInterceptor } from '@shared/interceptors';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from './config/config.module';
+import { EmailModule } from './email/email.module';
 import { IdentityModule } from './identity/identity.module';
 
 @Module({
-  imports: [ConfigModule, IdentityModule],
+  imports: [ConfigModule, IdentityModule, EmailModule],
   controllers: [AppController],
   providers: [
     AppService,

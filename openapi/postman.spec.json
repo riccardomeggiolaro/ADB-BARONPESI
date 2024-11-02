@@ -5,7 +5,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "d58aaf01-17dd-490b-b63f-f3bf17d7490f",
+                    "id": "f5fc4690-acb1-4c01-93e6-a129c522186a",
                     "name": "App Controller get Hello",
                     "request": {
                         "name": "App Controller get Hello",
@@ -26,7 +26,7 @@
                     },
                     "response": [
                         {
-                            "id": "d02f17e8-877c-4df7-829e-1ad28a3dfaf5",
+                            "id": "11274a25-7f70-425d-ad2f-9ed0d79adb05",
                             "originalRequest": {
                                 "url": {
                                     "path": [
@@ -58,7 +58,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "625a5abb-40e0-446c-973e-5e35e2a5b91c",
+                            "id": "f7cb08af-515a-40f4-99e4-ac612b2abcab",
                             "name": "Auth Controller login",
                             "request": {
                                 "name": "Auth Controller login",
@@ -80,7 +80,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "ef41997e-c7b9-4809-be69-545e49ff7b28",
+                                    "id": "9f9967d7-dd65-45d7-8931-2e0adaa61ac4",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
@@ -115,7 +115,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "349f738c-fa99-41c4-bc40-d118c8aa897a",
+                            "id": "48a8da74-7b34-4667-84dd-375b139e12b8",
                             "name": "Auth Controller register",
                             "request": {
                                 "name": "Auth Controller register",
@@ -152,7 +152,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "153458a1-77d2-403d-9d24-d248f0e53667",
+                                    "id": "9ab0d30c-8fb9-4f06-a0d0-4f0ebcafcbb2",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
@@ -196,6 +196,190 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "password-reset",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "request",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "dd265e74-933a-4e31-b6ac-b47512ab38f1",
+                                    "name": "Password Reset Controller request Reset",
+                                    "request": {
+                                        "name": "Password Reset Controller request Reset",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "password-reset",
+                                                "request"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "ba510e1d-1af0-41fc-abd4-bc2215f9e1dc",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "password-reset",
+                                                        "request"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Created",
+                                            "code": 201,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "reset",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "d23693bc-0ad5-4594-987c-37ff9f355dcb",
+                                    "name": "Password Reset Controller reset Password",
+                                    "request": {
+                                        "name": "Password Reset Controller reset Password",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "password-reset",
+                                                "reset"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "58f94c10-4d65-4d68-8ad8-d812b053901c",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "password-reset",
+                                                        "reset"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Created",
+                                            "code": 201,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
@@ -208,7 +392,7 @@
         }
     ],
     "info": {
-        "_postman_id": "4173c3a9-5972-4bbe-8e77-96647cdfeae8",
+        "_postman_id": "28b269ae-28d3-49ad-bf5e-38c9fa94db1a",
         "name": "Template Rest-API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

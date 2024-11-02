@@ -1,9 +1,15 @@
+import { join } from 'path';
+
 import { Module } from '@nestjs/common';
 import {
   ConfigService,
   ConfigModule as NestConfigModule,
 } from '@nestjs/config';
-import { JwtModule } from '@nestjs/jwt';
+import {
+  AcceptLanguageResolver,
+  HeaderResolver,
+  I18nModule,
+} from 'nestjs-i18n';
 
 import { DatabaseModule } from './database/database.module';
 import configuration from './env.configuration';
@@ -17,10 +23,17 @@ import { validate } from './env.validation';
       validate,
       envFilePath: `.env.${process.env.NODE_ENV ?? 'development'}`,
     }),
-    JwtModule.registerAsync({
+    I18nModule.forRootAsync({
       useFactory: (configService: ConfigService) => ({
-        secret: configService.get<string>('auth.secret'),
-        signOptions: { expiresIn: '7d' },
+        fallbackLanguage: configService.get<string>('i18n.fallback', 'en'),
+        loaderOptions: {
+          path: join(__dirname, '../i18n/'),
+          watch: true,
+        },
+        resolvers: [
+          new HeaderResolver(['x-lang']),
+          new AcceptLanguageResolver(),
+        ],
       }),
       inject: [ConfigService],
     }),

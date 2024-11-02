@@ -43,6 +43,48 @@
           }
         }
       }
+    },
+    "/api/password-reset/request": {
+      "post": {
+        "operationId": "PasswordResetController_requestReset",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestResetPasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/password-reset/reset": {
+      "post": {
+        "operationId": "PasswordResetController_resetPassword",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
     }
   },
   "info": {
@@ -56,6 +98,14 @@
   "components": {
     "schemas": {
       "RegisterDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "RequestResetPasswordDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "ResetPasswordDto": {
         "type": "object",
         "properties": {}
       }

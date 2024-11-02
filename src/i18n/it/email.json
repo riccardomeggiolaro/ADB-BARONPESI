@@ -1,0 +1,21 @@
+{
+  "common": {
+    "footer": {
+      "copyright": "© {year} Binnovation. Tutti i diritti riservati.",
+      "troubleLink": "Se hai problemi con il pulsante, copia e incolla questo link nel browser:",
+      "ignore": "Se non hai richiesto questa email, puoi ignorarla in tutta sicurezza."
+    }
+  },
+  "resetPassword": {
+    "subject": "Reimposta la tua password",
+    "greeting": "Ciao {email}",
+    "title": "Reimposta la tua password",
+    "message": {
+      "intro": "Abbiamo ricevuto una richiesta per reimpostare la password del tuo account.",
+      "action": "Usa il pulsante qui sotto per procedere.",
+      "expiry": "Questo link scadrà tra {hours} ore.",
+      "ignore": "Se non sei stato tu a richiedere il reset della password, puoi ignorare questa email."
+    },
+    "button": "Reimposta Password"
+  }
+}

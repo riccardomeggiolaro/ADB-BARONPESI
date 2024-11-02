@@ -20,8 +20,8 @@ export class UserMapper {
   ): User | User[] {
     return Array.isArray(document)
       ? document.map((doc: LeanDocument<MongoUser>) =>
-        this.mapSingleEntity(doc),
-      )
+          this.mapSingleEntity(doc),
+        )
       : this.mapSingleEntity(document);
   }
 

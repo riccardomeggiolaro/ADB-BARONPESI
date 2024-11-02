@@ -1,0 +1,21 @@
+{
+  "common": {
+    "footer": {
+      "copyright": "© {year} Binnovation. All rights reserved.",
+      "troubleLink": "If you're having trouble with the button, copy and paste this link into your browser:",
+      "ignore": "If you didn't request this email, you can safely ignore it."
+    }
+  },
+  "resetPassword": {
+    "subject": "Reset your password",
+    "greeting": "Hi {email}",
+    "title": "Reset your password",
+    "message": {
+      "intro": "We received a request to reset your account password.",
+      "action": "Use the button below to proceed.",
+      "expiry": "This link will expire in {hours} hours.",
+      "ignore": "If you didn't request a password reset, you can ignore this email."
+    },
+    "button": "Reset Password"
+  }
+}

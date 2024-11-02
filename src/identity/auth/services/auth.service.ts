@@ -8,11 +8,12 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { isDefined, isStringDefined } from '@shared/utils';
 import * as bcrypt from 'bcrypt';
+import { UpdateWriteOpResult } from 'mongoose';
 import { UserMapper } from 'src/identity/user/mappers/user.mapper';
+import { UserIdentity } from 'src/identity/user/schemas/user-identity.schema';
 import { MongoUser, User } from 'src/identity/user/schemas/user.schema';
 import { LeanDocument } from 'src/shared/types';
 
-import { UserIdentity } from '../../user/schemas/user-identity.schema';
 import { UserIdentityService } from '../../user/services/user-identity.service';
 import { UserService } from '../../user/services/user.service';
 
@@ -74,8 +75,7 @@ export class AuthService {
       throw new BadRequestException('An user with this email already exists');
     }
 
-    const hashedPassword: string = await bcrypt.hash(password, SALT_ROUNDS);
-
+    const hashedPassword: string = this.hashPassword(password);
     const user: User = await this.userSrv.create(userDto);
 
     await this.userIdentitySrv.create({
@@ -95,5 +95,19 @@ export class AuthService {
       user,
       accessToken: await this.jwtSrv.signAsync(user),
     };
+  }
+
+  // eslint-disable-next-line @typescript-eslint/class-methods-use-this
+  private hashPassword(password: string): string {
+    return bcrypt.hashSync(password, SALT_ROUNDS);
+  }
+
+  async changePassword(
+    email: string,
+    newPassword: string,
+  ): Promise<UpdateWriteOpResult> {
+    const hashedPassword: string = this.hashPassword(newPassword);
+
+    return this.userIdentitySrv.changePassword(email, hashedPassword);
   }
 }

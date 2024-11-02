@@ -1,0 +1,21 @@
+{
+  "common": {
+    "footer": {
+      "copyright": "© {year} Binnovation. Todos los derechos reservados.",
+      "troubleLink": "Si tienes problemas con el botón, copia y pega este enlace en tu navegador:",
+      "ignore": "Si no solicitaste este correo, puedes ignorarlo de forma segura."
+    }
+  },
+  "resetPassword": {
+    "subject": "Restablece tu contraseña",
+    "greeting": "Hola {email}",
+    "title": "Restablece tu contraseña",
+    "message": {
+      "intro": "Hemos recibido una solicitud para restablecer la contraseña de tu cuenta.",
+      "action": "Usa el botón de abajo para continuar.",
+      "expiry": "Este enlace expirará en {hours} horas.",
+      "ignore": "Si no solicitaste restablecer la contraseña, puedes ignorar este correo."
+    },
+    "button": "Restablecer contraseña"
+  }
+}
