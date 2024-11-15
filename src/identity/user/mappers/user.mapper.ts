@@ -1,38 +1,48 @@
 /* eslint-disable @typescript-eslint/class-methods-use-this */
 import { Injectable } from '@nestjs/common';
-import { LeanDocument } from '@shared/types';
+import { User as PrismaUser } from '@prisma/client';
 
-import { MongoUser, User, UserDocument } from '../schemas/user.schema';
+import { User } from '../dtos/user.dto';
 
 @Injectable()
 export class UserMapper {
   /**
-   * Maps a single document or an array of documents to entity/entities
-   * @param document User lean document(s) from MongoDB
-   * @returns Mapped user entity/entities
+   * Maps a Prisma User object or an array of Prisma User objects to a User entity or an array of User entities.
+   *
+   * This method handles both single-object mapping and array mapping. If an array is provided, each element
+   * will be individually mapped to the corresponding entity.
+   *
+   * @param document - A Prisma User object or an array of Prisma User objects to be mapped.
+   * @returns A single User entity, or an array of User entities if the input is an array.
    */
-  mapToEntity(document: LeanDocument<MongoUser> | UserDocument): User;
-  mapToEntity(
-    document: Array<LeanDocument<MongoUser>> | UserDocument[],
-  ): User[];
-  mapToEntity(
-    document: LeanDocument<MongoUser> | Array<LeanDocument<MongoUser>>,
-  ): User | User[] {
+  mapToEntity(document: PrismaUser): User;
+  mapToEntity(document: PrismaUser[]): User[];
+  mapToEntity(document: PrismaUser | PrismaUser[]): User | User[] {
     return Array.isArray(document)
-      ? document.map((doc: LeanDocument<MongoUser>) =>
-          this.mapSingleEntity(doc),
-        )
+      ? document.map((doc: PrismaUser) => this.mapSingleEntity(doc))
       : this.mapSingleEntity(document);
   }
 
-  private mapSingleEntity(document: LeanDocument<MongoUser>): User {
-    const { _id, firstName, lastName } = document;
+  /**
+   * Maps a single Prisma User object to a User entity.
+   *
+   * This private method is used internally by `mapToEntity` to handle individual object mapping.
+   *
+   * @param document - A single Prisma User object to be mapped.
+   * @returns A mapped User entity
+   */
+  private mapSingleEntity(document: PrismaUser): User {
+    const { id, firstName, lastName, isActive, createdAt, updatedAt } =
+      document;
 
     return {
-      id: _id.toString(),
-      fullName: `${firstName} ${lastName}`,
+      id,
       firstName,
       lastName,
+      fullName: `${firstName} ${lastName}`,
+      isActive,
+      createdAt,
+      updatedAt,
     };
   }
 }

@@ -1,6 +1,6 @@
 import type { ExecutionContext } from '@nestjs/common';
 import type { Request } from 'express';
-import type { User } from 'src/identity/user/schemas/user.schema';
+import type { User } from 'src/identity/user/dtos/user.dto';
 
 import { createParamDecorator } from '@nestjs/common';
 

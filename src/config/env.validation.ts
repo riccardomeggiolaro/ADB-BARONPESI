@@ -30,7 +30,7 @@ export class EnvironmentVariables {
   PORT: number;
 
   @IsString()
-  MONGODB_URI: string;
+  DATABASE_URL: string;
 
   @IsString()
   JWT_SECRET: string;

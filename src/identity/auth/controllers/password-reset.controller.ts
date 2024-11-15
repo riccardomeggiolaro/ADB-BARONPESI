@@ -3,6 +3,10 @@ import { Public } from '@shared/decorators';
 import { EmailService } from 'src/email/services/email.service';
 
 import {
+  PASSWORD_RESET_EMAIL_SENT,
+  PASSWORD_RESET_SUCCESSFUL,
+} from '../constants/password-reset.constants';
+import {
   RequestResetPasswordDto,
   ResetPasswordDto,
 } from '../dtos/password-reset.dto';
@@ -28,7 +32,7 @@ export class PasswordResetController {
     await this.emailService.sendResetPasswordEmail(email, token);
 
     return {
-      message: 'If the email exists, you will receive reset instructions',
+      message: PASSWORD_RESET_EMAIL_SENT,
     };
   }
 
@@ -41,6 +45,6 @@ export class PasswordResetController {
 
     await this.authService.changePassword(email, newPassword);
 
-    return { message: 'Password successfully updated' };
+    return { message: PASSWORD_RESET_SUCCESSFUL };
   }
 }

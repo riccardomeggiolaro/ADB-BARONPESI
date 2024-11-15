@@ -18,16 +18,19 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "generate:postman": "openapi2postmanv2 -s ./openapi/openapi.spec.json -o ./openapi/postman.spec.json -p"
+    "generate:postman": "openapi2postmanv2 -s ./openapi/openapi.spec.json -o ./openapi/postman.spec.json -p",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^2.0.2",
     "@nestjs/common": "^10.4.3",
     "@nestjs/core": "^10.4.3",
     "@nestjs/jwt": "^10.2.0",
-    "@nestjs/mongoose": "^10.0.10",
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.4.3",
+    "@prisma/client": "^5.22.0",
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
@@ -35,12 +38,12 @@
     "handlebars": "^4.7.8",
     "helmet": "^8.0.0",
     "luxon": "^3.5.0",
-    "mongoose": "^8.7.1",
     "nestjs-i18n": "^10.4.9",
     "nodemailer": "^6.9.16",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
+    "prisma": "^5.22.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },
@@ -104,5 +107,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "prisma": {
+    "schema": "src/config/database/schema.prisma"
   }
 }

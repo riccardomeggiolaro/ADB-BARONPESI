@@ -1,32 +1,29 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { LeanDocument } from '@shared/types';
+import { Prisma, User as PrismaUser } from '@prisma/client';
 import { isDefined } from '@shared/utils';
-import { Model } from 'mongoose';
+import { PrismaPostgreSqlService } from 'src/config/database/postgresql/prisma.postgresql.service';
 
+import { User } from '../dtos/user.dto';
 import { UserMapper } from '../mappers/user.mapper';
-import { MongoUser, User, UserDocument } from '../schemas/user.schema';
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectModel(User.name) private readonly userModel: Model<User>,
+    private readonly prisma: PrismaPostgreSqlService,
     private readonly userMapper: UserMapper,
   ) {}
 
-  async create(user: MongoUser): Promise<User> {
-    const newUser: UserDocument = await this.userModel.create(user);
+  async create(data: Prisma.UserCreateInput): Promise<User> {
+    const newUser: PrismaUser = await this.prisma.user.create({ data });
 
     return this.userMapper.mapToEntity(newUser);
   }
 
   async findById(id: string): Promise<User | undefined> {
-    return this.userModel
-      .findById(id)
-      .lean()
-      .transform((doc: LeanDocument<User>) =>
-        isDefined(doc) ? this.userMapper.mapToEntity(doc) : undefined,
-      )
-      .exec();
+    const user: PrismaUser | null = await this.prisma.user.findUnique({
+      where: { id },
+    });
+
+    return isDefined(user) ? this.userMapper.mapToEntity(user) : undefined;
   }
 }

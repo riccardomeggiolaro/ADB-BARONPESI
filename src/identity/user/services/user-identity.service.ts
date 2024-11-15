@@ -1,61 +1,51 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { LeanDocument } from '@shared/types';
+import { AuthProvider, Prisma, UserIdentity } from '@prisma/client';
 import { isDefined } from '@shared/utils';
-import { Model, UpdateWriteOpResult } from 'mongoose';
+import { PrismaPostgreSqlService } from 'src/config/database/postgresql/prisma.postgresql.service';
 
-import { CreateUserIdentityDto } from '../dtos/user-identity.dto';
-import {
-  UserIdentity,
-  UserIdentityDocument,
-} from '../schemas/user-identity.schema';
+export type UserIdentityWithUser = Prisma.UserIdentityGetPayload<{
+  include: {
+    user: true;
+  };
+}>;
 
 @Injectable()
 export class UserIdentityService {
-  constructor(
-    @InjectModel(UserIdentity.name)
-    private readonly userIdentityModel: Model<UserIdentity>,
-  ) {}
+  constructor(private readonly prisma: PrismaPostgreSqlService) {}
 
-  async findByEmail(
-    email: string,
-  ): Promise<LeanDocument<UserIdentity> | undefined> {
-    const identity: LeanDocument<UserIdentity> | null =
-      await this.userIdentityModel
-        .findOne({
-          'credentials.email': email.toLowerCase(),
-        })
-        .populate('user')
-        .lean()
-        .exec();
+  async findByEmail(email: string): Promise<UserIdentityWithUser | undefined> {
+    const identity: UserIdentityWithUser | null =
+      await this.prisma.userIdentity.findFirst({
+        where: { email },
+        include: {
+          user: true,
+        },
+      });
 
     return isDefined(identity) ? identity : undefined;
   }
 
   async create(
-    createUserIdentityDto: CreateUserIdentityDto,
+    createUserIdentityDto: Prisma.UserIdentityCreateInput,
   ): Promise<UserIdentity> {
-    const identity: UserIdentityDocument = await this.userIdentityModel.create(
-      createUserIdentityDto,
-    );
+    const identity: UserIdentity = await this.prisma.userIdentity.create({
+      data: { ...createUserIdentityDto },
+    });
 
-    return identity.toObject();
+    return identity;
   }
 
-  async changePassword(
-    email: string,
-    hashedPassword: string,
-  ): Promise<UpdateWriteOpResult> {
-    return this.userIdentityModel
-      .updateOne(
-        {
-          provider: 'local',
-          'credentials.email': email,
+  async changePassword(email: string, password: string): Promise<void> {
+    await this.prisma.userIdentity.update({
+      where: {
+        email_provider: {
+          email,
+          provider: AuthProvider.LOCAL,
         },
-        {
-          'credentials.hashedPassword': hashedPassword,
-        },
-      )
-      .exec();
+      },
+      data: {
+        password,
+      },
+    });
   }
 }

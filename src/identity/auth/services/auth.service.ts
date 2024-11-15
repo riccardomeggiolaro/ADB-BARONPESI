@@ -1,4 +1,3 @@
-import { SALT_ROUNDS } from '@core/constants/auth.constant';
 import {
   BadRequestException,
   Injectable,
@@ -6,17 +5,25 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { AuthProvider, Prisma, UserIdentity } from '@prisma/client';
 import { isDefined, isStringDefined } from '@shared/utils';
 import * as bcrypt from 'bcrypt';
-import { UpdateWriteOpResult } from 'mongoose';
+import { User } from 'src/identity/user/dtos/user.dto';
 import { UserMapper } from 'src/identity/user/mappers/user.mapper';
-import { UserIdentity } from 'src/identity/user/schemas/user-identity.schema';
-import { MongoUser, User } from 'src/identity/user/schemas/user.schema';
-import { LeanDocument } from 'src/shared/types';
 
-import { UserIdentityService } from '../../user/services/user-identity.service';
+import {
+  UserIdentityService,
+  UserIdentityWithUser,
+} from '../../user/services/user-identity.service';
 import { UserService } from '../../user/services/user.service';
 
+import {
+  ERROR_ACCOUNT_LINKED_PROVIDER,
+  ERROR_EMAIL_EXISTS,
+  ERROR_INVALID_CREDENTIALS,
+  ERROR_USER_NOT_FOUND,
+  PASSWORD_HASH_SALT_ROUNDS,
+} from '../constants/auth.constants';
 import { RegisterDto } from '../dtos/auth.dto';
 import { AuthResponseDto } from '../interfaces/auth.interface';
 
@@ -31,16 +38,14 @@ export class AuthService {
   ) {}
 
   async validateUser(email: string, password: string): Promise<User> {
-    const identity: LeanDocument<UserIdentity> | undefined =
+    const identity: UserIdentityWithUser | undefined =
       await this.userIdentitySrv.findByEmail(email);
 
-    if (!isDefined(identity)) throw new NotFoundException();
+    if (!isDefined(identity)) throw new NotFoundException(ERROR_USER_NOT_FOUND);
 
     await this.validateUserCredentials(identity, email, password);
 
-    return this.userMapper.mapToEntity(
-      identity.user as LeanDocument<MongoUser>,
-    );
+    return this.userMapper.mapToEntity(identity.user);
   }
 
   // eslint-disable-next-line @typescript-eslint/class-methods-use-this
@@ -49,43 +54,41 @@ export class AuthService {
     email: string,
     password: string,
   ): Promise<void> {
-    if (!isStringDefined(identity.credentials.hashedPassword)) {
+    if (!isStringDefined(identity.password)) {
       throw new UnauthorizedException(
-        `Account is linked to ${identity.provider} provider. Please login using that provider.`,
+        ERROR_ACCOUNT_LINKED_PROVIDER.replace('{provider}', identity.provider),
       );
     }
 
     const isPasswordValid: boolean = await bcrypt.compare(
       password,
-      identity.credentials.hashedPassword,
+      identity.password,
     );
 
     if (!isPasswordValid) {
-      throw new UnauthorizedException(
-        `Invalid credentials for email: ${email}`,
-      );
+      throw new UnauthorizedException(`${ERROR_INVALID_CREDENTIALS} ${email}`);
     }
   }
 
   async register({ email, password, ...userDto }: RegisterDto): Promise<User> {
-    const existingIdentity: UserIdentity | undefined =
+    const existingIdentity: UserIdentityWithUser | undefined =
       await this.userIdentitySrv.findByEmail(email);
 
     if (isDefined(existingIdentity)) {
-      throw new BadRequestException('An user with this email already exists');
+      throw new BadRequestException(ERROR_EMAIL_EXISTS);
     }
 
     const hashedPassword: string = this.hashPassword(password);
     const user: User = await this.userSrv.create(userDto);
 
-    await this.userIdentitySrv.create({
-      provider: 'local',
-      user: user.id,
-      credentials: {
-        email,
-        hashedPassword,
-      },
-    });
+    const data: Prisma.UserIdentityCreateInput = {
+      provider: AuthProvider.LOCAL,
+      user: { connect: { id: user.id } },
+      email,
+      password: hashedPassword,
+    };
+
+    await this.userIdentitySrv.create(data);
 
     return user;
   }
@@ -99,15 +102,12 @@ export class AuthService {
 
   // eslint-disable-next-line @typescript-eslint/class-methods-use-this
   private hashPassword(password: string): string {
-    return bcrypt.hashSync(password, SALT_ROUNDS);
+    return bcrypt.hashSync(password, PASSWORD_HASH_SALT_ROUNDS);
   }
 
-  async changePassword(
-    email: string,
-    newPassword: string,
-  ): Promise<UpdateWriteOpResult> {
+  async changePassword(email: string, newPassword: string): Promise<void> {
     const hashedPassword: string = this.hashPassword(newPassword);
 
-    return this.userIdentitySrv.changePassword(email, hashedPassword);
+    await this.userIdentitySrv.changePassword(email, hashedPassword);
   }
 }

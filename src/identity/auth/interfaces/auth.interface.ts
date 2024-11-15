@@ -1,4 +1,4 @@
-import type { User } from 'src/identity/user/schemas/user.schema';
+import type { User } from '../../user/dtos/user.dto';
 
 export interface AuthResponseDto {
   user: User;

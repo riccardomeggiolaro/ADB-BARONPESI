@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AuthProvider {
+  LOCAL
+  GOOGLE
+  GITHUB
+  FACEBOOK
+}
+
+model User {
+  id         String         @id @default(uuid())
+  firstName  String
+  lastName   String
+  picture    String?
+  isActive   Boolean        @default(true)
+  identities UserIdentity[]
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+
+  @@map("users")
+}
+
+model UserIdentity {
+  id           String       @id @default(uuid())
+  userId       String
+  user         User         @relation(fields: [userId], references: [id])
+  provider     AuthProvider
+  email        String
+  password     String?
+  refreshToken String?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@unique([email, provider])
+  @@unique([userId, provider])
+  @@index([email])
+  @@map("user_identities")
+}
+
+model PasswordReset {
+  id        String   @id @default(uuid())
+  email     String
+  token     String
+  used      Boolean  @default(false)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email, used])
+  @@index([expiresAt])
+  @@map("password_resets")
+}

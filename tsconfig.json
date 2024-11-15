@@ -34,8 +34,6 @@
       "@shared/validators/*": ["src/shared/validators/*"],
       "@shared/presenter": ["src/shared/presenter"],
       "@shared/presenter/*": ["src/shared/presenter/*"],
-      "@shared/types": ["src/shared/types"],
-      "@shared/types/*": ["src/shared/types/*"],
       "@shared/utils": ["src/shared/utils"],
       "@shared/utils/*": ["src/shared/utils/*"],
       "@core/constants": ["src/core/constants"],

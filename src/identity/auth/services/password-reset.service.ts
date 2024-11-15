@@ -1,49 +1,63 @@
 import { randomBytes } from 'crypto';
 
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { isDefined } from '@shared/utils';
-import { Document } from 'mongoose';
-import { Model } from 'mongoose';
-import { PasswordReset } from 'src/identity/auth/schemas/password-reset.schema';
+import { PasswordReset, PrismaClient } from '@prisma/client';
+import { isDefined } from 'class-validator';
+import { PrismaPostgreSqlService } from 'src/config/database/postgresql/prisma.postgresql.service';
 
+import { INVALID_EXPIRED_TOKEN } from '../constants/password-reset.constants';
 @Injectable()
 export class PasswordResetService {
-  constructor(
-    @InjectModel(PasswordReset.name)
-    private readonly passwordResetModel: Model<PasswordReset>,
-  ) {}
+  constructor(private readonly prisma: PrismaPostgreSqlService) {}
 
   async createResetToken(email: string): Promise<string> {
-    await this.passwordResetModel
-      .updateMany({ email, used: false }, { used: true })
-      .exec();
+    await this.prisma.passwordReset.updateMany({
+      where: {
+        email,
+        used: false,
+      },
+      data: {
+        used: true,
+      },
+    });
 
     const token: string = randomBytes(32).toString('hex');
 
-    await this.passwordResetModel.create({
-      expiresAt: new Date(Date.now() + 900000),
-      email,
-      token,
+    await this.prisma.passwordReset.create({
+      data: {
+        expiresAt: new Date(Date.now() + 900000),
+        email,
+        token,
+      },
     });
 
     return token;
   }
 
   async validateAndConsumeToken(email: string, token: string): Promise<void> {
-    const resetRequest: Document<PasswordReset> | null =
-      await this.passwordResetModel.findOneAndUpdate(
-        {
-          email,
-          token,
-          used: false,
-          expiresAt: { $gt: new Date() },
-        },
-        { used: true },
-      );
+    await this.prisma.$transaction(async (prisma: PrismaClient) => {
+      const resetRequest: PasswordReset | null =
+        await prisma.passwordReset.findFirst({
+          where: {
+            email,
+            token,
+            used: false,
+            expiresAt: { gt: new Date() },
+          },
+        });
 
-    if (!isDefined(resetRequest)) {
-      throw new NotFoundException('Invalid or expired token');
-    }
+      if (!isDefined(resetRequest)) {
+        throw new NotFoundException(INVALID_EXPIRED_TOKEN);
+      }
+
+      await prisma.passwordReset.update({
+        where: {
+          id: resetRequest.id,
+        },
+        data: {
+          used: true,
+        },
+      });
+    });
   }
 }

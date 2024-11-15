@@ -1,15 +1,13 @@
+import type { Provider } from '@nestjs/common';
+
 import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
+
+import { PrismaPostgreSqlService } from './postgresql/prisma.postgresql.service';
+
+const providers: Provider[] = [PrismaPostgreSqlService];
 
 @Module({
-  imports: [
-    MongooseModule.forRootAsync({
-      useFactory: (configService: ConfigService) => ({
-        uri: configService.get<string>('database.uri'),
-      }),
-      inject: [ConfigService],
-    }),
-  ],
+  providers,
+  exports: [...providers],
 })
 export class DatabaseModule {}
