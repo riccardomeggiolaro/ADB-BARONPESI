@@ -3,9 +3,9 @@ import { writeFileSync } from 'fs';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import type { OpenAPIObject } from '@nestjs/swagger';
 
-import { ValidationPipe } from '@nestjs/common';
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { useContainer } from 'class-validator';
 import * as compression from 'compression';
@@ -25,9 +25,12 @@ async function bootstrap(): Promise<void> {
     }),
   );
 
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
+
   const swaggerConfig: Omit<OpenAPIObject, 'paths'> = new DocumentBuilder()
     .setTitle('Template Rest-API')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const swaggerDoc: OpenAPIObject = SwaggerModule.createDocument(

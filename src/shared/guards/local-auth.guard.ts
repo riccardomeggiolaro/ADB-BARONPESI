@@ -7,7 +7,7 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { validate } from '@shared/utils';
 import { plainToInstance } from 'class-transformer';
-import { LoginDto } from 'src/identity/auth/dtos/auth.dto';
+import { LoginBodyDto } from 'src/identity/auth/dtos/body.dto';
 
 @Injectable()
 export class LocalAuthGuard extends AuthGuard('local') {
@@ -17,7 +17,7 @@ export class LocalAuthGuard extends AuthGuard('local') {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request: Request = context.switchToHttp().getRequest();
-    const loginDto: LoginDto = plainToInstance(LoginDto, request.body);
+    const loginDto: LoginBodyDto = plainToInstance(LoginBodyDto, request.body);
 
     const errors: string[] = validate(loginDto);
     if (errors.length > 0) {

@@ -15,75 +15,143 @@
     "/api/login": {
       "post": {
         "operationId": "AuthController_login",
+        "summary": "Login user and return access token.",
+        "description": "This endpoint allows a user to login.",
         "parameters": [],
-        "responses": {
-          "201": {
-            "description": ""
+        "requestBody": {
+          "required": true,
+          "description": "The user credentials",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginBodyDto"
+              }
+            }
           }
-        }
+        },
+        "responses": {
+          "200": {
+            "description": "The user was successfully logged in.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Invalid credentials."
+          }
+        },
+        "tags": [
+          "auth"
+        ]
       }
     },
     "/api/register": {
       "post": {
         "operationId": "AuthController_register",
+        "summary": "Register a new user.",
+        "description": "This endpoint allows a new user to register.",
         "parameters": [],
         "requestBody": {
           "required": true,
+          "description": "The registration details for the new user.",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterDto"
+                "$ref": "#/components/schemas/RegisterBodyDto"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": ""
+            "description": "The user was successfully registered.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An user with this email already exists"
           }
-        }
+        },
+        "tags": [
+          "auth"
+        ]
       }
     },
     "/api/password-reset/request": {
       "post": {
         "operationId": "PasswordResetController_requestReset",
+        "summary": "Request a password reset token",
         "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RequestResetPasswordDto"
+                "$ref": "#/components/schemas/RequestResetPasswordBodyDto"
               }
             }
           }
         },
         "responses": {
-          "201": {
-            "description": ""
+          "200": {
+            "description": "If the email exists, reset instructions will be sent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "If the email exists, reset instructions will be sent"
+                  }
+                }
+              }
+            }
           }
-        }
+        },
+        "tags": [
+          "password-reset"
+        ]
       }
     },
     "/api/password-reset/reset": {
       "post": {
         "operationId": "PasswordResetController_resetPassword",
+        "summary": "Reset password using token",
         "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ResetPasswordDto"
+                "$ref": "#/components/schemas/ResetPasswordBodyDto"
               }
             }
           }
         },
         "responses": {
-          "201": {
-            "description": ""
+          "200": {
+            "description": "Your password has been successfully updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Your password has been successfully updated"
+                  }
+                }
+              }
+            }
           }
-        }
+        },
+        "tags": [
+          "password-reset"
+        ]
       }
     }
   },
@@ -96,18 +164,180 @@
   "tags": [],
   "servers": [],
   "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
     "schemas": {
-      "RegisterDto": {
+      "LoginBodyDto": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The user's email address.",
+            "example": "user@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "The user's password.",
+            "example": "P@ssw0rd123"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
       },
-      "RequestResetPasswordDto": {
+      "User": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the user.",
+            "example": "1234"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "The user's first name.",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "The user's last name.",
+            "example": "Doe"
+          },
+          "fullName": {
+            "type": "string",
+            "description": "The user's full name, automatically generated from first and last names.",
+            "example": "John Doe",
+            "readOnly": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "description": "Indicates whether the user is active.",
+            "example": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The date and time when the user account was created.",
+            "example": "2024-01-01T12:00:00Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The date and time when the user account was last updated.",
+            "example": "2024-01-01T12:00:00Z"
+          }
+        },
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "fullName",
+          "isActive",
+          "createdAt",
+          "updatedAt"
+        ]
       },
-      "ResetPasswordDto": {
+      "AuthResponseDto": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "user": {
+            "description": "The authenticated user object containing user details.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "The access token for the user, used for authentication in subsequent requests.",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          }
+        },
+        "required": [
+          "user",
+          "accessToken"
+        ]
+      },
+      "RegisterBodyDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "The user's first name.",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "The user's last name.",
+            "example": "Doe"
+          },
+          "picture": {
+            "type": "string",
+            "description": "URL to the user's profile picture.",
+            "example": "https://example.com/profile.jpg"
+          },
+          "email": {
+            "type": "string",
+            "description": "The user's email address.",
+            "example": "user@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password should be at least 8 characters, contain 1 letter, 1 number, and 1 special character.",
+            "example": "P@ssw0rd123"
+          }
+        },
+        "required": [
+          "firstName",
+          "lastName",
+          "email",
+          "password"
+        ]
+      },
+      "RequestResetPasswordBodyDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email address of the user requesting password reset",
+            "example": "user@example.com"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "ResetPasswordBodyDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email address of the user resetting the password",
+            "example": "user@example.com"
+          },
+          "token": {
+            "type": "string",
+            "description": "Token sent to the user for password reset",
+            "example": "abc123xyz"
+          },
+          "newPassword": {
+            "type": "string",
+            "description": "New password (min. 8 characters, 1 letter, 1 number, 1 special character)",
+            "example": "Password@123"
+          }
+        },
+        "required": [
+          "email",
+          "token",
+          "newPassword"
+        ]
       }
     }
   }

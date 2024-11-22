@@ -4,19 +4,15 @@ import { isDefined } from '@shared/utils';
 import { PrismaPostgreSqlService } from 'src/config/database/postgresql/prisma.postgresql.service';
 
 import { User } from '../dtos/user.dto';
-import { UserMapper } from '../mappers/user.mapper';
 
 @Injectable()
 export class UserService {
-  constructor(
-    private readonly prisma: PrismaPostgreSqlService,
-    private readonly userMapper: UserMapper,
-  ) {}
+  constructor(private readonly prisma: PrismaPostgreSqlService) {}
 
   async create(data: Prisma.UserCreateInput): Promise<User> {
     const newUser: PrismaUser = await this.prisma.user.create({ data });
 
-    return this.userMapper.mapToEntity(newUser);
+    return new User(newUser);
   }
 
   async findById(id: string): Promise<User | undefined> {
@@ -24,6 +20,6 @@ export class UserService {
       where: { id },
     });
 
-    return isDefined(user) ? this.userMapper.mapToEntity(user) : undefined;
+    return isDefined(user) ? new User(user) : undefined;
   }
 }

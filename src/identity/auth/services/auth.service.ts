@@ -9,7 +9,6 @@ import { AuthProvider, Prisma, UserIdentity } from '@prisma/client';
 import { isDefined, isStringDefined } from '@shared/utils';
 import * as bcrypt from 'bcrypt';
 import { User } from 'src/identity/user/dtos/user.dto';
-import { UserMapper } from 'src/identity/user/mappers/user.mapper';
 
 import {
   UserIdentityService,
@@ -24,17 +23,15 @@ import {
   ERROR_USER_NOT_FOUND,
   PASSWORD_HASH_SALT_ROUNDS,
 } from '../constants/auth.constants';
-import { RegisterDto } from '../dtos/auth.dto';
+import { RegisterBodyDto } from '../dtos/body.dto';
 import { AuthResponseDto } from '../interfaces/auth.interface';
 
 @Injectable()
 export class AuthService {
-  // eslint-disable-next-line @typescript-eslint/max-params
   constructor(
     private readonly userSrv: UserService,
     private readonly userIdentitySrv: UserIdentityService,
     private readonly jwtSrv: JwtService,
-    private readonly userMapper: UserMapper,
   ) {}
 
   async validateUser(email: string, password: string): Promise<User> {
@@ -45,7 +42,7 @@ export class AuthService {
 
     await this.validateUserCredentials(identity, email, password);
 
-    return this.userMapper.mapToEntity(identity.user);
+    return new User(identity.user);
   }
 
   // eslint-disable-next-line @typescript-eslint/class-methods-use-this
@@ -70,7 +67,11 @@ export class AuthService {
     }
   }
 
-  async register({ email, password, ...userDto }: RegisterDto): Promise<User> {
+  async register({
+    email,
+    password,
+    ...userDto
+  }: RegisterBodyDto): Promise<User> {
     const existingIdentity: UserIdentityWithUser | undefined =
       await this.userIdentitySrv.findByEmail(email);
 

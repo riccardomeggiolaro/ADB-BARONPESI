@@ -5,7 +5,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "f5fc4690-acb1-4c01-93e6-a129c522186a",
+                    "id": "444c2f71-8205-453a-bb0c-7f2004afe654",
                     "name": "App Controller get Hello",
                     "request": {
                         "name": "App Controller get Hello",
@@ -26,7 +26,7 @@
                     },
                     "response": [
                         {
-                            "id": "11274a25-7f70-425d-ad2f-9ed0d79adb05",
+                            "id": "c0a08d4c-6dbe-478e-92e4-180842c79f7a",
                             "originalRequest": {
                                 "url": {
                                     "path": [
@@ -58,11 +58,14 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "f7cb08af-515a-40f4-99e4-ac612b2abcab",
-                            "name": "Auth Controller login",
+                            "id": "1c27718d-8026-4523-b576-60e038c9bad2",
+                            "name": "Login user and return access token.",
                             "request": {
-                                "name": "Auth Controller login",
-                                "description": {},
+                                "name": "Login user and return access token.",
+                                "description": {
+                                    "content": "This endpoint allows a user to login.",
+                                    "type": "text/plain"
+                                },
                                 "url": {
                                     "path": [
                                         "api",
@@ -74,13 +77,33 @@
                                     "query": [],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "POST",
-                                "body": {},
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                },
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "9f9967d7-dd65-45d7-8931-2e0adaa61ac4",
+                                    "id": "7f1c869e-ffd7-4614-a615-a16a343c9101",
+                                    "name": "The user was successfully logged in.",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
@@ -93,11 +116,75 @@
                                             "query": [],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "POST",
-                                        "body": {}
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        }
                                     },
-                                    "status": "Created",
-                                    "code": 201,
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"user\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  \"accessToken\": \"<string>\"\n}",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                },
+                                {
+                                    "id": "2d90e0de-bea7-4fd1-8cbc-89afd62bd903",
+                                    "name": "Unauthorized. Invalid credentials.",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "login"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "status": "Unauthorized",
+                                    "code": 401,
                                     "header": [],
                                     "cookie": [],
                                     "_postman_previewlanguage": "text"
@@ -115,11 +202,14 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "48a8da74-7b34-4667-84dd-375b139e12b8",
-                            "name": "Auth Controller register",
+                            "id": "ff240ea2-ad41-4c0e-9a71-9ba34ca1d007",
+                            "name": "Register a new user.",
                             "request": {
-                                "name": "Auth Controller register",
-                                "description": {},
+                                "name": "Register a new user.",
+                                "description": {
+                                    "content": "This endpoint allows a new user to register.",
+                                    "type": "text/plain"
+                                },
                                 "url": {
                                     "path": [
                                         "api",
@@ -135,12 +225,16 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "POST",
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{}",
+                                    "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
                                     "options": {
                                         "raw": {
                                             "headerFamily": "json",
@@ -152,7 +246,57 @@
                             },
                             "response": [
                                 {
-                                    "id": "9ab0d30c-8fb9-4f06-a0d0-4f0ebcafcbb2",
+                                    "id": "c74c1ebe-41e9-4794-9536-4885d0907247",
+                                    "name": "The user was successfully registered.",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "register"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                },
+                                {
+                                    "id": "9ce01b44-c2d3-4bef-a54c-1e063609ff9c",
+                                    "name": "An user with this email already exists",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
@@ -174,7 +318,7 @@
                                         "method": "POST",
                                         "body": {
                                             "mode": "raw",
-                                            "raw": "{}",
+                                            "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
                                             "options": {
                                                 "raw": {
                                                     "headerFamily": "json",
@@ -183,8 +327,8 @@
                                             }
                                         }
                                     },
-                                    "status": "Created",
-                                    "code": 201,
+                                    "status": "Bad Request",
+                                    "code": 400,
                                     "header": [],
                                     "cookie": [],
                                     "_postman_previewlanguage": "text"
@@ -206,10 +350,10 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "dd265e74-933a-4e31-b6ac-b47512ab38f1",
-                                    "name": "Password Reset Controller request Reset",
+                                    "id": "c12dc82d-a6a7-4591-a4de-4a35df64771b",
+                                    "name": "Request a password reset token",
                                     "request": {
-                                        "name": "Password Reset Controller request Reset",
+                                        "name": "Request a password reset token",
                                         "description": {},
                                         "url": {
                                             "path": [
@@ -227,12 +371,16 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
                                         "body": {
                                             "mode": "raw",
-                                            "raw": "{}",
+                                            "raw": "{\n  \"email\": \"<string>\"\n}",
                                             "options": {
                                                 "raw": {
                                                     "headerFamily": "json",
@@ -244,7 +392,8 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "ba510e1d-1af0-41fc-abd4-bc2215f9e1dc",
+                                            "id": "71859e83-3017-415d-b7e1-0d59d6ea65c2",
+                                            "name": "If the email exists, reset instructions will be sent",
                                             "originalRequest": {
                                                 "url": {
                                                     "path": [
@@ -262,12 +411,16 @@
                                                     {
                                                         "key": "Content-Type",
                                                         "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
                                                     }
                                                 ],
                                                 "method": "POST",
                                                 "body": {
                                                     "mode": "raw",
-                                                    "raw": "{}",
+                                                    "raw": "{\n  \"email\": \"<string>\"\n}",
                                                     "options": {
                                                         "raw": {
                                                             "headerFamily": "json",
@@ -276,11 +429,17 @@
                                                     }
                                                 }
                                             },
-                                            "status": "Created",
-                                            "code": 201,
-                                            "header": [],
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"example\": {\n    \"message\": \"If the email exists, reset instructions will be sent\"\n  }\n}",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         }
                                     ],
                                     "event": [],
@@ -295,10 +454,10 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "d23693bc-0ad5-4594-987c-37ff9f355dcb",
-                                    "name": "Password Reset Controller reset Password",
+                                    "id": "64b362ba-53e0-4232-a5e8-cff7564c1cbc",
+                                    "name": "Reset password using token",
                                     "request": {
-                                        "name": "Password Reset Controller reset Password",
+                                        "name": "Reset password using token",
                                         "description": {},
                                         "url": {
                                             "path": [
@@ -316,12 +475,16 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
                                         "body": {
                                             "mode": "raw",
-                                            "raw": "{}",
+                                            "raw": "{\n  \"email\": \"<string>\",\n  \"token\": \"<string>\",\n  \"newPassword\": \"<string>\"\n}",
                                             "options": {
                                                 "raw": {
                                                     "headerFamily": "json",
@@ -333,7 +496,8 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "58f94c10-4d65-4d68-8ad8-d812b053901c",
+                                            "id": "f93c51b2-45d3-4d62-938b-790ab32c2c77",
+                                            "name": "Your password has been successfully updated",
                                             "originalRequest": {
                                                 "url": {
                                                     "path": [
@@ -351,12 +515,16 @@
                                                     {
                                                         "key": "Content-Type",
                                                         "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
                                                     }
                                                 ],
                                                 "method": "POST",
                                                 "body": {
                                                     "mode": "raw",
-                                                    "raw": "{}",
+                                                    "raw": "{\n  \"email\": \"<string>\",\n  \"token\": \"<string>\",\n  \"newPassword\": \"<string>\"\n}",
                                                     "options": {
                                                         "raw": {
                                                             "headerFamily": "json",
@@ -365,11 +533,17 @@
                                                     }
                                                 }
                                             },
-                                            "status": "Created",
-                                            "code": 201,
-                                            "header": [],
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"example\": {\n    \"message\": \"Your password has been successfully updated\"\n  }\n}",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         }
                                     ],
                                     "event": [],
@@ -392,7 +566,7 @@
         }
     ],
     "info": {
-        "_postman_id": "28b269ae-28d3-49ad-bf5e-38c9fa94db1a",
+        "_postman_id": "498911dc-caad-4031-9fc3-eae78e425410",
         "name": "Template Rest-API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
