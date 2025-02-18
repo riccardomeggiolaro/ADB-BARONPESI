@@ -2,9 +2,9 @@ import type { Provider } from '@nestjs/common';
 
 import { Module } from '@nestjs/common';
 
-import { PrismaPostgreSqlService } from './postgresql/prisma.postgresql.service';
+import { PrismaMySqlService } from './mysql/prisma.mysql.service';
 
-const providers: Provider[] = [PrismaPostgreSqlService];
+const providers: Provider[] = [PrismaMySqlService];
 
 @Module({
   providers,

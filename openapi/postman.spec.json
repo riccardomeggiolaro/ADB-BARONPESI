@@ -5,7 +5,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "444c2f71-8205-453a-bb0c-7f2004afe654",
+                    "id": "931eab50-44c7-464c-b699-9e09c06a85ae",
                     "name": "App Controller get Hello",
                     "request": {
                         "name": "App Controller get Hello",
@@ -26,7 +26,7 @@
                     },
                     "response": [
                         {
-                            "id": "c0a08d4c-6dbe-478e-92e4-180842c79f7a",
+                            "id": "0770afb8-7a9b-4d3e-9911-6170e4c0463d",
                             "originalRequest": {
                                 "url": {
                                     "path": [
@@ -58,7 +58,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "1c27718d-8026-4523-b576-60e038c9bad2",
+                            "id": "a3f7220f-378c-440e-8b91-d737d0a2046e",
                             "name": "Login user and return access token.",
                             "request": {
                                 "name": "Login user and return access token.",
@@ -102,7 +102,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "7f1c869e-ffd7-4614-a615-a16a343c9101",
+                                    "id": "41f65716-40eb-48e2-8789-ff6d71911b80",
                                     "name": "The user was successfully logged in.",
                                     "originalRequest": {
                                         "url": {
@@ -151,7 +151,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "2d90e0de-bea7-4fd1-8cbc-89afd62bd903",
+                                    "id": "651d4414-2602-4bea-9307-24f7da3a8fb7",
                                     "name": "Unauthorized. Invalid credentials.",
                                     "originalRequest": {
                                         "url": {
@@ -202,7 +202,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "ff240ea2-ad41-4c0e-9a71-9ba34ca1d007",
+                            "id": "205d7675-561f-4e38-aa0b-335b2323c154",
                             "name": "Register a new user.",
                             "request": {
                                 "name": "Register a new user.",
@@ -246,7 +246,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "c74c1ebe-41e9-4794-9536-4885d0907247",
+                                    "id": "3d2e20a5-e6a0-45d6-a84e-efb7f952046f",
                                     "name": "The user was successfully registered.",
                                     "originalRequest": {
                                         "url": {
@@ -295,7 +295,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "9ce01b44-c2d3-4bef-a54c-1e063609ff9c",
+                                    "id": "451ae54f-4cdd-4b4a-98b9-1fdcd29140b3",
                                     "name": "An user with this email already exists",
                                     "originalRequest": {
                                         "url": {
@@ -350,7 +350,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "c12dc82d-a6a7-4591-a4de-4a35df64771b",
+                                    "id": "86aff3a5-a1f7-4cbc-bae8-129a101db46b",
                                     "name": "Request a password reset token",
                                     "request": {
                                         "name": "Request a password reset token",
@@ -392,7 +392,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "71859e83-3017-415d-b7e1-0d59d6ea65c2",
+                                            "id": "ce1779a4-c83c-419b-b875-4fc24be92977",
                                             "name": "If the email exists, reset instructions will be sent",
                                             "originalRequest": {
                                                 "url": {
@@ -454,7 +454,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "64b362ba-53e0-4232-a5e8-cff7564c1cbc",
+                                    "id": "c492d684-de22-4b63-9ee2-10229a53078f",
                                     "name": "Reset password using token",
                                     "request": {
                                         "name": "Reset password using token",
@@ -496,7 +496,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "f93c51b2-45d3-4d62-938b-790ab32c2c77",
+                                            "id": "37b9dc04-a456-4c4d-82e4-2e29d5bbc7f4",
                                             "name": "Your password has been successfully updated",
                                             "originalRequest": {
                                                 "url": {
@@ -566,7 +566,7 @@
         }
     ],
     "info": {
-        "_postman_id": "498911dc-caad-4031-9fc3-eae78e425410",
+        "_postman_id": "2fe6526e-9cb5-40c2-9b72-4d0b24329617",
         "name": "Template Rest-API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

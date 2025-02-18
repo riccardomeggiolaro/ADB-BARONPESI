@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { AuthProvider, Prisma, UserIdentity } from '@prisma/client';
 import { isDefined } from '@shared/utils';
-import { PrismaPostgreSqlService } from 'src/config/database/postgresql/prisma.postgresql.service';
+import { PrismaMySqlService } from 'src/config/database/mysql/prisma.mysql.service';
 
 export type UserIdentityWithUser = Prisma.UserIdentityGetPayload<{
   include: {
@@ -11,7 +11,7 @@ export type UserIdentityWithUser = Prisma.UserIdentityGetPayload<{
 
 @Injectable()
 export class UserIdentityService {
-  constructor(private readonly prisma: PrismaPostgreSqlService) {}
+  constructor(private readonly prisma: PrismaMySqlService) {}
 
   async findByEmail(email: string): Promise<UserIdentityWithUser | undefined> {
     const identity: UserIdentityWithUser | null =

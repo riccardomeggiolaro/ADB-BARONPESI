@@ -25,6 +25,7 @@ import {
 } from '../constants/auth.constants';
 import { RegisterBodyDto } from '../dtos/body.dto';
 import { AuthResponseDto } from '../interfaces/auth.interface';
+import { instanceToPlain } from 'class-transformer';
 
 @Injectable()
 export class AuthService {
@@ -97,7 +98,7 @@ export class AuthService {
   async login(user: User): Promise<AuthResponseDto> {
     return {
       user,
-      accessToken: await this.jwtSrv.signAsync(user),
+      accessToken: await this.jwtSrv.signAsync(instanceToPlain(user)),
     };
   }
 

@@ -10,7 +10,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -30,6 +30,8 @@ model User {
   identities UserIdentity[]
   createdAt  DateTime       @default(now())
   updatedAt  DateTime       @updatedAt
+  application_name String?
+  datas Json?
 
   @@map("users")
 }

@@ -3,12 +3,12 @@ import { randomBytes } from 'crypto';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PasswordReset, PrismaClient } from '@prisma/client';
 import { isDefined } from 'class-validator';
-import { PrismaPostgreSqlService } from 'src/config/database/postgresql/prisma.postgresql.service';
+import { PrismaMySqlService } from 'src/config/database/mysql/prisma.mysql.service';
 
 import { INVALID_EXPIRED_TOKEN } from '../constants/password-reset.constants';
 @Injectable()
 export class PasswordResetService {
-  constructor(private readonly prisma: PrismaPostgreSqlService) {}
+  constructor(private readonly prisma: PrismaMySqlService) {}
 
   async createResetToken(email: string): Promise<string> {
     await this.prisma.passwordReset.updateMany({

@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { PrismaPostgreSqlService } from 'src/config/database/postgresql/prisma.postgresql.service';
+import { PrismaMySqlService } from 'src/config/database/mysql/prisma.mysql.service';
 
 import { UserModule } from '../user/user.module';
 
@@ -16,7 +16,7 @@ import { LocalStrategy } from './strategies/local.strategy';
 @Module({
   imports: [
     UserModule,
-    PassportModule.register({ session: true }),
+    PassportModule.register({ session: true, defaultStrategy: 'jwt' }),
     JwtModule.registerAsync({
       useFactory: (configService: ConfigService) => {
         return {
@@ -35,7 +35,7 @@ import { LocalStrategy } from './strategies/local.strategy';
     PasswordResetService,
     LocalStrategy,
     JwtStrategy,
-    PrismaPostgreSqlService,
+    PrismaMySqlService,
   ],
 })
 export class AuthModule {}

@@ -12,6 +12,20 @@
         }
       }
     },
+    "/api/profile": {
+      "get": {
+        "operationId": "AuthController_profile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
     "/api/login": {
       "post": {
         "operationId": "AuthController_login",
