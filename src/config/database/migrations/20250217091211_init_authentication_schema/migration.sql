@@ -7,8 +7,24 @@ CREATE TABLE users (
     isActive BOOLEAN NOT NULL DEFAULT true,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    application_name TEXT,
-    datas JSON,
+    level INT NOT NULL DEFAULT 0,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE applications (
+    id VARCHAR(255) NOT NULL,
+    code TEXT NOT NULL,
+    description TEXT NOT NULL,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE companies (
+    id VARCHAR(255) NOT NULL,
+    description TEXT,
+    cell TEXT NOT NULL,
+    cfpiva TEXT NOT NULL,
 
     PRIMARY KEY (id)
 );

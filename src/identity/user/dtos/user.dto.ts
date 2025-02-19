@@ -53,7 +53,7 @@ export class User {
   updatedAt: Date;
 
   @Exclude()
-  picture?: string;
+  picture?: string | null | undefined;
 
   constructor(partial: Partial<PrismaUser>) {
     Object.assign(this, partial);

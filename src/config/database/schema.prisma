@@ -30,10 +30,26 @@ model User {
   identities UserIdentity[]
   createdAt  DateTime       @default(now())
   updatedAt  DateTime       @updatedAt
-  application_name String?
-  datas Json?
+  level Int @default(0)
 
   @@map("users")
+}
+
+model Company {
+  id        String          @id @default(uuid())
+  description String
+  cell      String?
+  cfpiva      String?
+
+  @@map("companies")
+}
+
+model Application {
+  id        String          @id @default(uuid())
+  code      String
+  description String
+
+  @@map("applications")
 }
 
 model UserIdentity {

@@ -8,9 +8,11 @@ import { AppService } from './app.service';
 import { ConfigModule } from './config/config.module';
 import { EmailModule } from './email/email.module';
 import { IdentityModule } from './identity/identity.module';
+import { CompanyModule } from './company/company.module';
+import { ApplicationModule } from './application/application.module';
 
 @Module({
-  imports: [ConfigModule, IdentityModule, EmailModule],
+  imports: [ConfigModule, IdentityModule, EmailModule, CompanyModule, ApplicationModule],
   controllers: [AppController],
   providers: [
     AppService,

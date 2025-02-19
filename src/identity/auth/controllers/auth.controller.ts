@@ -20,7 +20,7 @@ import { AuthResponseDto } from '../interfaces/auth.interface';
 import { AuthService } from '../services/auth.service';
 
 @ApiTags('auth')
-@Controller()
+@Controller('auth')
 export class AuthController {
   constructor(private readonly authSrv: AuthService) {}
 
