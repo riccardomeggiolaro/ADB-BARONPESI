@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiBody,
@@ -12,9 +12,11 @@ import {
 import { ApplicationService } from '../services/application.service';
 import { Application, ApplicationDTO } from '../dtos/application.dto';
 import { ERROR_APPLICATION_NOT_FOUND, ERROR_APPLLICATION_EXISTS } from '../constants/application.constants';
+import { AdminGuard } from '@shared/guards/admin.guard';
 
 @ApiTags('application')
 @Controller('application')
+@UseGuards(AdminGuard)
 export class ApplicationController {
   constructor(private readonly applicationSrv: ApplicationService) {}
 

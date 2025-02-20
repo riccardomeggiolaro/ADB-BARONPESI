@@ -329,6 +329,95 @@
           "password-reset"
         ]
       }
+    },
+    "/api/user/list": {
+      "get": {
+        "operationId": "UserController_list",
+        "summary": "Get the list of user.",
+        "description": "This endpoint get the list of user.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ]
+      }
+    },
+    "/api/user/{id}": {
+      "get": {
+        "operationId": "UserController_find",
+        "summary": "Get a user.",
+        "description": "This endpoint get a user.",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user was successfully found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "tags": [
+          "user"
+        ]
+      }
+    },
+    "/api/user/delete/{id}": {
+      "delete": {
+        "operationId": "UserController_delete",
+        "summary": "Delete a user.",
+        "description": "This endpoint delete a user.",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The user was succesfully deleted."
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "tags": [
+          "user"
+        ]
+      }
     }
   },
   "info": {
@@ -364,7 +453,7 @@
           "cfpiva": {
             "type": "object",
             "description": "The CFPIVA of the company.",
-            "example": "IJSRGOERNONBOB"
+            "example": "RSSMRA80E15H501"
           }
         },
         "required": [
@@ -451,6 +540,26 @@
             "type": "string",
             "description": "The date and time when the user account was last updated.",
             "example": "2024-01-01T12:00:00Z"
+          },
+          "role": {
+            "type": "string",
+            "description": "Role of user",
+            "example": "USER"
+          },
+          "companyId": {
+            "type": "object",
+            "description": " Id of company",
+            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email of user",
+            "example": "riccardo.meggiolaro@baron.it"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password of user",
+            "example": "admin"
           }
         },
         "required": [
@@ -460,7 +569,11 @@
           "fullName",
           "isActive",
           "createdAt",
-          "updatedAt"
+          "updatedAt",
+          "role",
+          "companyId",
+          "email",
+          "password"
         ]
       },
       "AuthResponseDto": {
@@ -512,13 +625,19 @@
             "type": "string",
             "description": "Password should be at least 8 characters, contain 1 letter, 1 number, and 1 special character.",
             "example": "P@ssw0rd123"
+          },
+          "companyId": {
+            "type": "object",
+            "description": " Id of company",
+            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
           }
         },
         "required": [
           "firstName",
           "lastName",
           "email",
-          "password"
+          "password",
+          "companyId"
         ]
       },
       "RequestResetPasswordBodyDto": {

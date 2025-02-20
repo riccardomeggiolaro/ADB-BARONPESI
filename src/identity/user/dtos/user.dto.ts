@@ -1,6 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { User as PrismaUser } from '@prisma/client';
 import { Exclude, Expose, Transform } from 'class-transformer';
+import { IsEnum, IsOptional, IsString } from 'class-validator';
+
+export type UserWithoutFUllName = Omit<User, 'fullName'>;
+
+export enum Role {
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+}
 
 export class User {
   @ApiProperty({
@@ -54,6 +62,35 @@ export class User {
 
   @Exclude()
   picture?: string | null | undefined;
+
+  @ApiProperty({
+    description: 'Role of user',
+    example: 'USER'
+  })
+  @IsEnum(Role)
+  role: Role.USER | Role.ADMIN;
+
+  @ApiProperty({
+    description: ' Id of company',
+    example: "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
+  })
+  @IsString()
+  @IsOptional()
+  companyId: string | null;
+
+  @ApiProperty({
+    description: 'Email of user',
+    example: 'riccardo.meggiolaro@baron.it'
+  })
+  @IsString()
+  email: string;
+
+  @ApiProperty({
+    description: 'Password of user',
+    example: 'admin'
+  })
+  @IsString()
+  password: string;
 
   constructor(partial: Partial<PrismaUser>) {
     Object.assign(this, partial);

@@ -5,19 +5,13 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { AuthProvider, Prisma, UserIdentity } from '@prisma/client';
-import { isDefined, isStringDefined } from '@shared/utils';
-import * as bcrypt from 'bcrypt';
+import { isDefined } from '@shared/utils';
+import * as bcrypt from 'bcryptjs';
 import { User } from 'src/identity/user/dtos/user.dto';
 
-import {
-  UserIdentityService,
-  UserIdentityWithUser,
-} from '../../user/services/user-identity.service';
 import { UserService } from '../../user/services/user.service';
 
 import {
-  ERROR_ACCOUNT_LINKED_PROVIDER,
   ERROR_EMAIL_EXISTS,
   ERROR_INVALID_CREDENTIALS,
   ERROR_USER_NOT_FOUND,
@@ -31,33 +25,25 @@ import { instanceToPlain } from 'class-transformer';
 export class AuthService {
   constructor(
     private readonly userSrv: UserService,
-    private readonly userIdentitySrv: UserIdentityService,
     private readonly jwtSrv: JwtService,
   ) {}
 
   async validateUser(email: string, password: string): Promise<User> {
-    const identity: UserIdentityWithUser | undefined =
-      await this.userIdentitySrv.findByEmail(email);
+    const user: User | undefined = await this.userSrv.findByEmail(email);
 
-    if (!isDefined(identity)) throw new NotFoundException(ERROR_USER_NOT_FOUND);
+    if (!isDefined(user)) throw new NotFoundException(ERROR_USER_NOT_FOUND);
 
-    await this.validateUserCredentials(identity, email, password);
+    await this.validateUserCredentials(user, email, password);
 
-    return new User(identity.user);
+    return user;
   }
 
   // eslint-disable-next-line @typescript-eslint/class-methods-use-this
   private async validateUserCredentials(
-    identity: UserIdentity,
+    identity: User,
     email: string,
     password: string,
   ): Promise<void> {
-    if (!isStringDefined(identity.password)) {
-      throw new UnauthorizedException(
-        ERROR_ACCOUNT_LINKED_PROVIDER.replace('{provider}', identity.provider),
-      );
-    }
-
     const isPasswordValid: boolean = await bcrypt.compare(
       password,
       identity.password,
@@ -68,29 +54,22 @@ export class AuthService {
     }
   }
 
-  async register({
-    email,
-    password,
-    ...userDto
-  }: RegisterBodyDto): Promise<User> {
-    const existingIdentity: UserIdentityWithUser | undefined =
-      await this.userIdentitySrv.findByEmail(email);
+  async register(registerBodyDTO: RegisterBodyDto): Promise<User> {
+    const existingIdentity: User | undefined = await this.userSrv.findByEmail(registerBodyDTO.email);
 
     if (isDefined(existingIdentity)) {
       throw new BadRequestException(ERROR_EMAIL_EXISTS);
     }
 
-    const hashedPassword: string = this.hashPassword(password);
-    const user: User = await this.userSrv.create(userDto);
-
-    const data: Prisma.UserIdentityCreateInput = {
-      provider: AuthProvider.LOCAL,
-      user: { connect: { id: user.id } },
-      email,
-      password: hashedPassword,
-    };
-
-    await this.userIdentitySrv.create(data);
+    const hashedPassword: string = this.hashPassword(registerBodyDTO.password);
+    const user: User = await this.userSrv.create({
+      firstName: registerBodyDTO.firstName,
+      lastName: registerBodyDTO.lastName,
+      picture: registerBodyDTO.picture,
+      companies: registerBodyDTO.companyId ? { connect: { id: registerBodyDTO.companyId } } : {},
+      email: registerBodyDTO.email,
+      password: hashedPassword
+    });
 
     return user;
   }
@@ -107,9 +86,9 @@ export class AuthService {
     return bcrypt.hashSync(password, PASSWORD_HASH_SALT_ROUNDS);
   }
 
-  async changePassword(email: string, newPassword: string): Promise<void> {
+  async changePassword(id: string, newPassword: string): Promise<void> {
     const hashedPassword: string = this.hashPassword(newPassword);
 
-    await this.userIdentitySrv.changePassword(email, hashedPassword);
+    await this.userSrv.updatePassword(id, hashedPassword);
   }
 }

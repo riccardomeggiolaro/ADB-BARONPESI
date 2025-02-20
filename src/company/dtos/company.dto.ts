@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Company as PrismaCompany } from '@prisma/client';
-import { IsInt, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class CompanyDTO {
   @ApiProperty({
@@ -12,19 +12,19 @@ export class CompanyDTO {
 
   @ApiProperty({
     description: 'The cell of company.',
-    example: 123456789,
+    example: '123456789',
   })
   @IsOptional()
   @IsString()
-  cell: string | null | undefined;
+  cell: string | null;
 
   @ApiProperty({
     description: 'The CFPIVA of the company.',
-    example: 'IJSRGOERNONBOB',
+    example: 'RSSMRA80E15H501',
   })
   @IsOptional()
   @IsString()
-  cfpiva: string | null | undefined;  
+  cfpiva: string | null;  
 }
 
 export class Company {
@@ -39,16 +39,21 @@ export class Company {
     example: '123456789',
   })
   @IsOptional()
-  cell: string | null | undefined;
+  cell: string | null;
 
   @ApiProperty({
     description: 'The CFPIVA of the company.',
-    example: 'IJSRGOERNONBOB',
+    example: 'RSSMRA80E15H501',
   })
   @IsOptional()
-  cfpiva: string | null | undefined;
+  cfpiva: string | null;
   
   constructor(partial: Partial<PrismaCompany>) {
     Object.assign(this, partial);
   }
+}
+
+export class CompanyId {
+  @IsString()
+  id: string;
 }

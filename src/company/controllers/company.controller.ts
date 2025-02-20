@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiBody,
@@ -12,9 +12,11 @@ import {
 import { CompanyService } from '../services/company.service';
 import { Company, CompanyDTO } from '../dtos/company.dto';
 import { ERROR_COMPANY_EXISTS, ERROR_COMPANY_NOT_FOUND } from '../constants/company.constants';
+import { AdminGuard } from '@shared/guards/admin.guard';
 
 @ApiTags('company')
 @Controller('company')
+@UseGuards(AdminGuard)
 export class CompanyController {
   constructor(private readonly companySrv: CompanyService) {}
 

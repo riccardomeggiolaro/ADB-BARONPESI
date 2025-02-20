@@ -1,0 +1,66 @@
+import { Controller, Delete, Get, Param, UseGuards } from '@nestjs/common';
+import {
+    ApiAcceptedResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger';
+
+import { User, UserWithoutFUllName } from '../../user/dtos/user.dto';
+
+import { AdminGuard } from '@shared/guards/admin.guard';
+import { UserService } from '../services/user.service';
+import { ERROR_USER_NOT_FOUND } from 'src/identity/auth/constants/auth.constants';
+
+@ApiTags('user')
+@Controller('user')
+@UseGuards(AdminGuard)
+export class UserController {
+    constructor(
+        private readonly userSrv: UserService
+    ) {}
+
+    @Get('list')
+    @ApiOperation({
+        summary: 'Get the list of user.',
+        description: 'This endpoint get the list of user.',
+    })
+    @ApiOkResponse({
+        type: [User],
+    })
+    async list(): Promise<User[]> {
+        return await this.userSrv.list();
+    }
+
+    @Get(':id')
+    @ApiOperation({
+        summary: 'Get a user.',
+        description: 'This endpoint get a user.'
+    })
+    @ApiOkResponse({
+        description: 'The user was successfully found.',
+        type: User,
+    })
+    @ApiNotFoundResponse({
+        description: ERROR_USER_NOT_FOUND,
+    })
+    async find(@Param('id') id: string): Promise<User> {
+        return this.userSrv.findByIdOrThrow(id);
+    }
+
+    @Delete('delete/:id')
+    @ApiOperation({
+        summary: 'Delete a user.',
+        description: 'This endpoint delete a user.'
+    })
+    @ApiAcceptedResponse({
+        description: 'The user was succesfully deleted.',
+    })
+    @ApiNotFoundResponse({
+        description: ERROR_USER_NOT_FOUND,
+    })
+    async delete(@Param('id') id: string): Promise<UserWithoutFUllName> {
+        return await this.userSrv.deleteById(id);        
+    }
+}

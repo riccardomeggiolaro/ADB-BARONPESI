@@ -70,6 +70,14 @@ export class RegisterBodyDto {
       'Password must be at least 8 characters, with 1 letter, 1 number, and 1 special character',
   })
   password: string;
+
+  @ApiProperty({
+    description: ' Id of company',
+    example: "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
+  })
+  @IsString()
+  @IsOptional()
+  companyId: string | null;
 }
 
 export class RequestResetPasswordBodyDto {

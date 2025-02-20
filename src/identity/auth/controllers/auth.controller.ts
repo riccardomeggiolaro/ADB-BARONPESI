@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiBody,
@@ -10,7 +10,6 @@ import {
 } from '@nestjs/swagger';
 import { AuthUser, Public } from '@shared/decorators';
 import { LocalAuthGuard } from '@shared/guards';
-import { JwtAuthGuard } from '@shared/guards/auth.guard';
 
 import { User } from '../../user/dtos/user.dto';
 
@@ -18,6 +17,7 @@ import { ERROR_EMAIL_EXISTS } from '../constants/auth.constants';
 import { LoginBodyDto, RegisterBodyDto } from '../dtos/body.dto';
 import { AuthResponseDto } from '../interfaces/auth.interface';
 import { AuthService } from '../services/auth.service';
+import { AdminGuard } from '@shared/guards/admin.guard';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -52,7 +52,7 @@ export class AuthController {
   }
 
   @Post('register')
-  @Public()
+  @UseGuards(AdminGuard)
   @ApiOperation({
     summary: 'Register a new user.',
     description: 'This endpoint allows a new user to register.',

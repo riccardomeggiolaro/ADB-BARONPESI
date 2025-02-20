@@ -1,7 +1,7 @@
 import { randomBytes } from 'crypto';
 
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PasswordReset, PrismaClient } from '@prisma/client';
+import { PasswordReset, Prisma, PrismaClient } from '@prisma/client';
 import { isDefined } from 'class-validator';
 import { PrismaMySqlService } from 'src/config/database/mysql/prisma.mysql.service';
 
@@ -10,10 +10,10 @@ import { INVALID_EXPIRED_TOKEN } from '../constants/password-reset.constants';
 export class PasswordResetService {
   constructor(private readonly prisma: PrismaMySqlService) {}
 
-  async createResetToken(email: string): Promise<string> {
+  async createResetToken(userId: string): Promise<string> {
     await this.prisma.passwordReset.updateMany({
       where: {
-        email,
+        userId,
         used: false,
       },
       data: {
@@ -23,23 +23,29 @@ export class PasswordResetService {
 
     const token: string = randomBytes(32).toString('hex');
 
-    await this.prisma.passwordReset.create({
-      data: {
-        expiresAt: new Date(Date.now() + 900000),
-        email,
-        token,
+    const data: Prisma.PasswordResetCreateInput = {
+      expiresAt: new Date(Date.now() + 900000),
+      users: {
+        connect: {
+          id: userId
+        }
       },
-    });
+      token: token,
+    }
+
+    await this.prisma.passwordReset.create({ data });
 
     return token;
   }
 
-  async validateAndConsumeToken(email: string, token: string): Promise<void> {
+  async validateAndConsumeToken(id: string, token: string): Promise<void> {
     await this.prisma.$transaction(async (prisma: PrismaClient) => {
       const resetRequest: PasswordReset | null =
         await prisma.passwordReset.findFirst({
           where: {
-            email,
+            users: {
+              id: id
+            },
             token,
             used: false,
             expiresAt: { gt: new Date() },

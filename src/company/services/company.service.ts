@@ -42,6 +42,6 @@ export class CompanyService {
   }
 
   async list(): Promise<Company[]> {
-    return await this.prisma.company.findMany();
+    return await this.prisma.company.findMany() as Company[];
   }
 }
