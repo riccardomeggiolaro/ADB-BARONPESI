@@ -1,97 +1,35 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { User as PrismaUser } from '@prisma/client';
-import { Exclude, Expose, Transform } from 'class-transformer';
-import { IsEnum, IsOptional, IsString } from 'class-validator';
-
-export type UserWithoutFUllName = Omit<User, 'fullName'>;
+import { Company as PrismaCompany, User as PrismaUser } from '@prisma/client';
 
 export enum Role {
   USER = 'USER',
   ADMIN = 'ADMIN',
 }
 
-export class User {
-  @ApiProperty({
-    description: 'Unique identifier of the user.',
-    example: '1234',
-  })
+export const selectOptions = {
+  id: true,
+  firstName: true,
+  lastName: true,
+  email: true,
+  role: true,
+  isActive: true,
+  company: true,
+  createdAt: true,
+  updatedAt: true,
+  picture: true,
+  companyId: false,
+  password: true
+}
+
+export interface User {
   id: string;
-
-  @ApiProperty({
-    description: 'The user\'s first name.',
-    example: 'John',
-  })
-  firstName: string;
-
-  @ApiProperty({
-    description: 'The user\'s last name.',
-    example: 'Doe',
-  })
-  lastName: string;
-
-  @ApiProperty({
-    description:
-      'The user\'s full name, automatically generated from first and last names.',
-    example: 'John Doe',
-    readOnly: true, // This property is derived and should not be set directly by the client.
-  })
-  @Expose()
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  @ApiProperty({
-    description: 'Indicates whether the user is active.',
-    example: true,
-  })
-  isActive: boolean;
-
-  @ApiProperty({
-    description: 'The date and time when the user account was created.',
-    example: '2024-01-01T12:00:00Z',
-  })
-  @Transform(({ value }: { value: Date }) => value.toISOString())
-  createdAt: Date;
-
-  @ApiProperty({
-    description: 'The date and time when the user account was last updated.',
-    example: '2024-01-01T12:00:00Z',
-  })
-  @Transform(({ value }: { value: Date }) => value.toISOString())
-  updatedAt: Date;
-
-  @Exclude()
-  picture?: string | null | undefined;
-
-  @ApiProperty({
-    description: 'Role of user',
-    example: 'USER'
-  })
-  @IsEnum(Role)
-  role: Role.USER | Role.ADMIN;
-
-  @ApiProperty({
-    description: ' Id of company',
-    example: "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
-  })
-  @IsString()
-  companyId: string;
-
-  @ApiProperty({
-    description: 'Email of user',
-    example: 'riccardo.meggiolaro@baron.it'
-  })
-  @IsString()
-  email: string;
-
-  @ApiProperty({
-    description: 'Password of user',
-    example: 'admin'
-  })
-  @IsString()
-  password: string;
-
-  constructor(partial: Partial<PrismaUser>) {
-    Object.assign(this, partial);
-  }
+  firstName: string,
+  lastName: string,
+  email: string,
+  role: string,
+  isActive: boolean,
+  company: PrismaCompany | null,
+  createdAt: Date,
+  updatedAt: Date,
+  picture: string | null,
+  password: string
 }

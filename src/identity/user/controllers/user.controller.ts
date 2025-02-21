@@ -6,12 +6,10 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-
-import { User, UserWithoutFUllName } from '../../user/dtos/user.dto';
-
 import { AdminGuard } from '@shared/guards/admin.guard';
 import { UserService } from '../services/user.service';
 import { ERROR_USER_NOT_FOUND } from 'src/identity/auth/constants/auth.constants';
+import { User } from '../dtos/user.dto';
 
 @ApiTags('user')
 @Controller('user')
@@ -26,9 +24,6 @@ export class UserController {
         summary: 'Get the list of user.',
         description: 'This endpoint get the list of user.',
     })
-    @ApiOkResponse({
-        type: [User],
-    })
     async list(): Promise<User[]> {
         return await this.userSrv.list();
     }
@@ -40,7 +35,6 @@ export class UserController {
     })
     @ApiOkResponse({
         description: 'The user was successfully found.',
-        type: User,
     })
     @ApiNotFoundResponse({
         description: ERROR_USER_NOT_FOUND,
@@ -60,7 +54,7 @@ export class UserController {
     @ApiNotFoundResponse({
         description: ERROR_USER_NOT_FOUND,
     })
-    async delete(@Param('id') id: string): Promise<UserWithoutFUllName> {
+    async delete(@Param('id') id: string): Promise<User> {
         return await this.userSrv.deleteById(id);        
     }
 }

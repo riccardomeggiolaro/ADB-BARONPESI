@@ -27,11 +27,9 @@ export class ApplicationTenantDBController {
   })
   @ApiBody({
     description: 'The registration details for the new application tenant db.',
-    type: ApplicationTenantDB,
   })
   @ApiCreatedResponse({
     description: 'The application tenant db was successfully registered.',
-    type: ApplicationTenantDB,
   })
   @ApiBadRequestResponse({
     description: ERROR_APPLLICATION_TENANT_DB_EXISTS,

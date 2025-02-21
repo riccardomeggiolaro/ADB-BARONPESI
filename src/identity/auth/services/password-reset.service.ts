@@ -25,7 +25,7 @@ export class PasswordResetService {
 
     const data: Prisma.PasswordResetCreateInput = {
       expiresAt: new Date(Date.now() + 900000),
-      users: {
+      user: {
         connect: {
           id: userId
         }
@@ -43,7 +43,7 @@ export class PasswordResetService {
       const resetRequest: PasswordReset | null =
         await prisma.passwordReset.findFirst({
           where: {
-            users: {
+            user: {
               id: id
             },
             token,

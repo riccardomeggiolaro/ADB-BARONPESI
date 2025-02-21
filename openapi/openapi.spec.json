@@ -175,21 +175,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ApplicationTenantDB"
+                "type": "string"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "The application tenant db was successfully registered.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApplicationTenantDB"
-                }
-              }
-            }
+            "description": "The application tenant db was successfully registered."
           },
           "400": {
             "description": "A application tenant db with this code already exists"
@@ -325,14 +318,7 @@
         },
         "responses": {
           "201": {
-            "description": "The user was successfully registered.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
+            "description": "The user was successfully registered."
           },
           "400": {
             "description": "An user with this email already exists"
@@ -419,17 +405,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
+            "description": ""
           }
         },
         "tags": [
@@ -454,14 +430,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The user was successfully found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
+            "description": "The user was successfully found."
           },
           "404": {
             "description": "User not found"
@@ -562,31 +531,6 @@
           "code"
         ]
       },
-      "ApplicationTenantDB": {
-        "type": "object",
-        "properties": {
-          "applicationId": {
-            "type": "string",
-            "description": "Id of application.",
-            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
-          },
-          "companyId": {
-            "type": "string",
-            "description": "Id of company.",
-            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
-          },
-          "database_connection": {
-            "type": "string",
-            "description": "The string connection of database",
-            "example": "mysql://admin:secret@localhost:3306/my_database"
-          }
-        },
-        "required": [
-          "applicationId",
-          "companyId",
-          "database_connection"
-        ]
-      },
       "LoginBodyDto": {
         "type": "object",
         "properties": {
@@ -606,92 +550,12 @@
           "password"
         ]
       },
-      "User": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the user.",
-            "example": "1234"
-          },
-          "firstName": {
-            "type": "string",
-            "description": "The user's first name.",
-            "example": "John"
-          },
-          "lastName": {
-            "type": "string",
-            "description": "The user's last name.",
-            "example": "Doe"
-          },
-          "fullName": {
-            "type": "string",
-            "description": "The user's full name, automatically generated from first and last names.",
-            "example": "John Doe",
-            "readOnly": true
-          },
-          "isActive": {
-            "type": "boolean",
-            "description": "Indicates whether the user is active.",
-            "example": true
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string",
-            "description": "The date and time when the user account was created.",
-            "example": "2024-01-01T12:00:00Z"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string",
-            "description": "The date and time when the user account was last updated.",
-            "example": "2024-01-01T12:00:00Z"
-          },
-          "role": {
-            "type": "string",
-            "description": "Role of user",
-            "example": "USER"
-          },
-          "companyId": {
-            "type": "string",
-            "description": " Id of company",
-            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
-          },
-          "email": {
-            "type": "string",
-            "description": "Email of user",
-            "example": "riccardo.meggiolaro@baron.it"
-          },
-          "password": {
-            "type": "string",
-            "description": "Password of user",
-            "example": "admin"
-          }
-        },
-        "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "fullName",
-          "isActive",
-          "createdAt",
-          "updatedAt",
-          "role",
-          "companyId",
-          "email",
-          "password"
-        ]
-      },
       "AuthResponseDto": {
         "type": "object",
         "properties": {
           "user": {
-            "description": "The authenticated user object containing user details.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/User"
-              }
-            ]
+            "type": "object",
+            "description": "The authenticated user object containing user details."
           },
           "accessToken": {
             "type": "string",

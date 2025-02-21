@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiBody,
@@ -10,14 +10,12 @@ import {
 } from '@nestjs/swagger';
 import { AuthUser, Public } from '@shared/decorators';
 import { LocalAuthGuard } from '@shared/guards';
-
-import { User } from '../../user/dtos/user.dto';
-
 import { ERROR_EMAIL_EXISTS } from '../constants/auth.constants';
 import { LoginBodyDto, RegisterBodyDto } from '../dtos/body.dto';
 import { AuthResponseDto } from '../interfaces/auth.interface';
 import { AuthService } from '../services/auth.service';
 import { AdminGuard } from '@shared/guards/admin.guard';
+import { User } from 'src/identity/user/dtos/user.dto';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -63,7 +61,6 @@ export class AuthController {
   })
   @ApiCreatedResponse({
     description: 'The user was successfully registered.',
-    type: User,
   })
   @ApiBadRequestResponse({
     description: ERROR_EMAIL_EXISTS,

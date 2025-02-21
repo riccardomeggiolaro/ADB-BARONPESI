@@ -1,8 +1,8 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { isDefined } from 'class-validator';
 import { PrismaMySqlService } from 'src/config/database/mysql/prisma.mysql.service';
-import { Prisma, ApplicationTenantDB as PrismaApplicationTenantDB } from '@prisma/client';
-import { ApplicationTenantDB, ApplicationTenantDBDTO } from '../dtos/application_tenant_db.dto';
+import { Prisma } from '@prisma/client';
+import { ApplicationTenantDB, ApplicationTenantDBDTO, selectOPtions } from '../dtos/application_tenant_db.dto';
 import { ERROR_APPLICATION_TENANT_DB_NOT_FOUND, ERROR_APPLLICATION_TENANT_DB_EXISTS } from '../constants/application_tenant_db.constants';
 
 @Injectable()
@@ -23,30 +23,30 @@ export class ApplicationTenantDBService {
     }
 
     try {
-      const newApplicationTenantDB: PrismaApplicationTenantDB = await this.prisma.applicationTenantDB.create({
+      const newApplicationTenantDB: ApplicationTenantDB = await this.prisma.applicationTenantDB.create({
         data: {
-          applications: {
+          application: {
             connect: {id: data.applicationId}
           },
-          companies: {
+          company: {
             connect: {id: data.companyId}
           },
           database_connection: data.database_connection
-        }
+        },
+        select: selectOPtions
       });
 
-      return new ApplicationTenantDB(newApplicationTenantDB);
+      return newApplicationTenantDB;
     } catch(err) {
       if (err.code === "P2025") {
         let errorMessage: string = "";
       
-        console.log(err.message);
-
         if (err.message.includes("'Application'")) {
           errorMessage = `La applicazione con ID '${data.applicationId}' non esiste`;
         } else if (err.message.includes("'Company'")) {
           errorMessage = `La azienda con ID '${data.companyId}' non esiste`;
         }
+
         throw new NotFoundException(errorMessage);
       }
       throw new Error(err.message);
@@ -54,26 +54,25 @@ export class ApplicationTenantDBService {
   }
 
   async findById(id: string): Promise<ApplicationTenantDB | undefined> {
-    const applicationTenantDB: PrismaApplicationTenantDB | null = await this.prisma.applicationTenantDB.findUnique({
+    const applicationTenantDB: ApplicationTenantDB | null = await this.prisma.applicationTenantDB.findUnique({
       where: { id },
+      select: selectOPtions
     });
 
     if (!isDefined(applicationTenantDB)) {
       throw new NotFoundException(ERROR_APPLICATION_TENANT_DB_NOT_FOUND);
     }
 
-    return new ApplicationTenantDB(applicationTenantDB);
+    return applicationTenantDB;
   }
 
   async findJustExists(data: Prisma.ApplicationTenantDBWhereInput): Promise<ApplicationTenantDB | undefined> {
-    const applicationTenantDB: PrismaApplicationTenantDB | null = await this.prisma.applicationTenantDB.findFirst({
-      where: data,
-    });
+    const applicationTenantDB: ApplicationTenantDB | null = await this.prisma.applicationTenantDB.findFirst({ where: data, select: selectOPtions });
 
-    return isDefined(applicationTenantDB) ? new ApplicationTenantDB(applicationTenantDB) : undefined;
+    return isDefined(applicationTenantDB) ? applicationTenantDB : undefined;
   }
 
   async list(): Promise<ApplicationTenantDB[]> {
-    return await this.prisma.applicationTenantDB.findMany();
+    return await this.prisma.applicationTenantDB.findMany({ select: selectOPtions });
   }
 }

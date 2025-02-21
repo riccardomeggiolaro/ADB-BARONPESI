@@ -4,7 +4,6 @@ import { User } from 'src/identity/user/dtos/user.dto';
 export class AuthResponseDto {
   @ApiProperty({
     description: 'The authenticated user object containing user details.',
-    type: User,
   })
   user: User;
 

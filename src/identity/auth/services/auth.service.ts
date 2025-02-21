@@ -7,10 +7,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { isDefined } from '@shared/utils';
 import * as bcrypt from 'bcryptjs';
-import { User } from 'src/identity/user/dtos/user.dto';
-
 import { UserService } from '../../user/services/user.service';
-
 import {
   ERROR_EMAIL_EXISTS,
   ERROR_INVALID_CREDENTIALS,
@@ -20,6 +17,8 @@ import {
 import { RegisterBodyDto } from '../dtos/body.dto';
 import { AuthResponseDto } from '../interfaces/auth.interface';
 import { instanceToPlain } from 'class-transformer';
+import { User as PrismaUser } from '@prisma/client';
+import { User } from 'src/identity/user/dtos/user.dto';
 
 @Injectable()
 export class AuthService {
@@ -67,7 +66,7 @@ export class AuthService {
         firstName: registerBodyDTO.firstName,
         lastName: registerBodyDTO.lastName,
         picture: registerBodyDTO.picture,
-        companies: { connect: { id: registerBodyDTO.companyId } },
+        company: { connect: { id: registerBodyDTO.companyId } },
         email: registerBodyDTO.email,
         password: hashedPassword
       });
