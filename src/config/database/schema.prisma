@@ -41,7 +41,7 @@ model User {
   email           String          @unique(map: "email") @db.VarChar(255)
   password        String          @db.Text
   password_resets PasswordReset[]
-  companies       Company?        @relation(fields: [companyId], references: [id], onDelete: Restrict, map: "user_companyId_fkey")
+  companies       Company?        @relation(fields: [companyId], references: [id], onDelete: Restrict, map: "users_companyId_fkey")
 
   @@index([companyId])
   @@map("users")
