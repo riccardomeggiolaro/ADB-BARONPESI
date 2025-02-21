@@ -9,44 +9,46 @@ datasource db {
 }
 
 model Company {
-  id          String  @id @default(uuid()) @db.VarChar(255)
-  description String  @db.Text
-  cell        String? @db.Text
-  cfpiva      String? @db.Text
-  users       User[]
+  id                     String                @id @default(dbgenerated("(uuid())")) @db.VarChar(255)
+  description            String                @db.Text
+  cell                   String?               @db.Text
+  cfpiva                 String?               @db.Text
+  application_tenant_dbs ApplicationTenantDB[]
+  users                  User[]
 
   @@map("companies")
 }
 
 model Application {
-  id          String @id @default(uuid()) @db.VarChar(255)
-  code        String @db.Text
-  description String @db.Text
+  id                     String                @id @default(dbgenerated("(uuid())")) @db.VarChar(255)
+  code                   String                @db.Text
+  description            String                @db.Text
+  application_tenant_dbs ApplicationTenantDB[]
 
   @@map("applications")
 }
 
 model User {
-  id              String          @id @default(uuid()) @db.VarChar(255)
+  id              String          @id @default(dbgenerated("(uuid())")) @db.VarChar(255)
   firstName       String          @db.VarChar(255)
   lastName        String          @db.VarChar(255)
   picture         String?         @db.Text
-  isActive        Boolean?        @default(true)
+  isActive        Boolean         @default(true)
   createdAt       DateTime        @default(now()) @db.Timestamp(0)
   updatedAt       DateTime        @default(now()) @updatedAt @db.Timestamp(0)
   role            Role            @default(USER)
   companyId       String?         @db.VarChar(255)
-  email           String          @db.VarChar(255)
+  email           String          @unique(map: "email") @db.VarChar(255)
   password        String          @db.Text
   password_resets PasswordReset[]
   companies       Company?        @relation(fields: [companyId], references: [id], onDelete: Restrict, map: "user_companyId_fkey")
 
-  @@index([companyId], map: "user_companyId_idx")
+  @@index([companyId])
   @@map("users")
 }
 
 model PasswordReset {
-  id        String   @id @default(uuid()) @db.VarChar(255)
+  id        String   @id @default(dbgenerated("(uuid())")) @db.VarChar(255)
   userId    String   @db.VarChar(255)
   token     String   @db.Text
   used      Boolean  @default(false)
@@ -56,6 +58,19 @@ model PasswordReset {
 
   @@index([userId])
   @@map("password_resets")
+}
+
+model ApplicationTenantDB {
+  id                  String      @id @default(dbgenerated("(uuid())")) @db.VarChar(255)
+  applicationId       String      @db.VarChar(255)
+  companyId           String      @db.VarChar(255)
+  database_connection String      @db.Text
+  applications        Application @relation(fields: [applicationId], references: [id], map: "application_tenant_dbs_applicationId_fkey")
+  companies           Company     @relation(fields: [companyId], references: [id], map: "application_tenant_dbs_companyId_fkey")
+
+  @@index([applicationId])
+  @@index([companyId])
+  @@map("application_tenant_dbs")
 }
 
 enum Role {

@@ -163,6 +163,87 @@
         ]
       }
     },
+    "/api/application/tenant/db/register": {
+      "post": {
+        "operationId": "ApplicationTenantDBController_register",
+        "summary": "Register a new application tenant db.",
+        "description": "This endpoint register a new application tenant db.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "The registration details for the new application tenant db.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationTenantDB"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The application tenant db was successfully registered.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationTenantDB"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A application tenant db with this code already exists"
+          }
+        },
+        "tags": [
+          "application/tenant/db"
+        ]
+      }
+    },
+    "/api/application/tenant/db/list": {
+      "get": {
+        "operationId": "ApplicationTenantDBController_list",
+        "summary": "Get the list of application tenant dbs",
+        "description": "This endpoint get the list of application tenant dbs",
+        "parameters": [],
+        "responses": {
+          "302": {
+            "description": "The list of application tenant dbs was returned"
+          }
+        },
+        "tags": [
+          "application/tenant/db"
+        ]
+      }
+    },
+    "/api/application/tenant/db/{id}": {
+      "get": {
+        "operationId": "ApplicationTenantDBController_find",
+        "summary": "Get a application tenant db",
+        "description": "This endpoint get a application tenant db",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "The application tenant db was succesfully founded"
+          },
+          "404": {
+            "description": "Application tenant db not found"
+          }
+        },
+        "tags": [
+          "application/tenant/db"
+        ]
+      }
+    },
     "/api": {
       "get": {
         "operationId": "AppController_getHello",
@@ -481,6 +562,31 @@
           "code"
         ]
       },
+      "ApplicationTenantDB": {
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "type": "string",
+            "description": "Id of application.",
+            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
+          },
+          "companyId": {
+            "type": "string",
+            "description": "Id of company.",
+            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
+          },
+          "database_connection": {
+            "type": "string",
+            "description": "The string connection of database",
+            "example": "mysql://admin:secret@localhost:3306/my_database"
+          }
+        },
+        "required": [
+          "applicationId",
+          "companyId",
+          "database_connection"
+        ]
+      },
       "LoginBodyDto": {
         "type": "object",
         "properties": {
@@ -547,7 +653,7 @@
             "example": "USER"
           },
           "companyId": {
-            "type": "object",
+            "type": "string",
             "description": " Id of company",
             "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
           },
@@ -627,7 +733,7 @@
             "example": "P@ssw0rd123"
           },
           "companyId": {
-            "type": "object",
+            "type": "string",
             "description": " Id of company",
             "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
           }

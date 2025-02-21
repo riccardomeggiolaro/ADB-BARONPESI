@@ -1,5 +1,5 @@
 CREATE TABLE applications (
-    id VARCHAR(255) DEFAULT (UUID()),
+    id VARCHAR(255) NOT NULL DEFAULT (UUID()),
     code TEXT NOT NULL,
     description TEXT NOT NULL,
     PRIMARY KEY (id)
@@ -13,26 +13,24 @@ CREATE TABLE companies (
     PRIMARY KEY (id)
 );
 
--- CreateTable: users
 CREATE TABLE users (
-    id VARCHAR(255) DEFAULT (UUID()),
+    id VARCHAR(255) NOT NULL DEFAULT (UUID()),
     firstName VARCHAR(255) NOT NULL,
     lastName VARCHAR(255) NOT NULL,
     picture TEXT,
-    isActive BOOLEAN DEFAULT true,
+    isActive BOOLEAN NOT NULL DEFAULT true,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     role ENUM('USER', 'ADMIN') NOT NULL DEFAULT 'USER',
     companyId VARCHAR(255),
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     password TEXT NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT user_companyId_fkey FOREIGN KEY (companyId) REFERENCES companies(id) ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT users_companyId_fkey FOREIGN KEY (companyId) REFERENCES companies(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
--- CreateTable: password_resets
 CREATE TABLE password_resets (
-    id VARCHAR(255) DEFAULT (UUID()),
+    id VARCHAR(255) NOT NULL DEFAULT (UUID()),
     userId VARCHAR(255) NOT NULL,
     token TEXT NOT NULL,
     used BOOLEAN NOT NULL DEFAULT false,
@@ -42,19 +40,30 @@ CREATE TABLE password_resets (
     CONSTRAINT password_resets_userId_fkey FOREIGN KEY (userId) REFERENCES users(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
--- Indexes
-CREATE INDEX user_companyId_idx ON users(companyId);
-CREATE INDEX password_resets_userId_idx ON password_resets(userId);
+CREATE TABLE application_tenant_dbs (
+    id VARCHAR(255) NOT NULL DEFAULT (UUID()),
+    applicationId VARCHAR(255) NOT NULL,
+    companyId VARCHAR(255) NOT NULL,
+    database_connection TEXT NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT application_tenant_dbs_applicationId_fkey FOREIGN KEY (applicationId) REFERENCES applications(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT application_tenant_dbs_companyId_fkey FOREIGN KEY (companyId) REFERENCES companies(id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
 
+-- Indexes
+CREATE INDEX users_companyId_idx ON users(companyId);
+CREATE INDEX password_resets_userId_idx ON password_resets(userId);
+CREATE INDEX application_tenant_dbs_applicationId_idx ON application_tenant_dbs(applicationId);
+CREATE INDEX application_tenant_dbs_companyId_idx ON application_tenant_dbs(companyId);
+
+-- Inserimento dati
 START TRANSACTION;
 
--- Inserisci un nuovo utente e ottieni l'ID
-SET @user_id = UUID(); -- Genera un ID unico per l'utente
-SET @password_resets_id = UUID();
-SET @companies_id = UUID();
-SET @applications_id = UUID();
+SET @user_id = UUID();
+SET @password_reset_id = UUID();
 
-INSERT INTO users (id, firstName, lastName, picture, isActive, createdAt, updatedAt, role, companyId, email, password)
+-- Inserimento di un utente admin associato a un'azienda
+INSERT INTO users (id, firstName, lastName, picture, isActive, createdAt, updatedAt, role, email, password)
 VALUES 
 (
     @user_id, 
@@ -64,10 +73,9 @@ VALUES
     true, 
     CURRENT_TIMESTAMP, 
     CURRENT_TIMESTAMP, 
-    'ADMIN', 
-    NULL,
+    'ADMIN',
     'riccardo.meggiolaro@baron.it',
-    '$2b$10$guEA4WvsiIUTP7nl.sq/XuWMdAERAaUAzdidIHRf7YXqgYQEYZ4tm' -- admin
+    '$2b$10$guEA4WvsiIUTP7nl.sq/XuWMdAERAaUAzdidIHRf7YXqgYQEYZ4tm'
 );
 
 COMMIT;

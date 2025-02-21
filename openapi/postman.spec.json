@@ -5,7 +5,974 @@
             "description": "",
             "item": [
                 {
-                    "id": "931eab50-44c7-464c-b699-9e09c06a85ae",
+                    "name": "company",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "register",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "1d941033-457c-4d20-a13b-507fe17ca7e8",
+                                    "name": "Register a new company.",
+                                    "request": {
+                                        "name": "Register a new company.",
+                                        "description": {
+                                            "content": "This endpoint register a new company.",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "company",
+                                                "register"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"description\": \"<string>\",\n  \"cell\": {},\n  \"cfpiva\": {}\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "2889de17-9777-4d14-a684-33ce5d28f849",
+                                            "name": "The company was successfully registered.",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "company",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"description\": \"<string>\",\n  \"cell\": {},\n  \"cfpiva\": {}\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Created",
+                                            "code": 201,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"description\": \"<string>\",\n  \"cell\": {},\n  \"cfpiva\": {}\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        },
+                                        {
+                                            "id": "22514597-aa67-4583-bf55-d29750416a90",
+                                            "name": "A company with this description already exists",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "company",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"description\": \"<string>\",\n  \"cell\": {},\n  \"cfpiva\": {}\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Bad Request",
+                                            "code": 400,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "list",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "70131353-895b-4ad1-ad6a-d0c726df1ee5",
+                                    "name": "Get the list of companies",
+                                    "request": {
+                                        "name": "Get the list of companies",
+                                        "description": {
+                                            "content": "This endpoint get the list of companies",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "company",
+                                                "list"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "77504212-838b-4dfc-affd-25082f0282f5",
+                                            "name": "The list of companies was returned",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "company",
+                                                        "list"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Found",
+                                            "code": 302,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "{id}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "e73aaf8e-8423-412a-b26e-48482a05e32d",
+                                    "name": "Get a company",
+                                    "request": {
+                                        "name": "Get a company",
+                                        "description": {
+                                            "content": "This endpoint get a company",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "company",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<string>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "f059e512-8655-4e59-b9c9-9acabcab0353",
+                                            "name": "The company was succesfully founded",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "company",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Found",
+                                            "code": 302,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        },
+                                        {
+                                            "id": "204f6c47-9e81-4116-8c85-e346c3de4f59",
+                                            "name": "Company not found",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "company",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "application",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "register",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "18ec452c-c851-4302-9181-b27fefeb8ed0",
+                                    "name": "Register a new application.",
+                                    "request": {
+                                        "name": "Register a new application.",
+                                        "description": {
+                                            "content": "This endpoint register a new application.",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "application",
+                                                "register"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"description\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "3cd9ebe2-057f-4782-adb0-2f81c5c5c981",
+                                            "name": "The application was successfully registered.",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "application",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"description\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Created",
+                                            "code": 201,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"description\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        },
+                                        {
+                                            "id": "b202df8d-6cb3-479a-8e8d-770d0f93f925",
+                                            "name": "A application with this code already exists",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "application",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"description\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Bad Request",
+                                            "code": 400,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "list",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "7b3cb507-36b9-4a4c-8d19-cc18286649be",
+                                    "name": "Get the list of applications",
+                                    "request": {
+                                        "name": "Get the list of applications",
+                                        "description": {
+                                            "content": "This endpoint get the list of applications",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "application",
+                                                "list"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "60dd5263-ec13-4f58-9d85-e4b68250f6d9",
+                                            "name": "The list of applications was returned",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "application",
+                                                        "list"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Found",
+                                            "code": 302,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "{id}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "f8edd3ac-1e55-470e-9814-7130cb5de3bf",
+                                    "name": "Get a application",
+                                    "request": {
+                                        "name": "Get a application",
+                                        "description": {
+                                            "content": "This endpoint get a application",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "application",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<string>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "4fa5c7fa-695f-4ced-b85f-505439950efb",
+                                            "name": "The application was succesfully founded",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "application",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Found",
+                                            "code": 302,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        },
+                                        {
+                                            "id": "81279864-5dba-4cfe-9f8d-9c53eaa5fdb8",
+                                            "name": "Application not found",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "application",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "tenant",
+                            "description": "",
+                            "item": [
+                                {
+                                    "name": "db",
+                                    "description": "",
+                                    "item": [
+                                        {
+                                            "name": "register",
+                                            "description": "",
+                                            "item": [
+                                                {
+                                                    "id": "4e7fdeef-8966-47f5-9cd4-dda0a3817933",
+                                                    "name": "Register a new application tenant db.",
+                                                    "request": {
+                                                        "name": "Register a new application tenant db.",
+                                                        "description": {
+                                                            "content": "This endpoint register a new application tenant db.",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "application",
+                                                                "tenant",
+                                                                "db",
+                                                                "register"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "header": [
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "method": "POST",
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"applicationId\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"database_connection\": \"<string>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "headerFamily": "json",
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        },
+                                                        "auth": null
+                                                    },
+                                                    "response": [
+                                                        {
+                                                            "id": "a498e427-c16a-42ad-9f4c-c052c8691733",
+                                                            "name": "The application tenant db was successfully registered.",
+                                                            "originalRequest": {
+                                                                "url": {
+                                                                    "path": [
+                                                                        "api",
+                                                                        "application",
+                                                                        "tenant",
+                                                                        "db",
+                                                                        "register"
+                                                                    ],
+                                                                    "host": [
+                                                                        "{{baseUrl}}"
+                                                                    ],
+                                                                    "query": [],
+                                                                    "variable": []
+                                                                },
+                                                                "header": [
+                                                                    {
+                                                                        "key": "Content-Type",
+                                                                        "value": "application/json"
+                                                                    },
+                                                                    {
+                                                                        "key": "Accept",
+                                                                        "value": "application/json"
+                                                                    }
+                                                                ],
+                                                                "method": "POST",
+                                                                "body": {
+                                                                    "mode": "raw",
+                                                                    "raw": "{\n  \"applicationId\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"database_connection\": \"<string>\"\n}",
+                                                                    "options": {
+                                                                        "raw": {
+                                                                            "headerFamily": "json",
+                                                                            "language": "json"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "status": "Created",
+                                                            "code": 201,
+                                                            "header": [
+                                                                {
+                                                                    "key": "Content-Type",
+                                                                    "value": "application/json"
+                                                                }
+                                                            ],
+                                                            "body": "{\n  \"applicationId\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"database_connection\": \"<string>\"\n}",
+                                                            "cookie": [],
+                                                            "_postman_previewlanguage": "json"
+                                                        },
+                                                        {
+                                                            "id": "5ca72086-77ae-4858-b176-3eb5e765c8f6",
+                                                            "name": "A application tenant db with this code already exists",
+                                                            "originalRequest": {
+                                                                "url": {
+                                                                    "path": [
+                                                                        "api",
+                                                                        "application",
+                                                                        "tenant",
+                                                                        "db",
+                                                                        "register"
+                                                                    ],
+                                                                    "host": [
+                                                                        "{{baseUrl}}"
+                                                                    ],
+                                                                    "query": [],
+                                                                    "variable": []
+                                                                },
+                                                                "header": [
+                                                                    {
+                                                                        "key": "Content-Type",
+                                                                        "value": "application/json"
+                                                                    }
+                                                                ],
+                                                                "method": "POST",
+                                                                "body": {
+                                                                    "mode": "raw",
+                                                                    "raw": "{\n  \"applicationId\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"database_connection\": \"<string>\"\n}",
+                                                                    "options": {
+                                                                        "raw": {
+                                                                            "headerFamily": "json",
+                                                                            "language": "json"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "status": "Bad Request",
+                                                            "code": 400,
+                                                            "header": [],
+                                                            "cookie": [],
+                                                            "_postman_previewlanguage": "text"
+                                                        }
+                                                    ],
+                                                    "event": [],
+                                                    "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "list",
+                                            "description": "",
+                                            "item": [
+                                                {
+                                                    "id": "45434309-d15e-41b1-aa55-73b6e3ee3a54",
+                                                    "name": "Get the list of application tenant dbs",
+                                                    "request": {
+                                                        "name": "Get the list of application tenant dbs",
+                                                        "description": {
+                                                            "content": "This endpoint get the list of application tenant dbs",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "application",
+                                                                "tenant",
+                                                                "db",
+                                                                "list"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "method": "GET",
+                                                        "body": {},
+                                                        "auth": null
+                                                    },
+                                                    "response": [
+                                                        {
+                                                            "id": "cc5914f0-dbbe-4b7f-a181-507623c5b527",
+                                                            "name": "The list of application tenant dbs was returned",
+                                                            "originalRequest": {
+                                                                "url": {
+                                                                    "path": [
+                                                                        "api",
+                                                                        "application",
+                                                                        "tenant",
+                                                                        "db",
+                                                                        "list"
+                                                                    ],
+                                                                    "host": [
+                                                                        "{{baseUrl}}"
+                                                                    ],
+                                                                    "query": [],
+                                                                    "variable": []
+                                                                },
+                                                                "method": "GET",
+                                                                "body": {}
+                                                            },
+                                                            "status": "Found",
+                                                            "code": 302,
+                                                            "header": [],
+                                                            "cookie": [],
+                                                            "_postman_previewlanguage": "text"
+                                                        }
+                                                    ],
+                                                    "event": [],
+                                                    "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "{id}",
+                                            "description": "",
+                                            "item": [
+                                                {
+                                                    "id": "9051fe4b-23e8-42bb-8f64-9414ee863794",
+                                                    "name": "Get a application tenant db",
+                                                    "request": {
+                                                        "name": "Get a application tenant db",
+                                                        "description": {
+                                                            "content": "This endpoint get a application tenant db",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "application",
+                                                                "tenant",
+                                                                "db",
+                                                                ":id"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": [
+                                                                {
+                                                                    "type": "any",
+                                                                    "value": "<string>",
+                                                                    "key": "id",
+                                                                    "disabled": false,
+                                                                    "description": {
+                                                                        "content": "(Required) ",
+                                                                        "type": "text/plain"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        "method": "GET",
+                                                        "body": {},
+                                                        "auth": null
+                                                    },
+                                                    "response": [
+                                                        {
+                                                            "id": "780665ea-93a5-478c-afdb-d0d78e78d5df",
+                                                            "name": "The application tenant db was succesfully founded",
+                                                            "originalRequest": {
+                                                                "url": {
+                                                                    "path": [
+                                                                        "api",
+                                                                        "application",
+                                                                        "tenant",
+                                                                        "db",
+                                                                        ":id"
+                                                                    ],
+                                                                    "host": [
+                                                                        "{{baseUrl}}"
+                                                                    ],
+                                                                    "query": [],
+                                                                    "variable": []
+                                                                },
+                                                                "method": "GET",
+                                                                "body": {}
+                                                            },
+                                                            "status": "Found",
+                                                            "code": 302,
+                                                            "header": [],
+                                                            "cookie": [],
+                                                            "_postman_previewlanguage": "text"
+                                                        },
+                                                        {
+                                                            "id": "d4e81af2-e227-4608-bacf-05b0ab6ec217",
+                                                            "name": "Application tenant db not found",
+                                                            "originalRequest": {
+                                                                "url": {
+                                                                    "path": [
+                                                                        "api",
+                                                                        "application",
+                                                                        "tenant",
+                                                                        "db",
+                                                                        ":id"
+                                                                    ],
+                                                                    "host": [
+                                                                        "{{baseUrl}}"
+                                                                    ],
+                                                                    "query": [],
+                                                                    "variable": []
+                                                                },
+                                                                "method": "GET",
+                                                                "body": {}
+                                                            },
+                                                            "status": "Not Found",
+                                                            "code": 404,
+                                                            "header": [],
+                                                            "cookie": [],
+                                                            "_postman_previewlanguage": "text"
+                                                        }
+                                                    ],
+                                                    "event": [],
+                                                    "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "4ae2ee8c-0653-4e24-bffc-d581ed8d216e",
                     "name": "App Controller get Hello",
                     "request": {
                         "name": "App Controller get Hello",
@@ -26,7 +993,7 @@
                     },
                     "response": [
                         {
-                            "id": "0770afb8-7a9b-4d3e-9911-6170e4c0463d",
+                            "id": "33184937-6a74-4d73-8b07-f79d378aa233",
                             "originalRequest": {
                                 "url": {
                                     "path": [
@@ -54,60 +1021,85 @@
                     }
                 },
                 {
-                    "name": "login",
+                    "name": "auth",
                     "description": "",
                     "item": [
                         {
-                            "id": "a3f7220f-378c-440e-8b91-d737d0a2046e",
-                            "name": "Login user and return access token.",
-                            "request": {
-                                "name": "Login user and return access token.",
-                                "description": {
-                                    "content": "This endpoint allows a user to login.",
-                                    "type": "text/plain"
-                                },
-                                "url": {
-                                    "path": [
-                                        "api",
-                                        "login"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [],
-                                    "variable": []
-                                },
-                                "header": [
-                                    {
-                                        "key": "Content-Type",
-                                        "value": "application/json"
-                                    },
-                                    {
-                                        "key": "Accept",
-                                        "value": "application/json"
-                                    }
-                                ],
-                                "method": "POST",
-                                "body": {
-                                    "mode": "raw",
-                                    "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
-                                    "options": {
-                                        "raw": {
-                                            "headerFamily": "json",
-                                            "language": "json"
-                                        }
-                                    }
-                                },
-                                "auth": null
-                            },
-                            "response": [
+                            "name": "profile",
+                            "description": "",
+                            "item": [
                                 {
-                                    "id": "41f65716-40eb-48e2-8789-ff6d71911b80",
-                                    "name": "The user was successfully logged in.",
-                                    "originalRequest": {
+                                    "id": "e5589cee-6808-437b-b079-2ec7ef1324d1",
+                                    "name": "Auth Controller profile",
+                                    "request": {
+                                        "name": "Auth Controller profile",
+                                        "description": {},
                                         "url": {
                                             "path": [
                                                 "api",
+                                                "auth",
+                                                "profile"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "b7d85dbf-e242-4672-9441-3811adf5bdd9",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "auth",
+                                                        "profile"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "login",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "45f18af5-4825-4b86-893b-cc4085cb5c24",
+                                    "name": "Login user and return access token.",
+                                    "request": {
+                                        "name": "Login user and return access token.",
+                                        "description": {
+                                            "content": "This endpoint allows a user to login.",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "auth",
                                                 "login"
                                             ],
                                             "host": [
@@ -136,122 +1128,125 @@
                                                     "language": "json"
                                                 }
                                             }
-                                        }
-                                    },
-                                    "status": "OK",
-                                    "code": 200,
-                                    "header": [
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/json"
-                                        }
-                                    ],
-                                    "body": "{\n  \"user\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  \"accessToken\": \"<string>\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "651d4414-2602-4bea-9307-24f7da3a8fb7",
-                                    "name": "Unauthorized. Invalid credentials.",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "api",
-                                                "login"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [],
-                                            "variable": []
                                         },
-                                        "header": [
-                                            {
-                                                "key": "Content-Type",
-                                                "value": "application/json"
-                                            }
-                                        ],
-                                        "method": "POST",
-                                        "body": {
-                                            "mode": "raw",
-                                            "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
-                                            "options": {
-                                                "raw": {
-                                                    "headerFamily": "json",
-                                                    "language": "json"
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "8e0fc05e-fbfe-40d5-88d2-3b5fffb95531",
+                                            "name": "The user was successfully logged in.",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "auth",
+                                                        "login"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
                                                 }
-                                            }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"user\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"role\": \"<string>\",\n    \"companyId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"password\": \"<string>\"\n  },\n  \"accessToken\": \"<string>\"\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        },
+                                        {
+                                            "id": "23592a45-24ea-4e86-99a2-135e09a23097",
+                                            "name": "Unauthorized. Invalid credentials.",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "auth",
+                                                        "login"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Unauthorized",
+                                            "code": 401,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
                                         }
-                                    },
-                                    "status": "Unauthorized",
-                                    "code": 401,
-                                    "header": [],
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
                                 }
-                            ],
-                            "event": [],
-                            "protocolProfileBehavior": {
-                                "disableBodyPruning": true
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "register",
-                    "description": "",
-                    "item": [
+                            ]
+                        },
                         {
-                            "id": "205d7675-561f-4e38-aa0b-335b2323c154",
-                            "name": "Register a new user.",
-                            "request": {
-                                "name": "Register a new user.",
-                                "description": {
-                                    "content": "This endpoint allows a new user to register.",
-                                    "type": "text/plain"
-                                },
-                                "url": {
-                                    "path": [
-                                        "api",
-                                        "register"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [],
-                                    "variable": []
-                                },
-                                "header": [
-                                    {
-                                        "key": "Content-Type",
-                                        "value": "application/json"
-                                    },
-                                    {
-                                        "key": "Accept",
-                                        "value": "application/json"
-                                    }
-                                ],
-                                "method": "POST",
-                                "body": {
-                                    "mode": "raw",
-                                    "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
-                                    "options": {
-                                        "raw": {
-                                            "headerFamily": "json",
-                                            "language": "json"
-                                        }
-                                    }
-                                },
-                                "auth": null
-                            },
-                            "response": [
+                            "name": "register",
+                            "description": "",
+                            "item": [
                                 {
-                                    "id": "3d2e20a5-e6a0-45d6-a84e-efb7f952046f",
-                                    "name": "The user was successfully registered.",
-                                    "originalRequest": {
+                                    "id": "592d1318-4d86-41a3-8fe3-081f948b571d",
+                                    "name": "Register a new user.",
+                                    "request": {
+                                        "name": "Register a new user.",
+                                        "description": {
+                                            "content": "This endpoint allows a new user to register.",
+                                            "type": "text/plain"
+                                        },
                                         "url": {
                                             "path": [
                                                 "api",
+                                                "auth",
                                                 "register"
                                             ],
                                             "host": [
@@ -273,71 +1268,114 @@
                                         "method": "POST",
                                         "body": {
                                             "mode": "raw",
-                                            "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                                            "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
                                             "options": {
                                                 "raw": {
                                                     "headerFamily": "json",
                                                     "language": "json"
                                                 }
                                             }
-                                        }
+                                        },
+                                        "auth": null
                                     },
-                                    "status": "Created",
-                                    "code": 201,
-                                    "header": [
+                                    "response": [
                                         {
-                                            "key": "Content-Type",
-                                            "value": "application/json"
+                                            "id": "52eb6988-5638-41a6-8ea5-9f637ff5d888",
+                                            "name": "The user was successfully registered.",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "auth",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Created",
+                                            "code": 201,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"role\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        },
+                                        {
+                                            "id": "8828b6da-26c4-4c3d-a14d-2ead40091da7",
+                                            "name": "An user with this email already exists",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "auth",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Bad Request",
+                                            "code": 400,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
                                         }
                                     ],
-                                    "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "451ae54f-4cdd-4b4a-98b9-1fdcd29140b3",
-                                    "name": "An user with this email already exists",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "api",
-                                                "register"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [],
-                                            "variable": []
-                                        },
-                                        "header": [
-                                            {
-                                                "key": "Content-Type",
-                                                "value": "application/json"
-                                            }
-                                        ],
-                                        "method": "POST",
-                                        "body": {
-                                            "mode": "raw",
-                                            "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
-                                            "options": {
-                                                "raw": {
-                                                    "headerFamily": "json",
-                                                    "language": "json"
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "status": "Bad Request",
-                                    "code": 400,
-                                    "header": [],
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
                                 }
-                            ],
-                            "event": [],
-                            "protocolProfileBehavior": {
-                                "disableBodyPruning": true
-                            }
+                            ]
                         }
                     ]
                 },
@@ -350,7 +1388,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "86aff3a5-a1f7-4cbc-bae8-129a101db46b",
+                                    "id": "ffd1f878-bab4-47ea-b2cc-ebe8e09dd3e3",
                                     "name": "Request a password reset token",
                                     "request": {
                                         "name": "Request a password reset token",
@@ -392,7 +1430,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "ce1779a4-c83c-419b-b875-4fc24be92977",
+                                            "id": "f416b190-3213-4059-a081-b85902513a8a",
                                             "name": "If the email exists, reset instructions will be sent",
                                             "originalRequest": {
                                                 "url": {
@@ -454,7 +1492,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "c492d684-de22-4b63-9ee2-10229a53078f",
+                                    "id": "84edce42-03bc-412d-94cb-dd808de518f4",
                                     "name": "Reset password using token",
                                     "request": {
                                         "name": "Reset password using token",
@@ -496,7 +1534,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "37b9dc04-a456-4c4d-82e4-2e29d5bbc7f4",
+                                            "id": "078be36f-6aef-4c78-9fb6-85730f0495eb",
                                             "name": "Your password has been successfully updated",
                                             "originalRequest": {
                                                 "url": {
@@ -554,6 +1592,317 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "name": "user",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "list",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "f3d30abb-0713-4dde-9f67-4b0fbb5026c1",
+                                    "name": "Get the list of user.",
+                                    "request": {
+                                        "name": "Get the list of user.",
+                                        "description": {
+                                            "content": "This endpoint get the list of user.",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "user",
+                                                "list"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "4cb4fbfa-8b17-4632-8045-7d32f7dae977",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "user",
+                                                        "list"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"role\": \"<string>\",\n    \"companyId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"password\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"role\": \"<string>\",\n    \"companyId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"password\": \"<string>\"\n  }\n]",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "{id}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "ba98c715-f610-434b-94be-7875c656036e",
+                                    "name": "Get a user.",
+                                    "request": {
+                                        "name": "Get a user.",
+                                        "description": {
+                                            "content": "This endpoint get a user.",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<string>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "d61992ab-4d2e-4adf-9cd3-2b72bb13dea8",
+                                            "name": "The user was successfully found.",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "user",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"role\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        },
+                                        {
+                                            "id": "2bae9997-feef-43a5-8e31-5b2450bc0052",
+                                            "name": "User not found",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "user",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "delete",
+                            "description": "",
+                            "item": [
+                                {
+                                    "name": "{id}",
+                                    "description": "",
+                                    "item": [
+                                        {
+                                            "id": "c8969f76-c96d-483b-a83f-caaba0c234c8",
+                                            "name": "Delete a user.",
+                                            "request": {
+                                                "name": "Delete a user.",
+                                                "description": {
+                                                    "content": "This endpoint delete a user.",
+                                                    "type": "text/plain"
+                                                },
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "user",
+                                                        "delete",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": [
+                                                        {
+                                                            "type": "any",
+                                                            "value": "<string>",
+                                                            "key": "id",
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "method": "DELETE",
+                                                "body": {},
+                                                "auth": null
+                                            },
+                                            "response": [
+                                                {
+                                                    "id": "7cb42ad1-94a2-44f4-bec7-ec1101355937",
+                                                    "name": "The user was succesfully deleted.",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "user",
+                                                                "delete",
+                                                                ":id"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "method": "DELETE",
+                                                        "body": {}
+                                                    },
+                                                    "status": "Accepted",
+                                                    "code": 202,
+                                                    "header": [],
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "text"
+                                                },
+                                                {
+                                                    "id": "0e8ada58-f65d-4515-9ac1-a129d262a124",
+                                                    "name": "User not found",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "user",
+                                                                "delete",
+                                                                ":id"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "method": "DELETE",
+                                                        "body": {}
+                                                    },
+                                                    "status": "Not Found",
+                                                    "code": 404,
+                                                    "header": [],
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "text"
+                                                }
+                                            ],
+                                            "event": [],
+                                            "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
@@ -566,7 +1915,7 @@
         }
     ],
     "info": {
-        "_postman_id": "2fe6526e-9cb5-40c2-9b72-4d0b24329617",
+        "_postman_id": "adf7dd3e-c17b-43da-b4a5-1eda95ab2709",
         "name": "Template Rest-API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

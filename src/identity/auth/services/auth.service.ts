@@ -61,17 +61,24 @@ export class AuthService {
       throw new BadRequestException(ERROR_EMAIL_EXISTS);
     }
 
-    const hashedPassword: string = this.hashPassword(registerBodyDTO.password);
-    const user: User = await this.userSrv.create({
-      firstName: registerBodyDTO.firstName,
-      lastName: registerBodyDTO.lastName,
-      picture: registerBodyDTO.picture,
-      companies: registerBodyDTO.companyId ? { connect: { id: registerBodyDTO.companyId } } : {},
-      email: registerBodyDTO.email,
-      password: hashedPassword
-    });
+    try {
+      const hashedPassword: string = this.hashPassword(registerBodyDTO.password);
+      const user: User = await this.userSrv.create({
+        firstName: registerBodyDTO.firstName,
+        lastName: registerBodyDTO.lastName,
+        picture: registerBodyDTO.picture,
+        companies: { connect: { id: registerBodyDTO.companyId } },
+        email: registerBodyDTO.email,
+        password: hashedPassword
+      });
 
-    return user;
+      return user;
+    } catch(err) {
+      if (err.code === "P2025") {
+        throw new NotFoundException(`La azienda con ID '${registerBodyDTO.companyId}' non esiste`);
+      }
+      throw new Error(err.message);
+    }
   }
 
   async login(user: User): Promise<AuthResponseDto> {

@@ -75,8 +75,7 @@ export class User {
     example: "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
   })
   @IsString()
-  @IsOptional()
-  companyId: string | null;
+  companyId: string;
 
   @ApiProperty({
     description: 'Email of user',

@@ -76,8 +76,7 @@ export class RegisterBodyDto {
     example: "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
   })
   @IsString()
-  @IsOptional()
-  companyId: string | null;
+  companyId: string;
 }
 
 export class RequestResetPasswordBodyDto {
