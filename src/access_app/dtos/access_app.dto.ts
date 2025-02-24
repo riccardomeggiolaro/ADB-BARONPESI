@@ -84,7 +84,7 @@ export const selectOptions = {
 }
 
 export interface AccessApp {
-    user: User,
-    application_tenant_db: ApplicationTenantDB,
-    applicationFunctionalData?: Prisma.JsonValue | null
+    user?: User;
+    application_tenant_db: ApplicationTenantDB;
+    applicationFunctionalData?: Prisma.JsonValue | null;
 }

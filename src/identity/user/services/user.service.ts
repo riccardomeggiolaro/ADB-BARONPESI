@@ -3,7 +3,7 @@ import { Prisma, Role } from '@prisma/client';
 import { isDefined } from '@shared/utils';
 import { PrismaMySqlService } from 'src/config/database/mysql/prisma.mysql.service';
 import { ERROR_USER_NOT_FOUND } from 'src/identity/auth/constants/auth.constants';
-import { selectOptions, User } from '../dtos/user.dto';
+import { IsActiveDTO, selectOptions, User } from '../dtos/user.dto';
 
 @Injectable()
 export class UserService {
@@ -19,7 +19,7 @@ export class UserService {
     return await this.prisma.user.findMany({ select: selectOptions });
   }
 
-  async findById(id: string): Promise<User | undefined> {
+  async findById(id: string, completly: boolean = false): Promise<User | undefined> {
     const user: User | null = await this.prisma.user.findUnique({ where: { id }, select: selectOptions });
 
     return isDefined(user) ? user : undefined;
@@ -45,11 +45,18 @@ export class UserService {
     return isDefined(user) ? user : undefined;
   }
 
+  async isACtive(isACtive: IsActiveDTO): Promise<User> {
+    try {
+      return await this.prisma.user.update({ where: { id: isACtive.id, role: Role.USER }, data: { isActive: isACtive.status }, select: selectOptions })
+    } catch (err) {
+      throw new NotFoundException(ERROR_USER_NOT_FOUND);
+    }
+  }
+
   async deleteById(id: string): Promise<User> {
     try {
       return await this.prisma.user.delete({ where: { id, role: Role.USER }, select: selectOptions });
     } catch (err) {
-      console.log(err)
       throw new NotFoundException(ERROR_USER_NOT_FOUND);
     }
   }

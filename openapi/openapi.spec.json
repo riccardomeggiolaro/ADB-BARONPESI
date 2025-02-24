@@ -542,6 +542,35 @@
           "user"
         ]
       }
+    },
+    "/api/user/is-active": {
+      "patch": {
+        "operationId": "UserController_disabled",
+        "summary": "Set isActive a user",
+        "description": "This endpoint set isActive in a user",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsActiveDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "The user was succesfully set in isActive"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "tags": [
+          "user"
+        ]
+      }
     }
   },
   "info": {
@@ -753,6 +782,10 @@
           "token",
           "newPassword"
         ]
+      },
+      "IsActiveDTO": {
+        "type": "object",
+        "properties": {}
       }
     }
   }

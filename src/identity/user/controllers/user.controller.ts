@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Param, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, UseGuards } from '@nestjs/common';
 import {
     ApiAcceptedResponse,
   ApiNotFoundResponse,
@@ -9,7 +9,7 @@ import {
 import { AdminGuard } from '@shared/guards/admin.guard';
 import { UserService } from '../services/user.service';
 import { ERROR_USER_NOT_FOUND } from 'src/identity/auth/constants/auth.constants';
-import { User } from '../dtos/user.dto';
+import { IsActiveDTO, User } from '../dtos/user.dto';
 
 @ApiTags('user')
 @Controller('user')
@@ -55,5 +55,20 @@ export class UserController {
     async delete(@Param('id') id: string): Promise<{ deleted: User }> {
         const deleted: User = await this.userSrv.deleteById(id);
         return { deleted }
+    }
+
+    @Patch('is-active')
+    @ApiOperation({
+        summary: 'Set isActive a user',
+        description: 'This endpoint set isActive in a user'
+    })
+    @ApiAcceptedResponse({
+        description: 'The user was succesfully set in isActive'
+    })
+    @ApiNotFoundResponse({
+        description: ERROR_USER_NOT_FOUND
+    })
+    async disabled(@Body() isActiveDTO: IsActiveDTO): Promise<User | undefined> {
+        return await this.userSrv.isACtive(isActiveDTO);     
     }
 }

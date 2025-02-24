@@ -11,6 +11,7 @@ import { UserService } from '../../user/services/user.service';
 import {
   ERROR_EMAIL_EXISTS,
   ERROR_INVALID_CREDENTIALS,
+  ERROR_USER_IS_NOT_ACTIVATE,
   ERROR_USER_NOT_FOUND,
   PASSWORD_HASH_SALT_ROUNDS,
 } from '../constants/auth.constants';
@@ -33,6 +34,8 @@ export class AuthService {
     if (!isDefined(user)) throw new NotFoundException(ERROR_USER_NOT_FOUND);
 
     await this.validateUserCredentials(user, email, password);
+
+    if (!user.isActive) throw new UnauthorizedException(ERROR_USER_IS_NOT_ACTIVATE);
 
     return user;
   }
