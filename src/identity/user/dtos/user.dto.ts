@@ -22,14 +22,14 @@ export const selectOptions = {
 
 export interface User {
   id: string;
-  firstName: string,
-  lastName: string,
-  email: string,
-  role: string,
-  isActive: boolean,
-  company: PrismaCompany | null,
-  createdAt: Date,
-  updatedAt: Date,
-  picture: string | null,
-  password: string
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;
+  isActive: boolean;
+  company?: PrismaCompany | null;
+  createdAt: Date;
+  updatedAt: Date;
+  picture: string | null;
+  password: string;
 }

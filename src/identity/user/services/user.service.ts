@@ -47,9 +47,9 @@ export class UserService {
 
   async deleteById(id: string): Promise<User> {
     try {
-      const user: User | null = await this.prisma.user.delete({ where: { id, role: Role.USER }, select: selectOptions });
-      return user;
+      return await this.prisma.user.delete({ where: { id, role: Role.USER }, select: selectOptions });
     } catch (err) {
+      console.log(err)
       throw new NotFoundException(ERROR_USER_NOT_FOUND);
     }
   }

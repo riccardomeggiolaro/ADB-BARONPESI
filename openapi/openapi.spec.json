@@ -185,7 +185,7 @@
             "description": "The application tenant db was successfully registered."
           },
           "400": {
-            "description": "A application tenant db with this code already exists"
+            "description": "A application tenant db like this already exists"
           }
         },
         "tags": [
@@ -234,6 +234,80 @@
         },
         "tags": [
           "application/tenant/db"
+        ]
+      }
+    },
+    "/api/access-app/register": {
+      "post": {
+        "operationId": "AccessAppController_assign",
+        "summary": "Assign application tenant db to user.",
+        "description": "This endpoint assign an application tenant db to an user.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "The registration details for the new user.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessAppDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The access app was successfully registered."
+          },
+          "400": {
+            "description": "An access app like this already exists"
+          }
+        },
+        "tags": [
+          "access-app"
+        ]
+      }
+    },
+    "/api/access-app/list": {
+      "get": {
+        "operationId": "AccessAppController_list",
+        "summary": "Get the list of access apps",
+        "description": "This endpoint get the list of access apps",
+        "parameters": [],
+        "responses": {
+          "302": {
+            "description": "The list of access apps was returned"
+          }
+        },
+        "tags": [
+          "access-app"
+        ]
+      }
+    },
+    "/api/access-app/{id}": {
+      "get": {
+        "operationId": "AccessAppController_find",
+        "summary": "Get an access app",
+        "description": "This endpoint get an access app",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "The access app was succesfully founded"
+          },
+          "404": {
+            "description": "Access app not found"
+          }
+        },
+        "tags": [
+          "access-app"
         ]
       }
     },
@@ -529,6 +603,38 @@
         "required": [
           "description",
           "code"
+        ]
+      },
+      "ApplicationFunctionalData": {
+        "type": "object",
+        "properties": {}
+      },
+      "AccessAppDTO": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Id of user.",
+            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
+          },
+          "applicationTenantDBId": {
+            "type": "string",
+            "description": "Id of application tenant db.",
+            "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
+          },
+          "applicationFunctionalData": {
+            "description": "Application functional data",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationFunctionalData"
+              }
+            ]
+          }
+        },
+        "required": [
+          "userId",
+          "applicationTenantDBId",
+          "applicationFunctionalData"
         ]
       },
       "LoginBodyDto": {

@@ -13,7 +13,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "1d941033-457c-4d20-a13b-507fe17ca7e8",
+                                    "id": "c2d303d9-7f93-4f85-93fc-64b278d2d5f7",
                                     "name": "Register a new company.",
                                     "request": {
                                         "name": "Register a new company.",
@@ -58,7 +58,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "2889de17-9777-4d14-a684-33ce5d28f849",
+                                            "id": "b33f67f3-25cb-44b8-abbd-1b00a30e26ba",
                                             "name": "The company was successfully registered.",
                                             "originalRequest": {
                                                 "url": {
@@ -108,7 +108,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "22514597-aa67-4583-bf55-d29750416a90",
+                                            "id": "8c54d6da-c11c-4037-bd16-5e05b5568aee",
                                             "name": "A company with this description already exists",
                                             "originalRequest": {
                                                 "url": {
@@ -160,7 +160,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "70131353-895b-4ad1-ad6a-d0c726df1ee5",
+                                    "id": "4afc7200-8a75-4d4e-b1ff-235f819c2d91",
                                     "name": "Get the list of companies",
                                     "request": {
                                         "name": "Get the list of companies",
@@ -186,7 +186,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "77504212-838b-4dfc-affd-25082f0282f5",
+                                            "id": "f314e011-22e2-4194-9e73-b3ff7570d34c",
                                             "name": "The list of companies was returned",
                                             "originalRequest": {
                                                 "url": {
@@ -223,7 +223,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "e73aaf8e-8423-412a-b26e-48482a05e32d",
+                                    "id": "725dee91-e89f-4f39-8444-c3809cc8eafb",
                                     "name": "Get a company",
                                     "request": {
                                         "name": "Get a company",
@@ -260,7 +260,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "f059e512-8655-4e59-b9c9-9acabcab0353",
+                                            "id": "35002bd1-43fd-4f48-b8f7-e6c01476a367",
                                             "name": "The company was succesfully founded",
                                             "originalRequest": {
                                                 "url": {
@@ -285,7 +285,7 @@
                                             "_postman_previewlanguage": "text"
                                         },
                                         {
-                                            "id": "204f6c47-9e81-4116-8c85-e346c3de4f59",
+                                            "id": "a867747f-d050-42f1-a26a-dec0a0566d26",
                                             "name": "Company not found",
                                             "originalRequest": {
                                                 "url": {
@@ -328,7 +328,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "18ec452c-c851-4302-9181-b27fefeb8ed0",
+                                    "id": "682e031d-0512-4a17-8b76-29bb9c8b6401",
                                     "name": "Register a new application.",
                                     "request": {
                                         "name": "Register a new application.",
@@ -373,7 +373,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "3cd9ebe2-057f-4782-adb0-2f81c5c5c981",
+                                            "id": "f1918f76-1091-44e3-be7b-79ab1badafe5",
                                             "name": "The application was successfully registered.",
                                             "originalRequest": {
                                                 "url": {
@@ -423,7 +423,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "b202df8d-6cb3-479a-8e8d-770d0f93f925",
+                                            "id": "4a700681-b7ec-4265-906e-17797297a3f9",
                                             "name": "A application with this code already exists",
                                             "originalRequest": {
                                                 "url": {
@@ -475,7 +475,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "7b3cb507-36b9-4a4c-8d19-cc18286649be",
+                                    "id": "d71519bc-b4ae-41e6-bf79-ed23e9cede7f",
                                     "name": "Get the list of applications",
                                     "request": {
                                         "name": "Get the list of applications",
@@ -501,7 +501,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "60dd5263-ec13-4f58-9d85-e4b68250f6d9",
+                                            "id": "41813871-9d6d-4370-a69d-e95829a4020c",
                                             "name": "The list of applications was returned",
                                             "originalRequest": {
                                                 "url": {
@@ -538,7 +538,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "f8edd3ac-1e55-470e-9814-7130cb5de3bf",
+                                    "id": "6f57e26d-a4c2-4a3b-8416-206369478484",
                                     "name": "Get a application",
                                     "request": {
                                         "name": "Get a application",
@@ -575,7 +575,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "4fa5c7fa-695f-4ced-b85f-505439950efb",
+                                            "id": "d5debb5a-b7ea-45ee-956e-79eb2bfd34cf",
                                             "name": "The application was succesfully founded",
                                             "originalRequest": {
                                                 "url": {
@@ -600,7 +600,7 @@
                                             "_postman_previewlanguage": "text"
                                         },
                                         {
-                                            "id": "81279864-5dba-4cfe-9f8d-9c53eaa5fdb8",
+                                            "id": "31f381e1-e000-4562-8fa6-1455686a4bc9",
                                             "name": "Application not found",
                                             "originalRequest": {
                                                 "url": {
@@ -645,7 +645,7 @@
                                             "description": "",
                                             "item": [
                                                 {
-                                                    "id": "4e7fdeef-8966-47f5-9cd4-dda0a3817933",
+                                                    "id": "d346c492-d772-4e78-95bf-c8bd8bbac4fd",
                                                     "name": "Register a new application tenant db.",
                                                     "request": {
                                                         "name": "Register a new application tenant db.",
@@ -671,16 +671,12 @@
                                                             {
                                                                 "key": "Content-Type",
                                                                 "value": "application/json"
-                                                            },
-                                                            {
-                                                                "key": "Accept",
-                                                                "value": "application/json"
                                                             }
                                                         ],
                                                         "method": "POST",
                                                         "body": {
                                                             "mode": "raw",
-                                                            "raw": "{\n  \"applicationId\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"database_connection\": \"<string>\"\n}",
+                                                            "raw": "<string>",
                                                             "options": {
                                                                 "raw": {
                                                                     "headerFamily": "json",
@@ -692,7 +688,7 @@
                                                     },
                                                     "response": [
                                                         {
-                                                            "id": "a498e427-c16a-42ad-9f4c-c052c8691733",
+                                                            "id": "eae834b6-0343-40f5-a46b-974cb921a2cd",
                                                             "name": "The application tenant db was successfully registered.",
                                                             "originalRequest": {
                                                                 "url": {
@@ -713,16 +709,12 @@
                                                                     {
                                                                         "key": "Content-Type",
                                                                         "value": "application/json"
-                                                                    },
-                                                                    {
-                                                                        "key": "Accept",
-                                                                        "value": "application/json"
                                                                     }
                                                                 ],
                                                                 "method": "POST",
                                                                 "body": {
                                                                     "mode": "raw",
-                                                                    "raw": "{\n  \"applicationId\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"database_connection\": \"<string>\"\n}",
+                                                                    "raw": "<string>",
                                                                     "options": {
                                                                         "raw": {
                                                                             "headerFamily": "json",
@@ -733,19 +725,13 @@
                                                             },
                                                             "status": "Created",
                                                             "code": 201,
-                                                            "header": [
-                                                                {
-                                                                    "key": "Content-Type",
-                                                                    "value": "application/json"
-                                                                }
-                                                            ],
-                                                            "body": "{\n  \"applicationId\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"database_connection\": \"<string>\"\n}",
+                                                            "header": [],
                                                             "cookie": [],
-                                                            "_postman_previewlanguage": "json"
+                                                            "_postman_previewlanguage": "text"
                                                         },
                                                         {
-                                                            "id": "5ca72086-77ae-4858-b176-3eb5e765c8f6",
-                                                            "name": "A application tenant db with this code already exists",
+                                                            "id": "0b3d4c10-d6c6-429b-9b30-90d0eb1d2ecc",
+                                                            "name": "A application tenant db like this already exists",
                                                             "originalRequest": {
                                                                 "url": {
                                                                     "path": [
@@ -770,7 +756,7 @@
                                                                 "method": "POST",
                                                                 "body": {
                                                                     "mode": "raw",
-                                                                    "raw": "{\n  \"applicationId\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"database_connection\": \"<string>\"\n}",
+                                                                    "raw": "<string>",
                                                                     "options": {
                                                                         "raw": {
                                                                             "headerFamily": "json",
@@ -798,7 +784,7 @@
                                             "description": "",
                                             "item": [
                                                 {
-                                                    "id": "45434309-d15e-41b1-aa55-73b6e3ee3a54",
+                                                    "id": "8d2e79a7-0147-4e1d-be7b-a06a4732d0a2",
                                                     "name": "Get the list of application tenant dbs",
                                                     "request": {
                                                         "name": "Get the list of application tenant dbs",
@@ -826,7 +812,7 @@
                                                     },
                                                     "response": [
                                                         {
-                                                            "id": "cc5914f0-dbbe-4b7f-a181-507623c5b527",
+                                                            "id": "48efd6f8-824b-4e88-8c14-a249c7b9d4da",
                                                             "name": "The list of application tenant dbs was returned",
                                                             "originalRequest": {
                                                                 "url": {
@@ -865,7 +851,7 @@
                                             "description": "",
                                             "item": [
                                                 {
-                                                    "id": "9051fe4b-23e8-42bb-8f64-9414ee863794",
+                                                    "id": "2685a0dd-a8e9-4e7e-abfb-e4728eb54831",
                                                     "name": "Get a application tenant db",
                                                     "request": {
                                                         "name": "Get a application tenant db",
@@ -904,7 +890,7 @@
                                                     },
                                                     "response": [
                                                         {
-                                                            "id": "780665ea-93a5-478c-afdb-d0d78e78d5df",
+                                                            "id": "4d2100dc-7584-49a3-8d48-abc2b9886f61",
                                                             "name": "The application tenant db was succesfully founded",
                                                             "originalRequest": {
                                                                 "url": {
@@ -931,7 +917,7 @@
                                                             "_postman_previewlanguage": "text"
                                                         },
                                                         {
-                                                            "id": "d4e81af2-e227-4608-bacf-05b0ab6ec217",
+                                                            "id": "9bac233e-92a7-4ece-8b2f-6364e0b7ef38",
                                                             "name": "Application tenant db not found",
                                                             "originalRequest": {
                                                                 "url": {
@@ -972,7 +958,155 @@
                     ]
                 },
                 {
-                    "id": "4ae2ee8c-0653-4e24-bffc-d581ed8d216e",
+                    "name": "access",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "app",
+                            "description": "",
+                            "item": [
+                                {
+                                    "name": "register",
+                                    "description": "",
+                                    "item": [
+                                        {
+                                            "id": "af339e23-9dfe-414d-b412-70dc92672b52",
+                                            "name": "Assign application tenant db to user.",
+                                            "request": {
+                                                "name": "Assign application tenant db to user.",
+                                                "description": {
+                                                    "content": "This endpoint assign an application tenant db to an user.",
+                                                    "type": "text/plain"
+                                                },
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "access",
+                                                        "app",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"userId\": \"<string>\",\n  \"applicationTenantDBId\": \"<string>\",\n  \"applicationFunctionalData\": {}\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "auth": null
+                                            },
+                                            "response": [
+                                                {
+                                                    "id": "54bdc7ba-7d0e-4071-acc5-e43f76ab485f",
+                                                    "name": "The access app was successfully registered.",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "access",
+                                                                "app",
+                                                                "register"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "header": [
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "method": "POST",
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"userId\": \"<string>\",\n  \"applicationTenantDBId\": \"<string>\",\n  \"applicationFunctionalData\": {}\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "headerFamily": "json",
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "header": [],
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "text"
+                                                },
+                                                {
+                                                    "id": "347610a9-0dc4-481a-af86-ea4805520de7",
+                                                    "name": "A access app like this already exists",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "access",
+                                                                "app",
+                                                                "register"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "header": [
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "method": "POST",
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"userId\": \"<string>\",\n  \"applicationTenantDBId\": \"<string>\",\n  \"applicationFunctionalData\": {}\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "headerFamily": "json",
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "Bad Request",
+                                                    "code": 400,
+                                                    "header": [],
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "text"
+                                                }
+                                            ],
+                                            "event": [],
+                                            "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "21f5a7dc-9432-47b9-84d2-0cea7e3c1878",
                     "name": "App Controller get Hello",
                     "request": {
                         "name": "App Controller get Hello",
@@ -993,7 +1127,7 @@
                     },
                     "response": [
                         {
-                            "id": "33184937-6a74-4d73-8b07-f79d378aa233",
+                            "id": "be900aca-3bb8-4e0d-a320-b273570d3658",
                             "originalRequest": {
                                 "url": {
                                     "path": [
@@ -1029,7 +1163,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "e5589cee-6808-437b-b079-2ec7ef1324d1",
+                                    "id": "b763eb49-dac4-40b3-9fb7-d9e4cb557434",
                                     "name": "Auth Controller profile",
                                     "request": {
                                         "name": "Auth Controller profile",
@@ -1052,7 +1186,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "b7d85dbf-e242-4672-9441-3811adf5bdd9",
+                                            "id": "bc5662f2-66d8-4a38-8e9c-5ad60a7fda0e",
                                             "originalRequest": {
                                                 "url": {
                                                     "path": [
@@ -1088,7 +1222,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "45f18af5-4825-4b86-893b-cc4085cb5c24",
+                                    "id": "304bc9aa-5f77-4006-9d00-e6a96ff1128f",
                                     "name": "Login user and return access token.",
                                     "request": {
                                         "name": "Login user and return access token.",
@@ -1133,7 +1267,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "8e0fc05e-fbfe-40d5-88d2-3b5fffb95531",
+                                            "id": "2267d785-90cf-434f-914b-6a3edc7e1d87",
                                             "name": "The user was successfully logged in.",
                                             "originalRequest": {
                                                 "url": {
@@ -1178,12 +1312,12 @@
                                                     "value": "application/json"
                                                 }
                                             ],
-                                            "body": "{\n  \"user\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"role\": \"<string>\",\n    \"companyId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"password\": \"<string>\"\n  },\n  \"accessToken\": \"<string>\"\n}",
+                                            "body": "{\n  \"user\": {},\n  \"accessToken\": \"<string>\"\n}",
                                             "cookie": [],
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "23592a45-24ea-4e86-99a2-135e09a23097",
+                                            "id": "617caa0b-e6c6-4d17-a136-be1b26f1b4c8",
                                             "name": "Unauthorized. Invalid credentials.",
                                             "originalRequest": {
                                                 "url": {
@@ -1235,7 +1369,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "592d1318-4d86-41a3-8fe3-081f948b571d",
+                                    "id": "39894dc7-c947-4e49-9a11-8c782c481bb7",
                                     "name": "Register a new user.",
                                     "request": {
                                         "name": "Register a new user.",
@@ -1259,10 +1393,6 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
-                                            },
-                                            {
-                                                "key": "Accept",
-                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
@@ -1280,7 +1410,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "52eb6988-5638-41a6-8ea5-9f637ff5d888",
+                                            "id": "c0a2b151-b558-416d-b6ca-8197c5d60244",
                                             "name": "The user was successfully registered.",
                                             "originalRequest": {
                                                 "url": {
@@ -1299,10 +1429,6 @@
                                                     {
                                                         "key": "Content-Type",
                                                         "value": "application/json"
-                                                    },
-                                                    {
-                                                        "key": "Accept",
-                                                        "value": "application/json"
                                                     }
                                                 ],
                                                 "method": "POST",
@@ -1319,18 +1445,12 @@
                                             },
                                             "status": "Created",
                                             "code": 201,
-                                            "header": [
-                                                {
-                                                    "key": "Content-Type",
-                                                    "value": "application/json"
-                                                }
-                                            ],
-                                            "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"role\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                            "header": [],
                                             "cookie": [],
-                                            "_postman_previewlanguage": "json"
+                                            "_postman_previewlanguage": "text"
                                         },
                                         {
-                                            "id": "8828b6da-26c4-4c3d-a14d-2ead40091da7",
+                                            "id": "d85c9b10-9289-48e8-ae3f-043b76f975d4",
                                             "name": "An user with this email already exists",
                                             "originalRequest": {
                                                 "url": {
@@ -1388,7 +1508,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "ffd1f878-bab4-47ea-b2cc-ebe8e09dd3e3",
+                                    "id": "286f4026-a36a-4204-8df5-b517bc262cda",
                                     "name": "Request a password reset token",
                                     "request": {
                                         "name": "Request a password reset token",
@@ -1430,7 +1550,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "f416b190-3213-4059-a081-b85902513a8a",
+                                            "id": "a53900a1-89a1-413a-9df9-b91e4bac0fef",
                                             "name": "If the email exists, reset instructions will be sent",
                                             "originalRequest": {
                                                 "url": {
@@ -1492,7 +1612,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "84edce42-03bc-412d-94cb-dd808de518f4",
+                                    "id": "53c454ed-0f97-4dde-9973-aa9c522938b7",
                                     "name": "Reset password using token",
                                     "request": {
                                         "name": "Reset password using token",
@@ -1534,7 +1654,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "078be36f-6aef-4c78-9fb6-85730f0495eb",
+                                            "id": "60808387-82c2-4829-8a23-b04d7edee46c",
                                             "name": "Your password has been successfully updated",
                                             "originalRequest": {
                                                 "url": {
@@ -1602,7 +1722,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "f3d30abb-0713-4dde-9f67-4b0fbb5026c1",
+                                    "id": "3001ca3b-0948-4d9c-95f3-f7a615c77251",
                                     "name": "Get the list of user.",
                                     "request": {
                                         "name": "Get the list of user.",
@@ -1622,19 +1742,13 @@
                                             "query": [],
                                             "variable": []
                                         },
-                                        "header": [
-                                            {
-                                                "key": "Accept",
-                                                "value": "application/json"
-                                            }
-                                        ],
                                         "method": "GET",
                                         "body": {},
                                         "auth": null
                                     },
                                     "response": [
                                         {
-                                            "id": "4cb4fbfa-8b17-4632-8045-7d32f7dae977",
+                                            "id": "575b95ff-d021-446e-95d6-6d0cd25c19c9",
                                             "originalRequest": {
                                                 "url": {
                                                     "path": [
@@ -1648,26 +1762,14 @@
                                                     "query": [],
                                                     "variable": []
                                                 },
-                                                "header": [
-                                                    {
-                                                        "key": "Accept",
-                                                        "value": "application/json"
-                                                    }
-                                                ],
                                                 "method": "GET",
                                                 "body": {}
                                             },
                                             "status": "OK",
                                             "code": 200,
-                                            "header": [
-                                                {
-                                                    "key": "Content-Type",
-                                                    "value": "application/json"
-                                                }
-                                            ],
-                                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"role\": \"<string>\",\n    \"companyId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"password\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"role\": \"<string>\",\n    \"companyId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"password\": \"<string>\"\n  }\n]",
+                                            "header": [],
                                             "cookie": [],
-                                            "_postman_previewlanguage": "json"
+                                            "_postman_previewlanguage": "text"
                                         }
                                     ],
                                     "event": [],
@@ -1682,7 +1784,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "ba98c715-f610-434b-94be-7875c656036e",
+                                    "id": "4edb6373-f513-44c5-b1c3-5a8e20242f34",
                                     "name": "Get a user.",
                                     "request": {
                                         "name": "Get a user.",
@@ -1713,19 +1815,13 @@
                                                 }
                                             ]
                                         },
-                                        "header": [
-                                            {
-                                                "key": "Accept",
-                                                "value": "application/json"
-                                            }
-                                        ],
                                         "method": "GET",
                                         "body": {},
                                         "auth": null
                                     },
                                     "response": [
                                         {
-                                            "id": "d61992ab-4d2e-4adf-9cd3-2b72bb13dea8",
+                                            "id": "6016c0d7-662d-4c81-8671-8220bb903ff2",
                                             "name": "The user was successfully found.",
                                             "originalRequest": {
                                                 "url": {
@@ -1740,29 +1836,17 @@
                                                     "query": [],
                                                     "variable": []
                                                 },
-                                                "header": [
-                                                    {
-                                                        "key": "Accept",
-                                                        "value": "application/json"
-                                                    }
-                                                ],
                                                 "method": "GET",
                                                 "body": {}
                                             },
                                             "status": "OK",
                                             "code": 200,
-                                            "header": [
-                                                {
-                                                    "key": "Content-Type",
-                                                    "value": "application/json"
-                                                }
-                                            ],
-                                            "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"role\": \"<string>\",\n  \"companyId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                            "header": [],
                                             "cookie": [],
-                                            "_postman_previewlanguage": "json"
+                                            "_postman_previewlanguage": "text"
                                         },
                                         {
-                                            "id": "2bae9997-feef-43a5-8e31-5b2450bc0052",
+                                            "id": "2e19a85b-ddd3-41ed-b371-af8fe017ef14",
                                             "name": "User not found",
                                             "originalRequest": {
                                                 "url": {
@@ -1803,7 +1887,7 @@
                                     "description": "",
                                     "item": [
                                         {
-                                            "id": "c8969f76-c96d-483b-a83f-caaba0c234c8",
+                                            "id": "26bc2114-9bf7-4031-ac45-ed67caec1c8e",
                                             "name": "Delete a user.",
                                             "request": {
                                                 "name": "Delete a user.",
@@ -1841,7 +1925,7 @@
                                             },
                                             "response": [
                                                 {
-                                                    "id": "7cb42ad1-94a2-44f4-bec7-ec1101355937",
+                                                    "id": "c52d321c-951e-431f-b7e0-5bf0e323af03",
                                                     "name": "The user was succesfully deleted.",
                                                     "originalRequest": {
                                                         "url": {
@@ -1867,7 +1951,7 @@
                                                     "_postman_previewlanguage": "text"
                                                 },
                                                 {
-                                                    "id": "0e8ada58-f65d-4515-9ac1-a129d262a124",
+                                                    "id": "88778ea2-6092-4fb0-8b45-98ddee7e4ce6",
                                                     "name": "User not found",
                                                     "originalRequest": {
                                                         "url": {
@@ -1915,7 +1999,7 @@
         }
     ],
     "info": {
-        "_postman_id": "adf7dd3e-c17b-43da-b4a5-1eda95ab2709",
+        "_postman_id": "ff5b385d-92eb-45b7-9917-929b997993f0",
         "name": "Template Rest-API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

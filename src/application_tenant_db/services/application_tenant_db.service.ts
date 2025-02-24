@@ -54,6 +54,7 @@ export class ApplicationTenantDBService {
   }
 
   async findById(id: string): Promise<ApplicationTenantDB | undefined> {
+    console.log(id);
     const applicationTenantDB: ApplicationTenantDB | null = await this.prisma.applicationTenantDB.findUnique({
       where: { id },
       select: selectOPtions

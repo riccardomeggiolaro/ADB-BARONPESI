@@ -15,9 +15,7 @@ import { User } from '../dtos/user.dto';
 @Controller('user')
 @UseGuards(AdminGuard)
 export class UserController {
-    constructor(
-        private readonly userSrv: UserService
-    ) {}
+    constructor(private readonly userSrv: UserService) {}
 
     @Get('list')
     @ApiOperation({
@@ -54,7 +52,8 @@ export class UserController {
     @ApiNotFoundResponse({
         description: ERROR_USER_NOT_FOUND,
     })
-    async delete(@Param('id') id: string): Promise<User> {
-        return await this.userSrv.deleteById(id);        
+    async delete(@Param('id') id: string): Promise<{ deleted: User }> {
+        const deleted: User = await this.userSrv.deleteById(id);
+        return { deleted }
     }
 }

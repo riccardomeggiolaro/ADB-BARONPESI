@@ -9,3 +9,5 @@ prisma migrate reset -y
 prisma db pull
 
 prisma generate
+
+pnpm install @prisma/client

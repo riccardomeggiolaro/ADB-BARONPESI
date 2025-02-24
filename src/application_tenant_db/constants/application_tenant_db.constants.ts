@@ -1,2 +1,2 @@
 export const ERROR_APPLICATION_TENANT_DB_NOT_FOUND: string = 'Application tenant db not found';
-export const ERROR_APPLLICATION_TENANT_DB_EXISTS: string = 'A application tenant db with this code already exists';
+export const ERROR_APPLLICATION_TENANT_DB_EXISTS: string = 'A application tenant db like this already exists';

@@ -11,9 +11,10 @@ import { IdentityModule } from './identity/identity.module';
 import { CompanyModule } from './company/company.module';
 import { ApplicationModule } from './application/application.module';
 import { ApplicationTenantDBModule } from './application_tenant_db/application_tenant_db.module';
+import { AccessAppModule } from './access_app/access_app.module';
 
 @Module({
-  imports: [ConfigModule, IdentityModule, EmailModule, CompanyModule, ApplicationModule, ApplicationTenantDBModule],
+  imports: [ConfigModule, IdentityModule, EmailModule, CompanyModule, ApplicationModule, ApplicationTenantDBModule, AccessAppModule],
   controllers: [AppController],
   providers: [
     AppService,

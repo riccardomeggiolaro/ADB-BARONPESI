@@ -26,7 +26,7 @@ CREATE TABLE user (
     email VARCHAR(255) NOT NULL UNIQUE,
     password TEXT NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT user_companyId_fkey FOREIGN KEY (companyId) REFERENCES company(id) ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT user_companyId_fkey FOREIGN KEY (companyId) REFERENCES company(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE password_reset (
@@ -37,7 +37,7 @@ CREATE TABLE password_reset (
     expiresAt TIMESTAMP NOT NULL,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
-    CONSTRAINT password_reset_userId_fkey FOREIGN KEY (userId) REFERENCES user(id) ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT password_reset_userId_fkey FOREIGN KEY (userId) REFERENCES user(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE application_tenant_db (
@@ -46,8 +46,18 @@ CREATE TABLE application_tenant_db (
     companyId VARCHAR(255) NOT NULL,
     database_connection TEXT NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT application_tenant_db_applicationId_fkey FOREIGN KEY (applicationId) REFERENCES application(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT application_tenant_db_companyId_fkey FOREIGN KEY (companyId) REFERENCES company(id) ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT application_tenant_db_applicationId_fkey FOREIGN KEY (applicationId) REFERENCES application(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT application_tenant_db_companyId_fkey FOREIGN KEY (companyId) REFERENCES company(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE access_app (
+    id VARCHAR(255) NOT NULL DEFAULT (UUID()),
+    userId VARCHAR(255) NOT NULL,
+    applicationTenantDBId VARCHAR(255) NOT NULL,
+    applicationFunctionalData JSON,
+    PRIMARY KEY (id),
+    CONSTRAINT access_app_userId_fkey FOREIGN KEY (userId) REFERENCES user(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT access_app_applicationTenantDBId_fkey FOREIGN KEY (applicationTenantDBId) REFERENCES application_tenant_db(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- Indexes
@@ -55,6 +65,8 @@ CREATE INDEX user_companyId_idx ON user(companyId);
 CREATE INDEX password_reset_userId_idx ON password_reset(userId);
 CREATE INDEX application_tenant_db_applicationId_idx ON application_tenant_db(applicationId);
 CREATE INDEX application_tenant_db_companyId_idx ON application_tenant_db(companyId);
+CREATE INDEX access_app_userId_idx ON access_app(userId);
+CREATE INDEX access_app_applicationTenantDBId_idx ON access_app(applicationTenantDBId);
 
 -- Inserimento dati
 START TRANSACTION;
