@@ -14,8 +14,16 @@ else
         #installation apt sources
         apt install nodejs -y
         apt install npm -y
-        npm i -g pnpm
         apt install systemctl -y
+        apt install curl -y
+
+        # install pnpm repository
+        curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+        # install project dependencies
+        cd /etc/main-application
+        pnpm install
+        npx prisma generate
 
         touch /home/configured
 fi
