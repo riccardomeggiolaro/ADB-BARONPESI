@@ -13,7 +13,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "c2d303d9-7f93-4f85-93fc-64b278d2d5f7",
+                                    "id": "b952452a-e962-4489-b55a-ed6b0848ceb8",
                                     "name": "Register a new company.",
                                     "request": {
                                         "name": "Register a new company.",
@@ -58,7 +58,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "b33f67f3-25cb-44b8-abbd-1b00a30e26ba",
+                                            "id": "1bd381c6-e27d-4a96-a7ad-93ab250daecd",
                                             "name": "The company was successfully registered.",
                                             "originalRequest": {
                                                 "url": {
@@ -108,7 +108,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "8c54d6da-c11c-4037-bd16-5e05b5568aee",
+                                            "id": "ec870719-2767-45e8-88b7-991fa031655c",
                                             "name": "A company with this description already exists",
                                             "originalRequest": {
                                                 "url": {
@@ -160,7 +160,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "4afc7200-8a75-4d4e-b1ff-235f819c2d91",
+                                    "id": "08d8f5f5-f4b9-4e75-a9f0-7c645deea709",
                                     "name": "Get the list of companies",
                                     "request": {
                                         "name": "Get the list of companies",
@@ -186,7 +186,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "f314e011-22e2-4194-9e73-b3ff7570d34c",
+                                            "id": "46d818a3-3f7b-406b-86f8-e1fb29be3d46",
                                             "name": "The list of companies was returned",
                                             "originalRequest": {
                                                 "url": {
@@ -223,7 +223,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "725dee91-e89f-4f39-8444-c3809cc8eafb",
+                                    "id": "a3867693-4ad4-478d-98dc-5fc2f76e1c75",
                                     "name": "Get a company",
                                     "request": {
                                         "name": "Get a company",
@@ -260,7 +260,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "35002bd1-43fd-4f48-b8f7-e6c01476a367",
+                                            "id": "619ef038-fd69-4c9f-90ab-7f677e62d9ad",
                                             "name": "The company was succesfully founded",
                                             "originalRequest": {
                                                 "url": {
@@ -285,7 +285,7 @@
                                             "_postman_previewlanguage": "text"
                                         },
                                         {
-                                            "id": "a867747f-d050-42f1-a26a-dec0a0566d26",
+                                            "id": "dfc4a493-f561-494d-94d8-fb94252942a1",
                                             "name": "Company not found",
                                             "originalRequest": {
                                                 "url": {
@@ -328,7 +328,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "682e031d-0512-4a17-8b76-29bb9c8b6401",
+                                    "id": "a1983402-4e1f-407b-ab95-4604727614d3",
                                     "name": "Register a new application.",
                                     "request": {
                                         "name": "Register a new application.",
@@ -373,7 +373,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "f1918f76-1091-44e3-be7b-79ab1badafe5",
+                                            "id": "d2576dab-55ac-494a-b176-d9e62240ca20",
                                             "name": "The application was successfully registered.",
                                             "originalRequest": {
                                                 "url": {
@@ -423,7 +423,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "4a700681-b7ec-4265-906e-17797297a3f9",
+                                            "id": "2ae5d2ed-ae27-453d-ae19-08c82cc4c67b",
                                             "name": "A application with this code already exists",
                                             "originalRequest": {
                                                 "url": {
@@ -475,7 +475,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "d71519bc-b4ae-41e6-bf79-ed23e9cede7f",
+                                    "id": "065663f4-278e-4196-9089-e380edd9ba28",
                                     "name": "Get the list of applications",
                                     "request": {
                                         "name": "Get the list of applications",
@@ -501,7 +501,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "41813871-9d6d-4370-a69d-e95829a4020c",
+                                            "id": "5f75c071-0d3c-4f6b-acff-b37db9853c51",
                                             "name": "The list of applications was returned",
                                             "originalRequest": {
                                                 "url": {
@@ -538,7 +538,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "6f57e26d-a4c2-4a3b-8416-206369478484",
+                                    "id": "23dab2f7-081d-400b-bd4f-5f9c8d6ef034",
                                     "name": "Get a application",
                                     "request": {
                                         "name": "Get a application",
@@ -575,7 +575,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "d5debb5a-b7ea-45ee-956e-79eb2bfd34cf",
+                                            "id": "c00dfb97-5240-4cdd-ac65-4bcd4a664e90",
                                             "name": "The application was succesfully founded",
                                             "originalRequest": {
                                                 "url": {
@@ -600,7 +600,7 @@
                                             "_postman_previewlanguage": "text"
                                         },
                                         {
-                                            "id": "31f381e1-e000-4562-8fa6-1455686a4bc9",
+                                            "id": "bd51d548-2f1b-44d3-b94e-405b2cf9759f",
                                             "name": "Application not found",
                                             "originalRequest": {
                                                 "url": {
@@ -645,7 +645,7 @@
                                             "description": "",
                                             "item": [
                                                 {
-                                                    "id": "d346c492-d772-4e78-95bf-c8bd8bbac4fd",
+                                                    "id": "02cfa599-c707-4a8d-9472-b8dfa5ddac15",
                                                     "name": "Register a new application tenant db.",
                                                     "request": {
                                                         "name": "Register a new application tenant db.",
@@ -688,7 +688,7 @@
                                                     },
                                                     "response": [
                                                         {
-                                                            "id": "eae834b6-0343-40f5-a46b-974cb921a2cd",
+                                                            "id": "88035531-05ba-4ae7-9910-994fc9851b46",
                                                             "name": "The application tenant db was successfully registered.",
                                                             "originalRequest": {
                                                                 "url": {
@@ -730,7 +730,7 @@
                                                             "_postman_previewlanguage": "text"
                                                         },
                                                         {
-                                                            "id": "0b3d4c10-d6c6-429b-9b30-90d0eb1d2ecc",
+                                                            "id": "77640987-6f65-40a5-9e60-1b822ba00a2a",
                                                             "name": "A application tenant db like this already exists",
                                                             "originalRequest": {
                                                                 "url": {
@@ -784,7 +784,7 @@
                                             "description": "",
                                             "item": [
                                                 {
-                                                    "id": "8d2e79a7-0147-4e1d-be7b-a06a4732d0a2",
+                                                    "id": "3ee29b83-d0ef-4480-b7d3-854009212316",
                                                     "name": "Get the list of application tenant dbs",
                                                     "request": {
                                                         "name": "Get the list of application tenant dbs",
@@ -812,7 +812,7 @@
                                                     },
                                                     "response": [
                                                         {
-                                                            "id": "48efd6f8-824b-4e88-8c14-a249c7b9d4da",
+                                                            "id": "a6bb88a9-9ded-46a4-8bb1-6b06102875b3",
                                                             "name": "The list of application tenant dbs was returned",
                                                             "originalRequest": {
                                                                 "url": {
@@ -851,7 +851,7 @@
                                             "description": "",
                                             "item": [
                                                 {
-                                                    "id": "2685a0dd-a8e9-4e7e-abfb-e4728eb54831",
+                                                    "id": "9b2ba0aa-faf7-442a-bcde-2306d6dc2c71",
                                                     "name": "Get a application tenant db",
                                                     "request": {
                                                         "name": "Get a application tenant db",
@@ -890,7 +890,7 @@
                                                     },
                                                     "response": [
                                                         {
-                                                            "id": "4d2100dc-7584-49a3-8d48-abc2b9886f61",
+                                                            "id": "60afba4f-54d1-4dfe-9a95-09ed0e38e439",
                                                             "name": "The application tenant db was succesfully founded",
                                                             "originalRequest": {
                                                                 "url": {
@@ -917,7 +917,7 @@
                                                             "_postman_previewlanguage": "text"
                                                         },
                                                         {
-                                                            "id": "9bac233e-92a7-4ece-8b2f-6364e0b7ef38",
+                                                            "id": "910d0ce1-467c-4254-b05d-eb209ea7df45",
                                                             "name": "Application tenant db not found",
                                                             "originalRequest": {
                                                                 "url": {
@@ -958,31 +958,62 @@
                     ]
                 },
                 {
-                    "name": "access",
+                    "name": "access-app",
                     "description": "",
                     "item": [
                         {
-                            "name": "app",
+                            "name": "register",
                             "description": "",
                             "item": [
                                 {
-                                    "name": "register",
-                                    "description": "",
-                                    "item": [
+                                    "id": "0ef6c5ec-bc7d-43d8-a61c-221197e07558",
+                                    "name": "Assign application tenant db to user.",
+                                    "request": {
+                                        "name": "Assign application tenant db to user.",
+                                        "description": {
+                                            "content": "This endpoint assign an application tenant db to an user.",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "access-app",
+                                                "register"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"userId\": \"<string>\",\n  \"applicationTenantDBId\": \"<string>\",\n  \"applicationFunctionalData\": {}\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
                                         {
-                                            "id": "af339e23-9dfe-414d-b412-70dc92672b52",
-                                            "name": "Assign application tenant db to user.",
-                                            "request": {
-                                                "name": "Assign application tenant db to user.",
-                                                "description": {
-                                                    "content": "This endpoint assign an application tenant db to an user.",
-                                                    "type": "text/plain"
-                                                },
+                                            "id": "b87bd78d-5834-4b7c-9156-a0813612eb92",
+                                            "name": "The access app was successfully registered.",
+                                            "originalRequest": {
                                                 "url": {
                                                     "path": [
                                                         "api",
-                                                        "access",
-                                                        "app",
+                                                        "access-app",
                                                         "register"
                                                     ],
                                                     "host": [
@@ -1007,106 +1038,228 @@
                                                             "language": "json"
                                                         }
                                                     }
-                                                },
-                                                "auth": null
-                                            },
-                                            "response": [
-                                                {
-                                                    "id": "54bdc7ba-7d0e-4071-acc5-e43f76ab485f",
-                                                    "name": "The access app was successfully registered.",
-                                                    "originalRequest": {
-                                                        "url": {
-                                                            "path": [
-                                                                "api",
-                                                                "access",
-                                                                "app",
-                                                                "register"
-                                                            ],
-                                                            "host": [
-                                                                "{{baseUrl}}"
-                                                            ],
-                                                            "query": [],
-                                                            "variable": []
-                                                        },
-                                                        "header": [
-                                                            {
-                                                                "key": "Content-Type",
-                                                                "value": "application/json"
-                                                            }
-                                                        ],
-                                                        "method": "POST",
-                                                        "body": {
-                                                            "mode": "raw",
-                                                            "raw": "{\n  \"userId\": \"<string>\",\n  \"applicationTenantDBId\": \"<string>\",\n  \"applicationFunctionalData\": {}\n}",
-                                                            "options": {
-                                                                "raw": {
-                                                                    "headerFamily": "json",
-                                                                    "language": "json"
-                                                                }
-                                                            }
-                                                        }
-                                                    },
-                                                    "status": "OK",
-                                                    "code": 200,
-                                                    "header": [],
-                                                    "cookie": [],
-                                                    "_postman_previewlanguage": "text"
-                                                },
-                                                {
-                                                    "id": "347610a9-0dc4-481a-af86-ea4805520de7",
-                                                    "name": "A access app like this already exists",
-                                                    "originalRequest": {
-                                                        "url": {
-                                                            "path": [
-                                                                "api",
-                                                                "access",
-                                                                "app",
-                                                                "register"
-                                                            ],
-                                                            "host": [
-                                                                "{{baseUrl}}"
-                                                            ],
-                                                            "query": [],
-                                                            "variable": []
-                                                        },
-                                                        "header": [
-                                                            {
-                                                                "key": "Content-Type",
-                                                                "value": "application/json"
-                                                            }
-                                                        ],
-                                                        "method": "POST",
-                                                        "body": {
-                                                            "mode": "raw",
-                                                            "raw": "{\n  \"userId\": \"<string>\",\n  \"applicationTenantDBId\": \"<string>\",\n  \"applicationFunctionalData\": {}\n}",
-                                                            "options": {
-                                                                "raw": {
-                                                                    "headerFamily": "json",
-                                                                    "language": "json"
-                                                                }
-                                                            }
-                                                        }
-                                                    },
-                                                    "status": "Bad Request",
-                                                    "code": 400,
-                                                    "header": [],
-                                                    "cookie": [],
-                                                    "_postman_previewlanguage": "text"
                                                 }
-                                            ],
-                                            "event": [],
-                                            "protocolProfileBehavior": {
-                                                "disableBodyPruning": true
-                                            }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        },
+                                        {
+                                            "id": "fd87d195-f934-41f2-8c61-da490876c7cf",
+                                            "name": "An access app like this already exists",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "access-app",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"userId\": \"<string>\",\n  \"applicationTenantDBId\": \"<string>\",\n  \"applicationFunctionalData\": {}\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Bad Request",
+                                            "code": 400,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
                                         }
-                                    ]
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "list",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "fc9cbc9a-ccde-4144-8915-d0af324a030c",
+                                    "name": "Get the list of access apps",
+                                    "request": {
+                                        "name": "Get the list of access apps",
+                                        "description": {
+                                            "content": "This endpoint get the list of access apps",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "access-app",
+                                                "list"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "c56bb08e-ffcd-42b9-a65b-6a6036dcb55a",
+                                            "name": "The list of access apps was returned",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "access-app",
+                                                        "list"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Found",
+                                            "code": 302,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "{id}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "f2172a4e-89fd-4293-84cc-27efcc21f53e",
+                                    "name": "Get an access app",
+                                    "request": {
+                                        "name": "Get an access app",
+                                        "description": {
+                                            "content": "This endpoint get an access app",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "access-app",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<string>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "137e7eb6-47a3-49fa-a23f-91a258318d08",
+                                            "name": "The access app was succesfully founded",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "access-app",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Found",
+                                            "code": 302,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        },
+                                        {
+                                            "id": "c6c97e97-a428-42f2-990f-45501dd8ddf7",
+                                            "name": "Access app not found",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "access-app",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "id": "21f5a7dc-9432-47b9-84d2-0cea7e3c1878",
+                    "id": "d51c339d-2b82-4b9b-b22e-4b7624ba3e76",
                     "name": "App Controller get Hello",
                     "request": {
                         "name": "App Controller get Hello",
@@ -1127,7 +1280,7 @@
                     },
                     "response": [
                         {
-                            "id": "be900aca-3bb8-4e0d-a320-b273570d3658",
+                            "id": "0d493421-c215-46cc-80b7-b4999b07132d",
                             "originalRequest": {
                                 "url": {
                                     "path": [
@@ -1163,7 +1316,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "b763eb49-dac4-40b3-9fb7-d9e4cb557434",
+                                    "id": "124038ba-16ba-46a8-96fe-1dd23cf00adf",
                                     "name": "Auth Controller profile",
                                     "request": {
                                         "name": "Auth Controller profile",
@@ -1186,7 +1339,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "bc5662f2-66d8-4a38-8e9c-5ad60a7fda0e",
+                                            "id": "e3087aa0-0a7f-4d81-89e4-9e892caec9dd",
                                             "originalRequest": {
                                                 "url": {
                                                     "path": [
@@ -1222,7 +1375,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "304bc9aa-5f77-4006-9d00-e6a96ff1128f",
+                                    "id": "d1ae1f89-ad55-458a-b651-26c4e1c09534",
                                     "name": "Login user and return access token.",
                                     "request": {
                                         "name": "Login user and return access token.",
@@ -1267,7 +1420,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "2267d785-90cf-434f-914b-6a3edc7e1d87",
+                                            "id": "df845d5e-45f5-4a8d-8634-8416633ec68e",
                                             "name": "The user was successfully logged in.",
                                             "originalRequest": {
                                                 "url": {
@@ -1317,7 +1470,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "617caa0b-e6c6-4d17-a136-be1b26f1b4c8",
+                                            "id": "e92f3517-c5a5-483a-9795-afcc619dec16",
                                             "name": "Unauthorized. Invalid credentials.",
                                             "originalRequest": {
                                                 "url": {
@@ -1369,7 +1522,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "39894dc7-c947-4e49-9a11-8c782c481bb7",
+                                    "id": "81a304d7-50d7-4342-889c-a4da8ca9187f",
                                     "name": "Register a new user.",
                                     "request": {
                                         "name": "Register a new user.",
@@ -1410,7 +1563,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "c0a2b151-b558-416d-b6ca-8197c5d60244",
+                                            "id": "f884a631-f5e5-4fa9-8ac7-020ba71ae0e1",
                                             "name": "The user was successfully registered.",
                                             "originalRequest": {
                                                 "url": {
@@ -1450,7 +1603,7 @@
                                             "_postman_previewlanguage": "text"
                                         },
                                         {
-                                            "id": "d85c9b10-9289-48e8-ae3f-043b76f975d4",
+                                            "id": "236b9c72-6883-4478-adfb-306bcfd1a29d",
                                             "name": "An user with this email already exists",
                                             "originalRequest": {
                                                 "url": {
@@ -1508,7 +1661,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "286f4026-a36a-4204-8df5-b517bc262cda",
+                                    "id": "8f2057d0-c03e-4e4d-8b83-47635174216b",
                                     "name": "Request a password reset token",
                                     "request": {
                                         "name": "Request a password reset token",
@@ -1550,7 +1703,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "a53900a1-89a1-413a-9df9-b91e4bac0fef",
+                                            "id": "6bc9d7a4-d949-474e-beba-4f43684c32a9",
                                             "name": "If the email exists, reset instructions will be sent",
                                             "originalRequest": {
                                                 "url": {
@@ -1612,7 +1765,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "53c454ed-0f97-4dde-9973-aa9c522938b7",
+                                    "id": "cd8ef2c7-ca88-441d-b276-06cff60ecb46",
                                     "name": "Reset password using token",
                                     "request": {
                                         "name": "Reset password using token",
@@ -1654,7 +1807,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "60808387-82c2-4829-8a23-b04d7edee46c",
+                                            "id": "db0c7250-66cb-4a66-b26f-d8a4e40e3cdf",
                                             "name": "Your password has been successfully updated",
                                             "originalRequest": {
                                                 "url": {
@@ -1722,7 +1875,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "3001ca3b-0948-4d9c-95f3-f7a615c77251",
+                                    "id": "a2d46a8b-4756-4029-aee7-0ca8690fb3b6",
                                     "name": "Get the list of user.",
                                     "request": {
                                         "name": "Get the list of user.",
@@ -1748,7 +1901,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "575b95ff-d021-446e-95d6-6d0cd25c19c9",
+                                            "id": "0b5a8130-5f86-427c-aeda-01db74e3b1e7",
                                             "originalRequest": {
                                                 "url": {
                                                     "path": [
@@ -1784,7 +1937,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "4edb6373-f513-44c5-b1c3-5a8e20242f34",
+                                    "id": "38349982-49df-4463-8aa8-0c800e12bacd",
                                     "name": "Get a user.",
                                     "request": {
                                         "name": "Get a user.",
@@ -1821,7 +1974,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "6016c0d7-662d-4c81-8671-8220bb903ff2",
+                                            "id": "27b2dcc7-2446-40f3-ad25-6bb529318c7d",
                                             "name": "The user was successfully found.",
                                             "originalRequest": {
                                                 "url": {
@@ -1846,7 +1999,7 @@
                                             "_postman_previewlanguage": "text"
                                         },
                                         {
-                                            "id": "2e19a85b-ddd3-41ed-b371-af8fe017ef14",
+                                            "id": "c5c5b620-bf1b-4a36-9d60-d14436e76d92",
                                             "name": "User not found",
                                             "originalRequest": {
                                                 "url": {
@@ -1887,7 +2040,7 @@
                                     "description": "",
                                     "item": [
                                         {
-                                            "id": "26bc2114-9bf7-4031-ac45-ed67caec1c8e",
+                                            "id": "b132e64b-6909-4115-8144-2f2fcc0126c4",
                                             "name": "Delete a user.",
                                             "request": {
                                                 "name": "Delete a user.",
@@ -1925,7 +2078,7 @@
                                             },
                                             "response": [
                                                 {
-                                                    "id": "c52d321c-951e-431f-b7e0-5bf0e323af03",
+                                                    "id": "ea2829a6-4593-4c76-a793-e7df437af056",
                                                     "name": "The user was succesfully deleted.",
                                                     "originalRequest": {
                                                         "url": {
@@ -1951,7 +2104,7 @@
                                                     "_postman_previewlanguage": "text"
                                                 },
                                                 {
-                                                    "id": "88778ea2-6092-4fb0-8b45-98ddee7e4ce6",
+                                                    "id": "62df2011-2c3b-4765-93ee-61207cd1fe2e",
                                                     "name": "User not found",
                                                     "originalRequest": {
                                                         "url": {
@@ -1985,6 +2138,139 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "name": "is-active",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "0a12fd16-2ced-471b-b733-30fe6fc1def6",
+                                    "name": "Set isActive a user",
+                                    "request": {
+                                        "name": "Set isActive a user",
+                                        "description": {
+                                            "content": "This endpoint set isActive in a user",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "user",
+                                                "is-active"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "PATCH",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "dcd5fa27-c934-47ce-acaa-5ce9ec191360",
+                                            "name": "The user was succesfully set in isActive",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "user",
+                                                        "is-active"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "PATCH",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Accepted",
+                                            "code": 202,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        },
+                                        {
+                                            "id": "3e7aa505-a4c9-4ae5-a40e-a405c3abc6e3",
+                                            "name": "User not found",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "user",
+                                                        "is-active"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "PATCH",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1999,7 +2285,7 @@
         }
     ],
     "info": {
-        "_postman_id": "ff5b385d-92eb-45b7-9917-929b997993f0",
+        "_postman_id": "985ee056-9e6d-4d0e-9607-8ea632fd03a2",
         "name": "Template Rest-API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
