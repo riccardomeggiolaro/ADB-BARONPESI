@@ -12,7 +12,7 @@ export class AccessAppService {
     const accessApp = {
         userId: data.userId,
         applicationTenantDBId: data.applicationTenantDBId
-    }
+    };
 
     const existingAccessApp: AccessApp | undefined = await this.findJustExists(accessApp);
 
@@ -33,6 +33,7 @@ export class AccessAppService {
                     id: data.applicationTenantDBId
                 }
             },
+            role: data.role,
             applicationFunctionalData: JSON.stringify(data.applicationFunctionalData)
         },
         select: selectOptions
@@ -55,8 +56,12 @@ export class AccessAppService {
     }
   }
 
-  async findJustExists(data: Omit<AccessAppDTO, 'applicationFunctionalData'>): Promise<AccessApp | undefined> {
-    const accessApp: AccessApp | null = await this.prisma.accessApp.findFirst({ where: data, select: selectOptions });
+  async findJustExists(data: Omit<AccessAppDTO, 'applicationFunctionalData' | 'role'>): Promise<AccessApp | undefined> {
+    const accessAppData = {
+      userId: data.userId,
+      applicationTenantDBId: data.applicationTenantDBId,
+    };
+    const accessApp: AccessApp | null = await this.prisma.accessApp.findFirst({ where: accessAppData, select: selectOptions });
 
     return isDefined(accessApp) ? accessApp : undefined;
   }
@@ -74,7 +79,38 @@ export class AccessAppService {
     return accessApp;
   }
 
+  async findByUserIdAndApplicationCode(userId: string, applicationCode: string): Promise<AccessApp | undefined> {
+    const accessApp: AccessApp | null = await this.prisma.accessApp.findFirst({
+      where: {
+        userId,
+        application_tenant_db: {
+          application: {
+            code: applicationCode
+          }
+        }
+      },
+      select: selectOptions
+    });
+    if (!isDefined(accessApp)) {
+      throw new NotFoundException(ERROR_ACCESS_APP_NOT_FOUND);
+    }
+    if (!accessApp.isActive && !accessApp.user?.isActive) {
+      throw new BadRequestException('Access app is not active');
+    }
+    return accessApp;
+  }
+
   async list(): Promise<AccessApp[]> {
     return await this.prisma.accessApp.findMany({ select: selectOptions });
+  }
+
+  async deleteById(id: string): Promise<AccessApp | undefined> {
+    const accessApp: AccessApp | null = await this.prisma.accessApp.findUnique({ where: { id }, select: selectOptions });
+
+    if (!isDefined(accessApp)) {
+      throw new NotFoundException(ERROR_ACCESS_APP_NOT_FOUND);
+    }
+
+    return await this.prisma.accessApp.delete({ where: { id }, select: selectOptions });
   }
 }

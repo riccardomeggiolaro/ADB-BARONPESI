@@ -85,7 +85,6 @@ export class AuthService {
 
   async login(user: User): Promise<AuthResponseDto> {
     return {
-      user,
       accessToken: await this.jwtSrv.signAsync(instanceToPlain(user)),
     };
   }

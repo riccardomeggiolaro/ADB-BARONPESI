@@ -1,17 +1,19 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { ApiBadRequestResponse, ApiBody, ApiFoundResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AdminGuard } from '@shared/guards/admin.guard';
 import { AccessAppService } from '../services/access_app.service';
 import { AccessApp, AccessAppDTO } from '../dtos/access_app.dto';
 import { ERROR_ACCESS_APP_EXISTS, ERROR_ACCESS_APP_NOT_FOUND } from '../constants/access_app.constants';
+import { AuthUser } from '@shared/decorators';
+import { User } from 'src/identity/user/dtos/user.dto';
 
 @ApiTags('access-app')
 @Controller('access-app')
-@UseGuards(AdminGuard)
 export class AccessAppController {
     constructor(private readonly accessAppSrv: AccessAppService) {}
 
     @Post('register')
+    @UseGuards(AdminGuard)
     @ApiOperation({
         summary: 'Assign application tenant db to user.',
         description: 'This endpoint assign an application tenant db to an user.',
@@ -31,6 +33,7 @@ export class AccessAppController {
     }
 
     @Get('list')
+    @UseGuards(AdminGuard)
     @ApiOperation({
         summary: 'Get the list of access apps',
         description: 'This endpoint get the list of access apps'
@@ -44,6 +47,7 @@ export class AccessAppController {
     }
 
     @Get(':id')
+    @UseGuards(AdminGuard)
     @ApiOperation({
         summary: 'Get an access app',
         description: 'This endpoint get an access app'
@@ -57,5 +61,38 @@ export class AccessAppController {
     })
     async find(@Param('id') id: string): Promise<AccessApp | undefined> {
         return await this.accessAppSrv.findById(id);
+    }
+
+    @Get('can-access/:applicationCode')
+    @ApiOperation({
+        summary: 'Get an access app by application code and user id',
+        description: 'This endpoint get an access app by application code and user id'
+    })
+    @ApiFoundResponse({
+        status: 200,
+        description: 'The access app was succesfully founded'
+    })
+    @ApiNotFoundResponse({
+        description: ERROR_ACCESS_APP_NOT_FOUND
+    })
+    async findByUserIdAndApplicationCode(@AuthUser() user: User, @Param('applicationCode') applicationCode: string): Promise<AccessApp | undefined> {
+        return await this.accessAppSrv.findByUserIdAndApplicationCode(user.id, applicationCode);
+    }
+
+    @Delete(':id')
+    @UseGuards(AdminGuard)
+    @ApiOperation({
+        summary: 'Delete an access app',
+        description: 'This endpoint delete an access app'
+    })
+    @ApiFoundResponse({
+        status: 200,
+        description: 'The access app was succesfully deleted'
+    })
+    @ApiNotFoundResponse({
+        description: ERROR_ACCESS_APP_NOT_FOUND
+    })
+    async delete(@Param('id') id: string): Promise<AccessApp | undefined> {
+        return await this.accessAppSrv.deleteById(id);
     }
 }

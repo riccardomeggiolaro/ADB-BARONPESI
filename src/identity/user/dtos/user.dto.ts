@@ -24,6 +24,8 @@ export const selectOptions = {
     select: {
       id: true,
       applicationTenantDBId: false,
+      role: true,
+      isActive: true,
       application_tenant_db: {
         select: {
           id: true,
@@ -44,7 +46,7 @@ export const selectOptions = {
               cfpiva: true
             }
           },
-          database_connection: true
+          database_connection: false,
         }
       },
       applicationFunctionalData: true

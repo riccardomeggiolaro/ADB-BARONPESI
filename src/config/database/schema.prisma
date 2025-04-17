@@ -79,6 +79,8 @@ model AccessApp {
   id                        String              @id @default(dbgenerated("(uuid())")) @db.VarChar(255)
   userId                    String              @db.VarChar(255)
   applicationTenantDBId     String              @db.VarChar(255)
+  role                      Role                @default(USER)
+  isActive                  Boolean             @default(true)
   applicationFunctionalData Json?
   application_tenant_db     ApplicationTenantDB @relation(fields: [applicationTenantDBId], references: [id], onDelete: Cascade)
   user                      User                @relation(fields: [userId], references: [id], onDelete: Cascade)

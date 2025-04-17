@@ -1,9 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, IsOptional, IsString } from "class-validator";
+import { IsEnum, IsInt, IsOptional, IsString } from "class-validator";
 import { User } from "src/identity/user/dtos/user.dto";
 import { ApplicationTenantDB } from "src/application_tenant_db/dtos/application_tenant_db.dto";
-import { Prisma } from "@prisma/client";
-import { application } from "express";
+import { Prisma, Role } from "@prisma/client";
 
 export class ApplicationFunctionalData {
     @IsInt()
@@ -31,6 +30,13 @@ export class AccessAppDTO {
     applicationTenantDBId: string;
 
     @ApiProperty({
+        description: 'Role of user.',
+        example: 'USER',
+    })
+    @IsEnum(Role, { message: 'Role must be either USER or ADMIN' })
+    role: Role;
+
+    @ApiProperty({
         description: 'Application functional data',
         type: ApplicationFunctionalData
     })
@@ -42,6 +48,8 @@ export const selectOptions = {
     id: true,
     userId: false,
     applicationTenantDBId: false,
+    role: true,
+    isActive: true,
     applicationFunctionalData: true,
     user: {
       select: {
@@ -50,7 +58,7 @@ export const selectOptions = {
         lastName: true,
         email: true,
         role: true,
-        companyId: true,
+        companyId: false,
         picture: true,
         isActive: true,
         createdAt: true,
@@ -86,5 +94,7 @@ export const selectOptions = {
 export interface AccessApp {
     user?: User;
     application_tenant_db: ApplicationTenantDB;
+    role?: Role;
+    isActive: boolean;
     applicationFunctionalData?: Prisma.JsonValue | null;
 }

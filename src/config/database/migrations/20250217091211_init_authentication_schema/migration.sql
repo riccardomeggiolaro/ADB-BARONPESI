@@ -54,6 +54,8 @@ CREATE TABLE access_app (
     id VARCHAR(255) NOT NULL DEFAULT (UUID()),
     userId VARCHAR(255) NOT NULL,
     applicationTenantDBId VARCHAR(255) NOT NULL,
+    role ENUM('USER', 'ADMIN') NOT NULL DEFAULT 'USER',
+    isActive BOOLEAN NOT NULL DEFAULT true,
     applicationFunctionalData JSON,
     PRIMARY KEY (id),
     CONSTRAINT access_app_userId_fkey FOREIGN KEY (userId) REFERENCES user(id) ON DELETE CASCADE ON UPDATE CASCADE,

@@ -309,6 +309,60 @@
         "tags": [
           "access-app"
         ]
+      },
+      "delete": {
+        "operationId": "AccessAppController_delete",
+        "summary": "Delete an access app",
+        "description": "This endpoint delete an access app",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "The access app was succesfully deleted"
+          },
+          "404": {
+            "description": "Access app not found"
+          }
+        },
+        "tags": [
+          "access-app"
+        ]
+      }
+    },
+    "/api/access-app/can-access/{applicationCode}": {
+      "get": {
+        "operationId": "AccessAppController_findByUserIdAndApplicationCode",
+        "summary": "Get an access app by application code and user id",
+        "description": "This endpoint get an access app by application code and user id",
+        "parameters": [
+          {
+            "name": "applicationCode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "The access app was succesfully founded"
+          },
+          "404": {
+            "description": "Access app not found"
+          }
+        },
+        "tags": [
+          "access-app"
+        ]
       }
     },
     "/api": {
@@ -651,6 +705,11 @@
             "description": "Id of application tenant db.",
             "example": "0992ac19-d670-46a7-a98c-b3bb2d8f3562"
           },
+          "role": {
+            "type": "string",
+            "description": "Role of user.",
+            "example": "USER"
+          },
           "applicationFunctionalData": {
             "description": "Application functional data",
             "allOf": [
@@ -663,6 +722,7 @@
         "required": [
           "userId",
           "applicationTenantDBId",
+          "role",
           "applicationFunctionalData"
         ]
       },
@@ -688,10 +748,6 @@
       "AuthResponseDto": {
         "type": "object",
         "properties": {
-          "user": {
-            "type": "object",
-            "description": "The authenticated user object containing user details."
-          },
           "accessToken": {
             "type": "string",
             "description": "The access token for the user, used for authentication in subsequent requests.",
@@ -699,7 +755,6 @@
           }
         },
         "required": [
-          "user",
           "accessToken"
         ]
       },
