@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/c
 import { ApiBadRequestResponse, ApiBody, ApiFoundResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AdminGuard } from '@shared/guards/admin.guard';
 import { AccessAppService } from '../services/access_app.service';
-import { AccessApp, AccessAppDTO } from '../dtos/access_app.dto';
+import { AccessApp, AccessAppDTO, CanAccessApp } from '../dtos/access_app.dto';
 import { ERROR_ACCESS_APP_EXISTS, ERROR_ACCESS_APP_NOT_FOUND } from '../constants/access_app.constants';
 import { AuthUser } from '@shared/decorators';
 import { User } from 'src/identity/user/dtos/user.dto';
@@ -75,8 +75,24 @@ export class AccessAppController {
     @ApiNotFoundResponse({
         description: ERROR_ACCESS_APP_NOT_FOUND
     })
-    async findByUserIdAndApplicationCode(@AuthUser() user: User, @Param('applicationCode') applicationCode: string): Promise<AccessApp | undefined> {
-        return await this.accessAppSrv.findByUserIdAndApplicationCode(user.id, applicationCode);
+    async findByUserIdAndApplicationCode(@AuthUser() user: User, @Param('applicationCode') applicationCode: string): Promise<CanAccessApp | undefined> {
+        const accessApp = await this.accessAppSrv.findByUserIdAndApplicationCode(user.id, applicationCode);
+        return {
+            id: accessApp!.user!.id,
+            firstName: accessApp!.user!.firstName,
+            lastName: accessApp!.user!.lastName,
+            email: accessApp!.user!.email,
+            picture: accessApp!.user!.picture,
+            createdAt: accessApp!.user!.createdAt.toString(),
+            updatedAt: accessApp!.user!.updatedAt.toString(),
+            password: accessApp!.user!.password,
+            role: String(accessApp!.role),
+            isActive: accessApp!.isActive,
+            database_connection: accessApp!.application_tenant_db?.database_connection,
+            application: accessApp!.application_tenant_db?.application,
+            company: accessApp!.application_tenant_db?.company,
+            applicationFunctionalData: accessApp!.applicationFunctionalData!,
+        };
     }
 
     @Delete(':id')

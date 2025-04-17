@@ -94,7 +94,7 @@ export class AccessAppService {
     if (!isDefined(accessApp)) {
       throw new NotFoundException(ERROR_ACCESS_APP_NOT_FOUND);
     }
-    if (!accessApp.isActive && !accessApp.user?.isActive) {
+    if (!accessApp.user?.isActive && !accessApp.isActive) {
       throw new BadRequestException('Access app is not active');
     }
     return accessApp;

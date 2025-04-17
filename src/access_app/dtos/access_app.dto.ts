@@ -3,6 +3,7 @@ import { IsEnum, IsInt, IsOptional, IsString } from "class-validator";
 import { User } from "src/identity/user/dtos/user.dto";
 import { ApplicationTenantDB } from "src/application_tenant_db/dtos/application_tenant_db.dto";
 import { Prisma, Role } from "@prisma/client";
+import { JsonValue } from "@prisma/client/runtime/library";
 
 export class ApplicationFunctionalData {
     @IsInt()
@@ -97,4 +98,30 @@ export interface AccessApp {
     role?: Role;
     isActive: boolean;
     applicationFunctionalData?: Prisma.JsonValue | null;
+}
+
+export interface CanAccessApp {
+    id: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    role: string,
+    picture: string | null,
+    isActive: boolean,
+    createdAt: string,
+    updatedAt: string,
+    password: string,
+    company: {
+        id: string,
+        description: string,
+        cell: string | null,
+        cfpiva: string | null
+    },
+    database_connection: string,
+    application: {
+        id: string,
+        description: string,
+        code: string
+    },
+    applicationFunctionalData: JsonValue | null;
 }
