@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsEnum, IsInt, IsOptional, IsString } from "class-validator";
 import { User } from "src/identity/user/dtos/user.dto";
 import { ApplicationTenantDB } from "src/application_tenant_db/dtos/application_tenant_db.dto";
-import { Prisma, Role } from "@prisma/client";
+import { Role } from "@prisma/client";
 import { JsonValue } from "@prisma/client/runtime/library";
 
 export class ApplicationFunctionalData {
@@ -97,7 +97,7 @@ export interface AccessApp {
     application_tenant_db: ApplicationTenantDB;
     role?: Role;
     isActive: boolean;
-    applicationFunctionalData?: Prisma.JsonValue | null;
+    applicationFunctionalData?: JsonValue | null;
 }
 
 export interface CanAccessApp {
