@@ -1,20 +1,12 @@
 import { join } from 'path';
-
 import { Global, Module } from '@nestjs/common';
-import {
-  ConfigService,
-  ConfigModule as NestConfigModule,
-} from '@nestjs/config';
-import {
-  AcceptLanguageResolver,
-  HeaderResolver,
-  I18nModule,
-} from 'nestjs-i18n';
-
+import { ConfigService, ConfigModule as NestConfigModule } from '@nestjs/config';
+import { AcceptLanguageResolver, HeaderResolver, I18nModule } from 'nestjs-i18n';
 import { DatabaseModule } from './database/database.module';
 import configuration from './env.configuration';
 import { validate } from './env.validation';
 
+@Global()
 @Module({
   imports: [
     NestConfigModule.forRoot({

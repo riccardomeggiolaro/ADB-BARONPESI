@@ -2,10 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { PrismaMySqlService } from 'src/config/database/mysql/prisma.mysql.service';
-
 import { UserModule } from '../user/user.module';
-
 import { AuthController } from './controllers/auth.controller';
 import { PasswordResetController } from './controllers/password-reset.controller';
 import { AuthService } from './services/auth.service';
