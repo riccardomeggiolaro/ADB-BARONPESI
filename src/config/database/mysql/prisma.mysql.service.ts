@@ -5,20 +5,19 @@ import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class PrismaMySqlService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
-  static instanceCount = 0;
+  // static instanceCount = 0;
 
   constructor() {
     super({
-      errorFormat: 'minimal',
-      log: ['query', 'error', 'warn', 'info'],
+      errorFormat: 'minimal'
     });
-    PrismaMySqlService.instanceCount++;
-    console.log('🔥 PrismaMySqlService instances:', PrismaMySqlService.instanceCount);
+    // PrismaMySqlService.instanceCount++;
+    // console.log('🔥 PrismaMySqlService instances:', PrismaMySqlService.instanceCount);
   }
 
   async onModuleInit(): Promise<void> {
     await this.$connect();
-    console.log('PrismaMySqlService initialized');
+    // console.log('PrismaMySqlService initialized');
   }
 
   async onModuleDestroy(): Promise<void> {
