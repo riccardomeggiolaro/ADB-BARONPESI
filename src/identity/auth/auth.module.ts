@@ -35,7 +35,6 @@ import { LocalStrategy } from './strategies/local.strategy';
     PasswordResetService,
     LocalStrategy,
     JwtStrategy,
-    PrismaMySqlService,
   ],
 })
 export class AuthModule {}

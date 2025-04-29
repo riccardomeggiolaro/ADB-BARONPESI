@@ -16,6 +16,7 @@ import { AuthResponseDto } from '../interfaces/auth.interface';
 import { AuthService } from '../services/auth.service';
 import { AdminGuard } from '@shared/guards/admin.guard';
 import { User } from 'src/identity/user/dtos/user.dto';
+import * as bcrypt from 'bcrypt';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -50,7 +51,7 @@ export class AuthController {
   }
 
   @Post('register')
-  @UseGuards(AdminGuard)
+  @Public()
   @ApiOperation({
     summary: 'Register a new user.',
     description: 'This endpoint allows a new user to register.',

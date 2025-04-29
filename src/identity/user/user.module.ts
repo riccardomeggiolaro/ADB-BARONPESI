@@ -9,7 +9,7 @@ export const providers: Provider[] = [UserService];
 @Module({
   imports: [],
   controllers: [UserController],
-  providers: [...providers, PrismaMySqlService],
+  providers: [...providers],
   exports: [...providers],
 })
 export class UserModule {}

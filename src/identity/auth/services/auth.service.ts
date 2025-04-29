@@ -18,7 +18,6 @@ import {
 import { RegisterBodyDto } from '../dtos/body.dto';
 import { AuthResponseDto } from '../interfaces/auth.interface';
 import { instanceToPlain } from 'class-transformer';
-import { User as PrismaUser } from '@prisma/client';
 import { User } from 'src/identity/user/dtos/user.dto';
 
 @Injectable()
