@@ -103,3 +103,32 @@ Please read our contributing guidelines (link to CONTRIBUTING.md if available) b
 ## 📄 License
 
 [MIT License](LICENSE) (Add this file if not present)
+
+# .env
+
+# Environment Configuration Template
+
+# Application environment: can be 'development', 'production', or 'test'
+NODE_ENV=development
+
+# Server port
+PORT=3000
+
+# MySQL database configuration
+DATABASE_URL="mysql://baronpesi:MCu-xxQHI)CjP75x@10.0.6.105:3306/ADB-BARONPESI"
+
+# JWT configuration
+JWT_SECRET="iuwriregiergwengiwgnwrioegoixrbgrib"                # Secret key for signing JWTs (keep secure in production)
+JWT_EXPIRATION_TIME=7d                      # JWT token expiration time, e.g., '7d', '24h'
+
+# Email service configuration - use a test email provider like Mailtrap or replace with production SMTP settings
+EMAIL_HOST=smtp.gmail.com                      # SMTP host, e.g., 'smtp.mailtrap.io' for Mailtrap
+EMAIL_USER=baronpesi.it@gmail.com                      # SMTP username
+EMAIL_PASS=qyuc wryv iphi igsg                       # SMTP password
+EMAIL_FROM=baronpesi.it@gmail.com             # Default "from" email address, e.g., 'noreply@example.com'
+
+# Internationalization (i18n) configuration
+I18N_FALLBACK=en                            # Fallback language if a translation is missing (ISO 639-1)
+
+# Web application configuration
+APP_BASEURL=https://www.example.com          # Replace with your app's base URL
