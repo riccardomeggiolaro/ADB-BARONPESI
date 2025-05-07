@@ -23,6 +23,7 @@ export class ApplicationTenantDBService {
     }
 
     try {
+      await this.prisma.$connect();
       const newApplicationTenantDB: ApplicationTenantDB = await this.prisma.applicationTenantDB.create({
         data: {
           application: {
@@ -50,30 +51,52 @@ export class ApplicationTenantDBService {
         throw new NotFoundException(errorMessage);
       }
       throw new Error(err.message);
+    } finally {
+      await this.prisma.$disconnect();
     }
   }
 
   async findById(id: string): Promise<ApplicationTenantDB | undefined> {
-    console.log(id);
-    const applicationTenantDB: ApplicationTenantDB | null = await this.prisma.applicationTenantDB.findUnique({
-      where: { id },
-      select: selectOPtions
-    });
-
-    if (!isDefined(applicationTenantDB)) {
-      throw new NotFoundException(ERROR_APPLICATION_TENANT_DB_NOT_FOUND);
+    try {
+      await this.prisma.$connect();
+      const applicationTenantDB: ApplicationTenantDB | null = await this.prisma.applicationTenantDB.findUnique({
+        where: { id },
+        select: selectOPtions
+      });
+  
+      if (!isDefined(applicationTenantDB)) {
+        throw new NotFoundException(ERROR_APPLICATION_TENANT_DB_NOT_FOUND);
+      }
+  
+      return applicationTenantDB;
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
     }
-
-    return applicationTenantDB;
   }
 
   async findJustExists(data: Prisma.ApplicationTenantDBWhereInput): Promise<ApplicationTenantDB | undefined> {
-    const applicationTenantDB: ApplicationTenantDB | null = await this.prisma.applicationTenantDB.findFirst({ where: data, select: selectOPtions });
+    try {
+      await this.prisma.$connect();
+      const applicationTenantDB: ApplicationTenantDB | null = await this.prisma.applicationTenantDB.findFirst({ where: data, select: selectOPtions });
 
-    return isDefined(applicationTenantDB) ? applicationTenantDB : undefined;
+      return isDefined(applicationTenantDB) ? applicationTenantDB : undefined;
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
   async list(): Promise<ApplicationTenantDB[]> {
-    return await this.prisma.applicationTenantDB.findMany({ select: selectOPtions });
+    try {
+      await this.prisma.$connect();
+      return await this.prisma.applicationTenantDB.findMany({ select: selectOPtions });
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 }

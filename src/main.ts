@@ -57,7 +57,7 @@ async function bootstrap(): Promise<void> {
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
   const configService: ConfigService = app.get<ConfigService>(ConfigService);
-  const port: number = configService.get<number>('config.port', 3000);
+  const port: number = configService.get<number>('PORT', 3000);
   await app.listen(port);
   console.log(`🚀 Application is running on: http://localhost:${port}/api`);
 }

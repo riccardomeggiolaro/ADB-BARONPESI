@@ -10,38 +10,66 @@ export class ApplicationService {
   constructor(private readonly prisma: PrismaMySqlService) {}
 
   async register(data: ApplicationDTO): Promise<Application> {
-    const existingApplication: Application | undefined = await this.findByCode(data.code);
+    try {
+      await this.prisma.$connect();
+      const existingApplication: Application | undefined = await this.findByCode(data.code);
 
-    if (isDefined(existingApplication)) {
-      throw new BadRequestException(ERROR_APPLLICATION_EXISTS);
+      if (isDefined(existingApplication)) {
+        throw new BadRequestException(ERROR_APPLLICATION_EXISTS);
+      }
+  
+      const newApplication: PrismaApplication = await this.prisma.application.create({data});
+  
+      return new Application(newApplication);
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
     }
-
-    const newApplication: PrismaApplication = await this.prisma.application.create({data});
-
-    return new Application(newApplication);
   }
 
   async findById(id: string): Promise<Application | undefined> {
-    const application: PrismaApplication | null = await this.prisma.application.findUnique({
-      where: { id },
-    });
+    try {
+      await this.prisma.$connect();
+      const application: PrismaApplication | null = await this.prisma.application.findUnique({
+        where: { id },
+      });
 
-    if (!isDefined(application)) {
-      throw new NotFoundException(ERROR_APPLICATION_NOT_FOUND);
+      if (!isDefined(application)) {
+        throw new NotFoundException(ERROR_APPLICATION_NOT_FOUND);
+      }
+
+      return new Application(application);
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
     }
-
-    return new Application(application);
   }
 
   async findByCode(code: string): Promise<Application | undefined> {
-    const application: PrismaApplication | null = await this.prisma.application.findFirst({
-      where: { code },
-    });
-
-    return isDefined(application) ? new Application(application) : undefined;
+    try {
+      await this.prisma.$connect();
+      const application: PrismaApplication | null = await this.prisma.application.findFirst({
+        where: { code },
+      });
+  
+      return isDefined(application) ? new Application(application) : undefined;
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
   async list(): Promise<Application[]> {
-    return await this.prisma.application.findMany();
+    try {
+      await this.prisma.$connect();
+      return await this.prisma.application.findMany();
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 }

@@ -1,6 +1,5 @@
 import type { OnModuleDestroy, OnModuleInit } from '@nestjs/common';
-
-import { Global, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
@@ -16,11 +15,11 @@ export class PrismaMySqlService extends PrismaClient implements OnModuleInit, On
   }
 
   async onModuleInit(): Promise<void> {
-    await this.$connect();
+    // await this.$connect();
     // console.log('PrismaMySqlService initialized');
   }
 
   async onModuleDestroy(): Promise<void> {
-    await this.$disconnect();
+    // await this.$disconnect();
   }
 }

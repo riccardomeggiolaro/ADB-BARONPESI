@@ -10,54 +10,107 @@ export class UserService {
   constructor(private readonly prisma: PrismaMySqlService) {}
 
   async create(data: Prisma.UserCreateInput): Promise<User> {
-    const newUser: User = await this.prisma.user.create({ data, select: selectOptions });
+    try {
+      await this.prisma.$connect();
 
-    return newUser;
+      const newUser: User = await this.prisma.user.create({ data, select: selectOptions });
+
+      return newUser;
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
   async list(): Promise<User[]> {
-    return await this.prisma.user.findMany({ select: selectOptions });
+    try {
+      await this.prisma.$connect();
+      return await this.prisma.user.findMany({ select: selectOptions });
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
-  async findById(id: string, completly: boolean = false): Promise<User | undefined> {
-    const user: User | null = await this.prisma.user.findUnique({ where: { id }, select: selectOptions });
+  async findById(id: string): Promise<User | undefined> {
+    try {
+      await this.prisma.$connect();
 
-    return isDefined(user) ? user : undefined;
+      const user: User | null = await this.prisma.user.findUnique({ where: { id }, select: selectOptions });
+
+      return isDefined(user) ? user : undefined;
+    } catch (err){
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
   async findByIdOrThrow(id: string): Promise<User> {
-    const user: User | null = await this.prisma.user.findUnique({ where: { id }, select: selectOptions });
+    try {
+      await this.prisma.$connect();
 
-    if (!isDefined(user)) throw new NotFoundException(ERROR_USER_NOT_FOUND);
+      const user: User | null = await this.prisma.user.findUnique({ where: { id }, select: selectOptions });
 
-    return user;
+      if (!isDefined(user)) throw new NotFoundException(ERROR_USER_NOT_FOUND);
+  
+      return user;
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
   async findByEmail(email: string): Promise<User | undefined> {
-    const user: User | null = await this.prisma.user.findFirst({ where: { email }, select: selectOptions });
+    try {
+      await this.prisma.$connect();
 
-    return isDefined(user) ? user : undefined;
+      const user: User | null = await this.prisma.user.findFirst({ where: { email }, select: selectOptions });
+
+      return isDefined(user) ? user : undefined;
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
   async updatePassword(id: string, password: string): Promise<User | undefined> {
-    const user: User | null = await this.prisma.user.update({ where: { id }, data: { password }, select: selectOptions })
+    try {
+      await this.prisma.$connect();
 
-    return isDefined(user) ? user : undefined;
+      const user: User | null = await this.prisma.user.update({ where: { id }, data: { password }, select: selectOptions })
+
+      return isDefined(user) ? user : undefined;
+    } catch (err) {
+      throw err;
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
   async isACtive(isACtive: IsActiveDTO): Promise<User> {
     try {
+      await this.prisma.$connect();
       return await this.prisma.user.update({ where: { id: isACtive.id, role: Role.USER }, data: { isActive: isACtive.status }, select: selectOptions })
     } catch (err) {
       throw new NotFoundException(ERROR_USER_NOT_FOUND);
+    } finally {
+      await this.prisma.$disconnect();
     }
   }
 
   async deleteById(id: string): Promise<User> {
     try {
+      await this.prisma.$connect();
       return await this.prisma.user.delete({ where: { id, role: Role.USER }, select: selectOptions });
     } catch (err) {
       throw new NotFoundException(ERROR_USER_NOT_FOUND);
+    } finally {
+      await this.prisma.$disconnect();
     }
   }
 }
